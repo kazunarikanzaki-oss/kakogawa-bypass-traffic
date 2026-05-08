@@ -1,0 +1,8 @@
+{
+  "name": "加古川・姫路バイパス 渋滞",
+  "short_name": "2号バイパス渋滞",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a"
+}

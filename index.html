@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="2号バイパス渋滞">
+<meta name="theme-color" content="#0f172a">
+<title>加古川・姫路バイパス 渋滞</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<header class="hd">
+  <h1>加古川・姫路バイパス 渋滞</h1>
+  <div class="meta">
+    <span>最終表示: <time id="updated">--:--</time></span>
+    <button id="reload" type="button">再読込</button>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>全線（太子東 ↔ 明石西）</h2>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?hl=ja&ll=34.745,134.65&z=11&t=m&layer=t&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>姫路バイパス（太子東 ↔ 高砂西）</h2>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?hl=ja&ll=34.815,134.62&z=12&t=m&layer=t&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>加古川バイパス（高砂西 ↔ 明石西）</h2>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?hl=ja&ll=34.735,134.79&z=12&t=m&layer=t&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ライブカメラ</h2>
+    <p class="note">国土交通省 姫路河川国道事務所</p>
+    <ul class="links">
+      <li><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html">国道2号 全カメラ一覧</a></li>
+      <li><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/livecam/r2cam_zone01.html">国道2号 東部（加古川バイパス側）</a></li>
+      <li><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako_e.html">加古川東</a></li>
+      <li><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/index.html">ライブカメラ トップ</a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>公式情報</h2>
+    <ul class="links">
+      <li><a target="_blank" rel="noopener" href="https://www.jartic.or.jp/">JARTIC（日本道路交通情報センター）</a></li>
+      <li><a target="_blank" rel="noopener" href="https://typhoon.yahoo.co.jp/weather/jp/road/?id=28">Yahoo!道路交通情報 兵庫県</a></li>
+      <li><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/road/index.html">姫路河川国道事務所 道路情報</a></li>
+      <li><a target="_blank" rel="noopener" href="https://x.com/mlit_himeji">@mlit_himeji（X）</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  色は Google マップの交通情報に基づく目安です。<br>正確な情報は各リンク先をご確認ください。
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
