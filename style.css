@@ -108,6 +108,29 @@ body {
 
 main { max-width: 640px; margin: 0 auto; padding: 12px; }
 
+.info {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(255,179,0,0.06);
+  border: 1px solid var(--orange2);
+  border-left: 3px solid var(--orange2);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--fg);
+}
+.info-icon {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--orange2); color: #000;
+  border-radius: 50%;
+  font-family: var(--display); font-weight: 900;
+  font-size: 13px;
+}
+.info b { color: var(--orange2); }
+.info .dim { color: var(--dim); font-size: 12px; }
+
 /* ----- PANELS ----- */
 .panel {
   position: relative;
