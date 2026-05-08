@@ -4,82 +4,112 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="2号バイパス渋滞">
-<meta name="theme-color" content="#0f172a">
-<title>加古川・姫路バイパス 渋滞</title>
+<meta name="apple-mobile-web-app-title" content="NERV TRAFFIC">
+<meta name="theme-color" content="#000000">
+<title>NERV TRAFFIC | 加古川・姫路バイパス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+<div id="alert" class="alert hidden" aria-hidden="true">
+  <div class="siren-bar left"></div>
+  <div class="siren-bar right"></div>
+  <div class="alert-inner">
+    <div class="hex-warn">
+      <div class="hex-warn-inner">
+        <div class="alert-label">WARNING</div>
+        <div class="alert-jp">緊急事態</div>
+        <div class="alert-sub">使徒接近 / ANGEL ATTACK</div>
+        <div class="alert-pattern">PATTERN: <span id="alertPattern">ORANGE</span></div>
+        <div class="alert-target">対象: 加古川・姫路バイパス</div>
+      </div>
+    </div>
+    <button id="alertClose" class="alert-close">CLOSE</button>
+  </div>
+</div>
+
 <header class="hd">
-  <h1>加古川・姫路バイパス 渋滞</h1>
-  <div class="meta">
-    <span>最終表示: <time id="updated">--:--</time></span>
-    <button id="reload" type="button">再読込</button>
+  <div class="hd-row1">
+    <div class="logo">
+      <span class="logo-leaf">N E R V</span>
+      <span class="logo-sub">TRAFFIC ─ MAGI SYSTEM</span>
+    </div>
+    <div class="clock"><time id="updated">--:--:--</time></div>
+  </div>
+  <div class="hd-row2">
+    <span class="tag">国道2号バイパス 監視</span>
+    <span class="tag dim">加古川 ⇔ 姫路</span>
+    <span id="status" class="tag status normal">STATUS: NORMAL</span>
+  </div>
+  <div class="magi">
+    <div class="magi-cell" data-name="CASPER">CASPER<span class="dot"></span></div>
+    <div class="magi-cell" data-name="MELCHIOR">MELCHIOR<span class="dot"></span></div>
+    <div class="magi-cell" data-name="BALTHASAR">BALTHASAR<span class="dot"></span></div>
   </div>
 </header>
 
 <main>
-  <section class="card">
-    <h2>加古川 〜 姫路</h2>
+
+  <section class="panel">
+    <div class="panel-h"><span class="hash">//</span> SECTOR-MAP <span class="dim">/ TRAFFIC LAYER</span></div>
     <div class="map">
       <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         src="https://maps.google.com/maps?hl=ja&ll=34.77,134.76&z=13&t=m&layer=t&output=embed"></iframe>
     </div>
     <div class="legend">
       <div class="legend-row">
-        <span class="sw green"></span>順調
-        <span class="sw orange"></span>混雑
-        <span class="sw red"></span>渋滞
-        <span class="sw darkred"></span>停止
+        <span class="sw green"></span>FREE
+        <span class="sw orange"></span>SLOW
+        <span class="sw red"></span>JAM
+        <span class="sw darkred"></span>STOP
       </div>
-      <p class="note">線は車線ごとに色付き。<b>北側の線 = 下り（姫路方面）</b> / <b>南側の線 = 上り（神戸方面）</b></p>
+      <p class="note">N側 = DOWN (姫路方面) / S側 = UP (神戸方面)</p>
     </div>
   </section>
 
-  <section class="card alert">
-    <h2><span class="icon">⚠</span>規制・事故情報</h2>
-    <p class="note">国土交通省 姫路河川国道事務所（公式）が上下線・車線・事故内容を文字で発信。最新が一番上。</p>
+  <section class="panel warn">
+    <div class="panel-h"><span class="hash">//</span> INCIDENT FEED <span class="dim">/ @mlit_himeji</span></div>
+    <p class="note">事故 / 故障車 / 走行車線規制 / 追越車線規制 / 通行止 を本文から確認</p>
     <div class="tw">
-      <a class="twitter-timeline" data-height="500" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="10" href="https://twitter.com/mlit_himeji?ref_src=twsrc%5Etfw">@mlit_himeji の投稿</a>
+      <a class="twitter-timeline" data-height="500" data-theme="dark" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="10" href="https://twitter.com/mlit_himeji?ref_src=twsrc%5Etfw">@mlit_himeji</a>
     </div>
     <div class="quick">
-      <a class="btn" target="_blank" rel="noopener" href="https://x.com/mlit_himeji">@mlit_himeji を開く</a>
-      <a class="btn" target="_blank" rel="noopener" href="https://www.jartic.or.jp/">JARTIC 渋滞・規制マップ</a>
-      <a class="btn" target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/road/index.html">姫路河川国道事務所 道路情報</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://x.com/mlit_himeji">@mlit_himeji</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.jartic.or.jp/">JARTIC</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/road/index.html">姫路河川国道事務所</a>
     </div>
   </section>
 
-  <section class="card">
-    <h2>ライブカメラ（姫路東 → 加古川東）</h2>
-    <p class="note">出典: 国土交通省 姫路河川国道事務所</p>
+  <section class="panel">
+    <div class="panel-h"><span class="hash">//</span> VISUAL FEED <span class="dim">/ HIMEJI-E → KAKO-E</span></div>
     <div class="cams">
-      <figure><figcaption>姫路東</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/himeji_e.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00463.jpg" alt="姫路東" referrerpolicy="no-referrer" loading="lazy"></a></figure>
-      <figure><figcaption>市川</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/ichikawa.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00464.jpg" alt="市川" referrerpolicy="no-referrer" loading="lazy"></a></figure>
-      <figure><figcaption>別所PA（上り）</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/bessho1.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00461.jpg" alt="別所PA" referrerpolicy="no-referrer" loading="lazy"></a></figure>
-      <figure><figcaption>高砂北</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/takasago_n.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00457.jpg" alt="高砂北" referrerpolicy="no-referrer" loading="lazy"></a></figure>
-      <figure><figcaption>加古川</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00454.jpg" alt="加古川" referrerpolicy="no-referrer" loading="lazy"></a></figure>
-      <figure><figcaption>加古川東</figcaption>
-        <a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako_e.html">
-          <img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00453.jpg" alt="加古川東" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>姫路東 HIMEJI-E</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/himeji_e.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00463.jpg" alt="姫路東" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>市川 ICHIKAWA</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/ichikawa.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00464.jpg" alt="市川" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>別所PA BESSHO</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/bessho1.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00461.jpg" alt="別所PA" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>高砂北 TAKASAGO-N</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/takasago_n.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00457.jpg" alt="高砂北" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>加古川 KAKO</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00454.jpg" alt="加古川" referrerpolicy="no-referrer" loading="lazy"></a></figure>
+      <figure><figcaption>加古川東 KAKO-E</figcaption><a target="_blank" rel="noopener" href="https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako_e.html"><img class="cam" data-src="https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00453.jpg" alt="加古川東" referrerpolicy="no-referrer" loading="lazy"></a></figure>
     </div>
-    <p class="note">画像は1分ごとに自動更新。タップで詳細ページへ。</p>
+    <p class="note">AUTO-REFRESH: 60s</p>
+  </section>
+
+  <section class="panel">
+    <div class="panel-h"><span class="hash">//</span> CONTROL</div>
+    <div class="quick">
+      <button id="reload" class="btn">RELOAD FEED</button>
+      <button id="simulate" class="btn warn-btn">緊急事態 シミュレート</button>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  色は Google マップの交通情報に基づく目安です。<br>正確な情報は各リンク先をご確認ください。
+  TRAFFIC DATA: GOOGLE MAPS / VISUAL: 国土交通省 姫路河川国道事務所<br>
+  THIS IS A FAN-MADE INTERFACE. NOT AFFILIATED WITH NERV.
 </footer>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
