@@ -180,6 +180,7 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
 
 /* ----- BUTTONS ----- */
 .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
 .btn {
   display: block; text-align: center;
   padding: 14px 8px;

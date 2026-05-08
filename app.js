@@ -64,6 +64,8 @@
     alertEl.classList.add('hidden');
     alertEl.setAttribute('aria-hidden', 'true');
     manualAlert = false;
+    lastShown = null;
+    applyStatus();
   };
 
   closeBtn.addEventListener('click', hideAlert);
