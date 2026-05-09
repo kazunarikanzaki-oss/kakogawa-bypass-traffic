@@ -152,6 +152,7 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
   padding-bottom: 8px;
 }
 .panel.warn .panel-h { color: #ff6868; }
+.panel-h.sub { margin-top: 16px; font-size: 13px; }
 .panel-h .hash { color: var(--dim); margin-right: 6px; }
 .panel-h .dim { color: var(--dim); font-size: 12px; letter-spacing: 0.1em; font-weight: 400; }
 
