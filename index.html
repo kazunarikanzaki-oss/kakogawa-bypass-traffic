@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -77,13 +77,15 @@
     <div class="panel-h"><span class="hash">//</span> 公式情報</div>
     <a class="btn primary-btn" target="_blank" rel="noopener" href="https://www.jartic.or.jp/">▶ JARTIC で渋滞・規制を確認</a>
     <p class="note">日本道路交通情報センター。兵庫県を選択して全国規模の交通情報・規制情報を確認。</p>
+
     <div class="panel-h sub"><span class="hash">//</span> @mlit_himeji <span class="dim">/ 姫路河川国道事務所</span></div>
-    <p class="note">事故 / 故障車 / 走行車線規制 / 追越車線規制 / 通行止 を上下方向まで明記して発信。</p>
-    <div class="tw">
-      <a class="twitter-timeline" data-height="520" data-theme="dark" data-link-color="#FFB300" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="10" href="https://twitter.com/mlit_himeji?ref_src=twsrc%5Etfw">@mlit_himeji</a>
+    <div class="tweets-status">
+      <span id="tweetsFetched">読み込み中…</span>
+      <button id="tweetsReload" class="mini-btn" type="button">⟳ 再取得</button>
     </div>
+    <div id="tweets" class="tweets" aria-live="polite"></div>
     <div class="quick">
-      <a class="btn" target="_blank" rel="noopener" href="https://x.com/mlit_himeji">@mlit_himeji を開く</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://x.com/mlit_himeji">@mlit_himeji を X で開く</a>
     </div>
   </section>
 
@@ -129,7 +131,6 @@
   THIS IS A FAN-MADE INTERFACE. NOT AFFILIATED WITH NERV.
 </footer>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
