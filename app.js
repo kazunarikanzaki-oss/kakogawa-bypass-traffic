@@ -135,7 +135,8 @@
   const loadTweets = async () => {
     try {
       tweetsFetchedEl.textContent = '読み込み中…';
-      const r = await fetch(`tweets.json?t=${Date.now()}`, { cache: 'no-cache' });
+      const url = `https://raw.githubusercontent.com/kazunarikanzaki-oss/kakogawa-bypass-traffic/main/tweets.json?t=${Date.now()}`;
+      const r = await fetch(url, { cache: 'no-cache' });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const data = await r.json();
       renderTweets(data);
