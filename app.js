@@ -117,11 +117,44 @@
     return false;
   };
 
+  // 「終了 / 解消 / 解除 / 撤去終了」を含む = 事象解消の通知
+  const isClearance = (text) => {
+    if (!/(終了|解消|解除|撤去)/.test(text)) return false;
+    // 単に「お知らせ終了」等の不関連語は除外。事象タイプ語と共起している場合のみ
+    return /(事故|故障車|物件落下|通行止|車線規制|規制)/.test(text);
+  };
+
+  // 同一インシデントを識別するキー: 事象種別 + 地点 + 発生時刻
+  const incidentKey = (text) => {
+    const types = ['通行止','事故','故障車','物件落下'];
+    const incType = types.find(k => text.includes(k)) || 'その他';
+    const cams = matchCameras(text);
+    const loc = cams.length ? cams.map(c => c.name).sort().join(',') : 'na';
+    // 「10時30分頃」形式の時刻
+    const m = text.match(/(\d{1,2})\s*時\s*(\d{1,2})\s*分\s*頃/);
+    const incTime = m ? `${m[1]}:${m[2]}` : 'na';
+    return `${incType}|${loc}|${incTime}`;
+  };
+
   const renderTweets = (data) => {
     const allTweets = (data && data.tweets) || [];
-    const tweets = allTweets.filter(t => !isUseless(t.text));
+    // Step 1: drop routine "no-regulation" notices
+    let pre = allTweets.filter(t => !isUseless(t.text));
+    // Step 2: build a set of cleared incident keys (any clearance tweet anywhere in the feed)
+    const clearedKeys = new Set();
+    for (const t of pre) {
+      if (isClearance(t.text)) clearedKeys.add(incidentKey(t.text));
+    }
+    let suppressedCount = 0;
+    const tweets = pre.filter(t => {
+      // Hide clearance notice itself (situation already over)
+      if (isClearance(t.text)) { suppressedCount++; return false; }
+      // Hide active incident if a matching clearance tweet exists
+      if (clearedKeys.has(incidentKey(t.text))) { suppressedCount++; return false; }
+      return true;
+    });
     if (!tweets.length) {
-      tweetsEl.innerHTML = '<div class="tweet-empty">表示対象の投稿がありません。</div>';
+      tweetsEl.innerHTML = `<div class="tweet-empty">現在、加古川・姫路バイパスで表示対象の事象はありません。<br>${suppressedCount>0?`<span class="dim">（解消済 ${suppressedCount}件 を非表示）</span>`:''}</div>`;
       return;
     }
     let critical = 0;
