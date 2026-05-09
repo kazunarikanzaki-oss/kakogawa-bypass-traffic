@@ -23,6 +23,24 @@
     });
   };
 
+  // ---- CAMERA MATCHING ----
+  // Map @mlit_himeji location names → 国土交通省 ライブカメラ
+  const CAMERAS = [
+    { name: '加古川東', re: /加古川東/,           img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00453.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako_e.html' },
+    { name: '加古川',   re: /加古川(?![バ東])/,   img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00454.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/kako.html' },
+    { name: '高砂北',   re: /高砂北/,             img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00457.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/takasago_n.html' },
+    { name: '別所',     re: /別所/,               img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00461.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/bessho1.html' },
+    { name: '姫路東',   re: /姫路東/,             img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00463.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/himeji_e.html' },
+    { name: '市川',     re: /市川/,               img: 'https://www.seishiga.kkr.mlit.go.jp/himeji/pic/C00464.jpg', page: 'https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2cam_map/ichikawa.html' },
+  ];
+  const matchCameras = (text) => {
+    const found = []; const seen = new Set();
+    for (const c of CAMERAS) {
+      if (c.re.test(text) && !seen.has(c.name)) { found.push(c); seen.add(c.name); }
+    }
+    return found;
+  };
+
   // ---- TWEETS ----
   const escapeHtml = s => s.replace(/[&<>"']/g, c => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
@@ -90,10 +108,20 @@
     return d.toLocaleString('ja-JP', {timeZone:'Asia/Tokyo', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
   };
 
+  // 「国道2号:車線規制を伴う工事予定なし」等のルーチン通知（加古川・姫路BP に直接関係しない）は除外
+  const isUseless = (text) => {
+    if (/【.+(工事規制|規制).*予定】/.test(text) &&
+        /国道2号[\s:：]*車線規制を伴う工事予定なし/.test(text)) {
+      return true;
+    }
+    return false;
+  };
+
   const renderTweets = (data) => {
-    const tweets = (data && data.tweets) || [];
+    const allTweets = (data && data.tweets) || [];
+    const tweets = allTweets.filter(t => !isUseless(t.text));
     if (!tweets.length) {
-      tweetsEl.innerHTML = '<div class="tweet-empty">投稿が取得できませんでした。X で直接ご確認ください。</div>';
+      tweetsEl.innerHTML = '<div class="tweet-empty">表示対象の投稿がありません。</div>';
       return;
     }
     let critical = 0;
@@ -101,11 +129,23 @@
       const tags = classifyTags(t.text);
       const dir = detectDirection(t.text);
       const area = detectArea(t.text);
+      const cams = matchCameras(t.text);
       const isCrit = tags.some(x => x.kind === 'critical');
       if (isCrit) critical++;
       const tagHtml = tags.map(x => `<span class="tw-tag ${x.kind}">${x.label}</span>`).join('');
       const dirHtml = dir ? `<span class="tw-dir ${dir.kind}">${escapeHtml(dir.label)}</span>` : '';
       const areaHtml = area ? `<span class="tw-area">${escapeHtml(area)}</span>` : '';
+      const camHtml = cams.length ? `
+        <div class="tweet-cams">
+          ${cams.map(c => `
+            <figure>
+              <figcaption>${escapeHtml(c.name)} ライブカメラ</figcaption>
+              <a target="_blank" rel="noopener" href="${escapeHtml(c.page)}">
+                <img class="cam tw-cam" data-src="${escapeHtml(c.img)}" alt="${escapeHtml(c.name)}" referrerpolicy="no-referrer" loading="lazy">
+              </a>
+            </figure>
+          `).join('')}
+        </div>` : '';
       return `
         <article class="tweet ${isCrit ? 'crit' : ''}">
           <div class="tweet-meta">
@@ -114,12 +154,15 @@
           </div>
           <div class="tweet-chips">${areaHtml}${dirHtml}${tagHtml}</div>
           <div class="tweet-text">${linkify(t.text, t.urls)}</div>
+          ${camHtml}
         </article>
       `;
     }).join('');
     tweetsEl.innerHTML = html;
     if (critical > 0) tweetsEl.classList.add('has-crit');
     else tweetsEl.classList.remove('has-crit');
+    // tweet 内に挿入された <img.cam> にも src を即座に流し込む
+    refreshCams();
   };
 
   const updateFetchedLabel = (fetchedAt) => {
