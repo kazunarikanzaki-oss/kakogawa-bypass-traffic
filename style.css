@@ -228,6 +228,17 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
   display: flex; align-items: center; justify-content: center;
 }
 .btn:active { background: var(--orange); color: #000; }
+.btn.primary-btn {
+  background: var(--orange);
+  color: #000;
+  border-color: var(--orange);
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 8px;
+  box-shadow: 0 0 12px rgba(255,106,0,0.4);
+}
+.btn.primary-btn:active { background: var(--orange2); }
 .btn.warn-btn {
   border-color: var(--warn);
   color: var(--warn);
