@@ -278,20 +278,23 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
 
 .tweet-cams {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 6px;
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px dashed var(--grid);
 }
-.tweet-cams figure { margin: 0; }
+.tweet-cams figure { margin: 0; min-width: 0; }
 .tweet-cams figcaption {
-  font-size: 11px; color: var(--orange2); font-weight: 700;
-  border-left: 3px solid var(--orange);
-  padding-left: 6px; margin-bottom: 4px;
+  font-size: 10px; color: var(--orange2); font-weight: 700;
+  border-left: 2px solid var(--orange);
+  padding-left: 5px; margin-bottom: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .tweet-cams .tw-cam {
-  width: 100%; aspect-ratio: 4 / 3;
+  width: 100%;
+  height: 90px;
+  max-height: 90px;
   object-fit: cover;
   background: var(--grid);
   border: 1px solid var(--grid);
