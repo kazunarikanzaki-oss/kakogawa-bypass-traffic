@@ -1,7 +1,21 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-11T23:37:05.798493Z",
+  "fetched_at": "2026-05-12T01:21:20.145761Z",
   "tweets": [
+    {
+      "id": "2053988507455266866",
+      "created_at": "Mon May 11 23:59:56 +0000 2026",
+      "text": "【5月12日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:姫路市安富町塩野(19.1kp) 9:00～17:00　片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2053988507455266866",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2053801077087383559",
       "created_at": "Mon May 11 11:35:09 +0000 2026",
@@ -351,20 +365,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HH1YXwpaQAAc8Pi.jpg"
       ]
-    },
-    {
-      "id": "2052884409066647784",
-      "created_at": "Fri May 08 22:52:38 +0000 2026",
-      "text": "【5月9日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2052884409066647784",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
