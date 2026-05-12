@@ -1,7 +1,21 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-12T10:10:43.287477Z",
+  "fetched_at": "2026-05-12T17:23:16.940252Z",
   "tweets": [
+    {
+      "id": "2054156695530881532",
+      "created_at": "Tue May 12 11:08:15 +0000 2026",
+      "text": "【5月12日 夜間の工事規制予定】\n国道2号:岡山方面行 BP明石西(67.3kp)、BP加古川(73.3kp) 22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2054156695530881532",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2054085185952715034",
       "created_at": "Tue May 12 06:24:06 +0000 2026",
@@ -351,20 +365,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HH32CIYacAAO_mA.jpg"
       ]
-    },
-    {
-      "id": "2053065571848409363",
-      "created_at": "Sat May 09 10:52:31 +0000 2026",
-      "text": "【5月9日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2053065571848409363",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
