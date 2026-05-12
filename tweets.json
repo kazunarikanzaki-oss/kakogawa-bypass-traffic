@@ -1,7 +1,28 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-12T21:58:55.745904Z",
+  "fetched_at": "2026-05-12T23:05:42.706916Z",
   "tweets": [
+    {
+      "id": "2054331099321602329",
+      "created_at": "Tue May 12 22:41:16 +0000 2026",
+      "text": "7時30分頃の #事故 により、大阪方面行 #姫路バイパス #高砂北(79.5kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/260k1ocw0r",
+      "permalink": "/mlit_himeji/status/2054331099321602329",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HIJzNkVboAAV6VP.jpg"
+      ]
+    },
     {
       "id": "2054156695530881532",
       "created_at": "Tue May 12 11:08:15 +0000 2026",
@@ -344,27 +365,6 @@
         }
       ],
       "photos": []
-    },
-    {
-      "id": "2053067564213997705",
-      "created_at": "Sat May 09 11:00:26 +0000 2026",
-      "text": "20時00分頃の #事故 により、大阪方面行 #姫路バイパス #高砂西 (79.4kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/ZPhdE14Q71",
-      "permalink": "/mlit_himeji/status/2053067564213997705",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HH32CIYacAAO_mA.jpg"
-      ]
     }
   ]
 }
