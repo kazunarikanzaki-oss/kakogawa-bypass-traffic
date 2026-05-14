@@ -1,7 +1,21 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-14T22:34:14.876970Z",
+  "fetched_at": "2026-05-14T23:32:05.253451Z",
   "tweets": [
+    {
+      "id": "2055058027913543979",
+      "created_at": "Thu May 14 22:49:49 +0000 2026",
+      "text": "【5月15日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:安富町塩野(19.1kp)、波賀町引原(61.3kp)9:00～17:00　片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2055058027913543979",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2054878444304150540",
       "created_at": "Thu May 14 10:56:13 +0000 2026",
@@ -353,20 +367,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HIJzNkVboAAV6VP.jpg"
       ]
-    },
-    {
-      "id": "2054156695530881532",
-      "created_at": "Tue May 12 11:08:15 +0000 2026",
-      "text": "【5月12日 夜間の工事規制予定】\n国道2号:岡山方面行 BP明石西(67.3kp)、BP加古川(73.3kp) 22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2054156695530881532",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
