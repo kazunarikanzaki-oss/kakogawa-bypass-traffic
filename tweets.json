@@ -1,7 +1,23 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-13T23:32:03.898336Z",
+  "fetched_at": "2026-05-14T01:28:14.929803Z",
   "tweets": [
+    {
+      "id": "2054727067871445069",
+      "created_at": "Thu May 14 00:54:42 +0000 2026",
+      "text": "今回の ＃新因幡ライン からのお知らせは #街道フットパス『＃ひじの里deお宝さがし』です！！\nミニモノレールに乗って山頂からの景色を楽しみましょう⛰️\n👉https://t.co/aKJQUobxVT\n(日本風景街道　新因幡ライン協議会HP)\n＃日本風景街道　＃街道ウォーク https://t.co/3F27OiClAD",
+      "permalink": "/mlit_himeji/status/2054727067871445069",
+      "urls": [
+        {
+          "url": "https://t.co/aKJQUobxVT",
+          "expanded_url": "http://newinabaline.grupo.jp",
+          "display_url": "newinabaline.grupo.jp"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HIPbM50bAAAJjOj.jpg"
+      ]
+    },
     {
       "id": "2054696533975761034",
       "created_at": "Wed May 13 22:53:22 +0000 2026",
@@ -338,20 +354,6 @@
       "created_at": "Mon May 11 11:35:09 +0000 2026",
       "text": "【5月11日 夜間の工事規制予定】\n国道2号:大阪方面行 BP加古川東(68.1kp)22:00～6:00車線規制\n国道29号:岡山方面行 BP加古川(73.3kp)BP太子北(98.3kp)22:00～6:00車線規制\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2053801077087383559",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2053626159796281526",
-      "created_at": "Mon May 11 00:00:05 +0000 2026",
-      "text": "【5月11日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2053626159796281526",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
