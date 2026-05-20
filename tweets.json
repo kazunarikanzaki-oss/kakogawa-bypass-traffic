@@ -1,7 +1,37 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-20T05:43:50.768259Z",
+  "fetched_at": "2026-05-20T11:35:50.471005Z",
   "tweets": [
+    {
+      "id": "2057058037547069691",
+      "created_at": "Wed May 20 11:17:09 +0000 2026",
+      "text": "【5月20日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2057058037547069691",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2056976272983839118",
+      "created_at": "Wed May 20 05:52:14 +0000 2026",
+      "text": "河川愛護モニター募集のご案内\n姫路河川国道事務所では #揖保川 #加古川 を見守ってくださる河川愛護モニターを募集しています。\n揖保川、加古川近くにお住まいで興味のある方は是非！\n応募期限：５月２９日まで\n\n詳細は\nhttps://t.co/C2ajO3xLs5\n\n#河川愛護　#水しごと https://t.co/1qbR6wrIGA",
+      "permalink": "/mlit_himeji/status/2056976272983839118",
+      "urls": [
+        {
+          "url": "https://t.co/C2ajO3xLs5",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/news/2025/20260330.html",
+          "display_url": "kkr.mlit.go.jp/himeji/news/20…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HIvY5ZnaYAIyqIC.jpg"
+      ]
+    },
     {
       "id": "2056876412100050992",
       "created_at": "Tue May 19 23:15:26 +0000 2026",
@@ -313,39 +343,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HIailfTbUAAFGWW.jpg"
       ]
-    },
-    {
-      "id": "2055426942128861350",
-      "created_at": "Fri May 15 23:15:45 +0000 2026",
-      "text": "【5月16日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2055426942128861350",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2055333760959459811",
-      "created_at": "Fri May 15 17:05:29 +0000 2026",
-      "text": "大阪方面行  #姫路バイパス #姫路東 (85.9kp) 付近、22時30分頃の #事故 の処理終了 \n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2055333760959459811",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
     }
   ]
 }
