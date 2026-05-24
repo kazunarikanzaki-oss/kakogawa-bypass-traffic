@@ -1,7 +1,26 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-24T21:38:31.216019Z",
+  "fetched_at": "2026-05-24T22:38:40.987707Z",
   "tweets": [
+    {
+      "id": "2058671221085200670",
+      "created_at": "Sun May 24 22:07:22 +0000 2026",
+      "text": "岡山方面行  #姫路バイパス 　#姫路西 (95.1kp) 付近\n5時55分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2058671221085200670",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2058654291414720598",
       "created_at": "Sun May 24 21:00:05 +0000 2026",
@@ -298,20 +317,6 @@
       "created_at": "Tue May 19 23:15:26 +0000 2026",
       "text": "【5月20日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:宍粟市一宮町嶋田(34.5kp)　8:30～12:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2056876412100050992",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2056691205879341194",
-      "created_at": "Tue May 19 10:59:29 +0000 2026",
-      "text": "【5月19日 夜間の工事規制予定】\n国道2号:大阪方面　BP加古川西(76.8kp)22:00～6:00　車線規制\n岡山方面　BP加古川東(67.3kp)22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2056691205879341194",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
