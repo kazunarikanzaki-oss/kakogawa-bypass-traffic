@@ -1,7 +1,28 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-24T20:40:28.632298Z",
+  "fetched_at": "2026-05-24T21:38:31.216019Z",
   "tweets": [
+    {
+      "id": "2058654291414720598",
+      "created_at": "Sun May 24 21:00:05 +0000 2026",
+      "text": "5時55分頃の #故障車 により、岡山方面行 #姫路バイパス #姫路西 (95.1kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/4jKu5ClaIA",
+      "permalink": "/mlit_himeji/status/2058654291414720598",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HJHPKBIaAAAuWIW.jpg"
+      ]
+    },
     {
       "id": "2058501879739580769",
       "created_at": "Sun May 24 10:54:27 +0000 2026",
@@ -296,25 +317,6 @@
           "url": "https://t.co/QFlePRYZaS",
           "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2056531906628669537",
-      "created_at": "Tue May 19 00:26:29 +0000 2026",
-      "text": "大阪方面行  #加古川バイパス  #加古川西(76.4kp)付近\n7時50分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2056531906628669537",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
         }
       ],
       "photos": []
