@@ -1,7 +1,21 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-24T10:05:02.477477Z",
+  "fetched_at": "2026-05-24T12:44:44.477271Z",
   "tweets": [
+    {
+      "id": "2058501879739580769",
+      "created_at": "Sun May 24 10:54:27 +0000 2026",
+      "text": "【5月24日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2058501879739580769",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2058444658880217384",
       "created_at": "Sun May 24 07:07:05 +0000 2026",
@@ -301,20 +315,6 @@
           "url": "https://t.co/qrYcc4JcTX",
           "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
           "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2056525166407295076",
-      "created_at": "Mon May 18 23:59:42 +0000 2026",
-      "text": "【5月19日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:姫路市安富町塩野(19.2kp)、宍粟市一宮町嶋田(34.5kp)、\n波賀町引原(61.1kp)、鹿伏(64.6kp)　9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2056525166407295076",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
       "photos": []
