@@ -1,7 +1,28 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-25T19:43:43.493720Z",
+  "fetched_at": "2026-05-25T21:59:09.449737Z",
   "tweets": [
+    {
+      "id": "2059018887992312274",
+      "created_at": "Mon May 25 21:08:52 +0000 2026",
+      "text": "6時5分頃の #故障車 により、大阪方面行 #姫路バイパス #太子東 (95.8kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/vGT4W8MlX1",
+      "permalink": "/mlit_himeji/status/2059018887992312274",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HJMavxLbgAAhBGp.jpg"
+      ]
+    },
     {
       "id": "2058881425005502479",
       "created_at": "Mon May 25 12:02:38 +0000 2026",
@@ -326,14 +347,6 @@
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
-      "photos": []
-    },
-    {
-      "id": "2057415641444077921",
-      "created_at": "Thu May 21 10:58:08 +0000 2026",
-      "text": "【5月21日 夜間の工事規制予定】\n国道2号:大阪方面 BP夢前トンネル(94.6kp)2:00～5:00 車線規制\nBP加古川西(76.8kp)22:00～6:00 車線規制\n岡山方面 BP明石西(67.3kp)、BP加古川西(75kp)22:00～6:00 車線規制\nBP夢前トンネル(92.7kp)22:00～1:00 車線規制",
-      "permalink": "/mlit_himeji/status/2057415641444077921",
-      "urls": [],
       "photos": []
     }
   ]
