@@ -2,7 +2,8 @@ name: Fetch @mlit_himeji tweets
 
 on:
   schedule:
-    - cron: '*/5 * * * *'   # every 5 minutes
+    # GitHub Pages の build limit (10/hour) を超過しないよう 10分間隔
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -32,7 +33,17 @@ jobs:
           git add tweets.json
           if git diff --cached --quiet; then
             echo "No changes."
-          else
-            git commit -m "chore: update tweets.json [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "chore: update tweets.json [skip ci]"
+          # 競合対策: push 失敗時は最新をrebaseして再試行
+          for i in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $i"
+              exit 0
+            fi
+            echo "Push failed (attempt $i). Rebasing and retrying..."
+            git pull --rebase origin main || true
+          done
+          echo "ERROR: push failed after 3 attempts"
+          exit 1

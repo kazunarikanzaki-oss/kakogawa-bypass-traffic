@@ -124,16 +124,19 @@
     return /(事故|故障車|物件落下|通行止|車線規制|規制)/.test(text);
   };
 
-  // 同一インシデントを識別するキー: 事象種別 + 地点 + 発生時刻
+  // 同一インシデントを識別するキー: 事象種別 + kp(キロポスト) + 発生時刻
+  // 地点はキロポスト数値（例: 70.8kp）で識別する。これが投稿に必ず含まれ最も精度が高い。
+  // kpが無いツイートは「キー無効」として解消マッチングから除外する。
   const incidentKey = (text) => {
     const types = ['通行止','事故','故障車','物件落下'];
     const incType = types.find(k => text.includes(k)) || 'その他';
-    const cams = matchCameras(text);
-    const loc = cams.length ? cams.map(c => c.name).sort().join(',') : 'na';
-    // 「10時30分頃」形式の時刻
-    const m = text.match(/(\d{1,2})\s*時\s*(\d{1,2})\s*分\s*頃/);
-    const incTime = m ? `${m[1]}:${m[2]}` : 'na';
-    return `${incType}|${loc}|${incTime}`;
+    const kpMatch = text.match(/(\d+(?:\.\d+)?)\s*kp/);
+    const kp = kpMatch ? kpMatch[1] : null;
+    const tm = text.match(/(\d{1,2})\s*時\s*(\d{1,2})\s*分\s*頃/);
+    const incTime = tm ? `${tm[1]}:${tm[2]}` : null;
+    // 必須キー（kpまたは時刻）が片方でも欠けるなら、誤マッチ防止のため一意な値を返す
+    if (!kp || !incTime) return `__noKey__${Math.random()}`;
+    return `${incType}|${kp}|${incTime}`;
   };
 
   const renderTweets = (data) => {
@@ -203,9 +206,8 @@
       tweetsFetchedEl.textContent = '取得失敗';
       return;
     }
-    const d = new Date(fetchedAt);
-    const rel = fmtRel(d.toString());
-    tweetsFetchedEl.textContent = `最終取得: ${rel} (${fmtAbs(d.toString())})`;
+    // fetchedAt は Python が isoformat + "Z" で書き出した UTC ISO 文字列。Date 直接解釈可能。
+    tweetsFetchedEl.textContent = `最終取得: ${fmtRel(fetchedAt)} (${fmtAbs(fetchedAt)})`;
   };
 
   const loadTweets = async () => {
@@ -262,7 +264,9 @@
     alertEl.classList.add('hidden');
     alertEl.setAttribute('aria-hidden', 'true');
     manualAlert = false;
-    lastShown = null;
+    // ラッシュ時間内に CLOSE しても即時再発火しないよう lastShown を 'alert' に保持
+    // 次のラッシュ帯入り（normal→alert への遷移）でのみ再発火する
+    lastShown = 'alert';
     applyStatus();
   };
 

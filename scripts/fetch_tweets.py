@@ -1,16 +1,35 @@
 #!/usr/bin/env python3
 """Fetch @mlit_himeji recent tweets via Twitter syndication endpoint and write tweets.json."""
+import datetime
 import json
 import re
 import sys
 import urllib.request
 import urllib.error
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 SCREEN_NAME = "mlit_himeji"
 URL = f"https://syndication.twitter.com/srv/timeline-profile/screen-name/{SCREEN_NAME}?showReplies=false"
 OUT = Path(__file__).resolve().parent.parent / "tweets.json"
 LIMIT = 20
+
+
+def to_iso(twitter_date: str) -> str:
+    """Convert 'Fri May 08 23:31:32 +0000 2026' to '2026-05-08T23:31:32+00:00' (ISO 8601)."""
+    if not twitter_date:
+        return ""
+    try:
+        # Twitter date is rfc-2822-ish: 'Fri May 08 23:31:32 +0000 2026'
+        # Reorder to a form email.utils can parse: 'Fri, 08 May 2026 23:31:32 +0000'
+        parts = twitter_date.split()
+        if len(parts) == 6:
+            rfc = f"{parts[0]}, {parts[2]} {parts[1]} {parts[5]} {parts[3]} {parts[4]}"
+            dt = parsedate_to_datetime(rfc)
+            return dt.isoformat()
+    except Exception:
+        pass
+    return twitter_date  # fallback: keep raw
 
 
 def fetch() -> str:
@@ -50,9 +69,11 @@ def parse(html: str):
         for m in ext:
             if m.get("type") == "photo":
                 photos.append(m.get("media_url_https"))
+        raw_created = t.get("created_at")
         out.append({
             "id": t.get("id_str"),
-            "created_at": t.get("created_at"),
+            "created_at": to_iso(raw_created),       # ISO 8601 (ブラウザ確実解釈)
+            "created_at_raw": raw_created,           # 元のTwitter形式（互換用）
             "text": t.get("full_text") or t.get("text") or "",
             "permalink": t.get("permalink") or f"https://x.com/{SCREEN_NAME}/status/{t.get('id_str')}",
             "urls": urls,
@@ -75,7 +96,7 @@ def main() -> int:
         return 1
     payload = {
         "screen_name": SCREEN_NAME,
-        "fetched_at": __import__("datetime").datetime.utcnow().isoformat() + "Z",
+        "fetched_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "tweets": tweets,
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
