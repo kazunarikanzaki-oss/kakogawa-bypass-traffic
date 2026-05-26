@@ -275,10 +275,25 @@
     applyStatus();
   };
 
+  // 連打防止: 取得中は全ての取得経路をブロック
+  let loading = false;
+  const guardedLoad = async () => {
+    if (loading) return;
+    loading = true;
+    tweetsReloadBtn.disabled = true;
+    reloadBtn.disabled = true;
+    try { await loadTweets(); }
+    finally {
+      loading = false;
+      tweetsReloadBtn.disabled = false;
+      reloadBtn.disabled = false;
+    }
+  };
+
   // ---- WIRING ----
   closeBtn.addEventListener('click', hideAlert);
   // refreshCams() は loadTweets → renderTweets 内で呼ばれるため重複呼出は不要
-  reloadBtn.addEventListener('click', () => { loadTweets(); setClock(); });
+  reloadBtn.addEventListener('click', () => { guardedLoad(); setClock(); });
   simBtn.addEventListener('click', () => {
     manualAlert = true;
     showAlert('RED');
@@ -286,18 +301,6 @@
     statusEl.classList.add('alert');
     statusEl.textContent = 'STATUS: 使徒接近';
   });
-  // 連打防止: 取得中は disabled
-  let loading = false;
-  const guardedLoad = async () => {
-    if (loading) return;
-    loading = true;
-    tweetsReloadBtn.disabled = true;
-    try { await loadTweets(); }
-    finally {
-      loading = false;
-      tweetsReloadBtn.disabled = false;
-    }
-  };
   tweetsReloadBtn.addEventListener('click', guardedLoad);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) guardedLoad();
