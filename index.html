@@ -10,8 +10,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
 
@@ -120,8 +123,11 @@
     <div class="panel-h"><span class="hash">//</span> CONTROL</div>
     <div class="quick">
       <button id="reload" class="btn">RELOAD FEED</button>
+      <button id="notifyToggle" class="btn">🔔 通知を有効化</button>
       <button id="simulate" class="btn warn-btn">緊急事態 シミュレート</button>
+      <a class="btn" href="tests.html">SELF TEST</a>
     </div>
+    <p class="note">通知を有効化すると、重大事象（事故/通行止）の新着投稿を端末側ポップアップで知らせます（ページが開いている間）。</p>
   </section>
 
 </main>
@@ -131,6 +137,6 @@
   THIS IS A FAN-MADE INTERFACE. NOT AFFILIATED WITH NERV.
 </footer>
 
-<script src="app.js?v=9"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>

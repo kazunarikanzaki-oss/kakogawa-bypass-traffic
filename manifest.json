@@ -1,8 +1,20 @@
 {
-  "name": "NERV TRAFFIC",
+  "name": "NERV TRAFFIC - 加古川・姫路バイパス監視",
   "short_name": "NERV TRAFFIC",
+  "description": "国道2号 加古川・姫路バイパスの渋滞・規制・事故をリアルタイム監視",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }

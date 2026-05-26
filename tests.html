@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NERV TRAFFIC — Self Test</title>
+<link rel="stylesheet" href="style.css?v=11">
+<style>
+  .test-results { padding: 12px; }
+  .case { padding: 8px 12px; margin-bottom: 6px; border-left: 4px solid var(--grid); background: var(--panel); font-family: var(--mono); font-size: 13px; }
+  .case.pass { border-left-color: var(--green); }
+  .case.fail { border-left-color: var(--warn); background: rgba(255,31,31,0.10); }
+  .label { font-weight: 700; margin-right: 8px; }
+  .label.pass { color: var(--green); }
+  .label.fail { color: var(--warn); }
+  .summary { padding: 12px; font-size: 16px; font-family: var(--display); }
+  .summary.ok  { color: var(--green); }
+  .summary.bad { color: var(--warn); }
+  pre { white-space: pre-wrap; margin: 4px 0 0; font-size: 12px; color: var(--dim); }
+</style>
+</head>
+<body>
+<!-- 既存の要素ID をダミーで用意して app.js のロードを通す -->
+<div id="alert" class="hidden"><div id="alertPattern"></div><button id="alertClose"></button></div>
+<time id="updated"></time>
+<span id="status"></span>
+<button id="reload"></button>
+<button id="simulate"></button>
+<button id="notifyToggle"></button>
+<div id="tweets"></div>
+<span id="tweetsFetched"></span>
+<button id="tweetsReload"></button>
+
+<header style="padding:12px"><h1 style="margin:0">NERV TRAFFIC — Self Test</h1></header>
+<div id="summary" class="summary">実行中…</div>
+<div id="results" class="test-results"></div>
+
+<script src="app.js?v=10"></script>
+<script>
+(function() {
+  const N = window.__nerv;
+  const results = document.getElementById('results');
+  const summary = document.getElementById('summary');
+  let pass = 0, fail = 0;
+
+  function eq(actual, expected) {
+    return JSON.stringify(actual) === JSON.stringify(expected);
+  }
+  function t(name, actual, expected) {
+    const ok = eq(actual, expected);
+    if (ok) pass++; else fail++;
+    const div = document.createElement('div');
+    div.className = 'case ' + (ok ? 'pass' : 'fail');
+    div.innerHTML = `<span class="label ${ok?'pass':'fail'}">${ok?'PASS':'FAIL'}</span>${name}` +
+      (ok ? '' : `<pre>expected: ${JSON.stringify(expected)}\nactual:   ${JSON.stringify(actual)}</pre>`);
+    results.appendChild(div);
+  }
+
+  // -------- classifyTags --------
+  t('classifyTags: 事故', N.classifyTags('事故により車線規制中').map(x=>x.label), ['事故','規制']);
+  t('classifyTags: 故障車', N.classifyTags('故障車により規制').map(x=>x.label), ['故障車','規制']);
+  t('classifyTags: 通行止', N.classifyTags('通行止のお知らせ').map(x=>x.label), ['通行止']);
+  t('classifyTags: 工事', N.classifyTags('工事規制予定 22:00-6:00').map(x=>x.label), ['規制','工事']);
+  t('classifyTags: 重複なし', N.classifyTags('事故 事故 事故').map(x=>x.label), ['事故']);
+
+  // -------- detectDirection --------
+  t('dir: 大阪方面行', N.detectDirection('大阪方面行 加古川バイパス').kind, 'up');
+  t('dir: 岡山方面行', N.detectDirection('岡山方面行 #加古川バイパス').kind, 'down');
+  t('dir: 上り単独', N.detectDirection('上り 規制').kind, 'up');
+  t('dir: 下り単独', N.detectDirection('下り 渋滞').kind, 'down');
+  t('dir: 上下両方', N.detectDirection('上り 下り 両方向 規制').kind, 'both');
+  t('dir: なし', N.detectDirection('お知らせ'), null);
+
+  // -------- detectArea --------
+  t('area: 加古川BP', N.detectArea('加古川バイパス 事故'), ['加古川BP']);
+  t('area: 姫路BP', N.detectArea('姫路バイパス 規制'), ['姫路BP']);
+  t('area: 複数', N.detectArea('加古川バイパス 姫路バイパス 太子竜野バイパス'), ['加古川BP','姫路BP','太子竜野BP']);
+  t('area: 国道2号フォールバック', N.detectArea('国道2号 通行止'), ['国道2号']);
+
+  // -------- isUseless --------
+  t('useless: 規制なし通知', N.isUseless('【5月9日 昼間の工事規制予定】 国道2号:車線規制を伴う工事予定なし 国道29号:車線規制を伴う工事予定なし'), true);
+  t('useless: 規制あり', N.isUseless('【5月8日 夜間の工事規制予定】 国道2号:岡山方面行 BP姫路(103.5kp)22:00～6:00 車線規制'), false);
+  t('useless: 事故通知', N.isUseless('8時30分頃 #事故 #加古川バイパス'), false);
+
+  // -------- isClearance --------
+  t('clear: 終了+事故', N.isClearance('10時30分頃 #事故 終了'), true);
+  t('clear: 撤去+故障車', N.isClearance('11時10分頃 #故障車 故障車処理 終了'), true);
+  t('clear: 規制中(終了無し)', N.isClearance('車線規制を行っています'), false);
+  t('clear: 通行止解除', N.isClearance('通行止を解除しました'), true);
+
+  // -------- incidentKey (kp ベース) --------
+  const k1 = N.incidentKey('8時30分頃 #事故 #加古川バイパス #加古川東(70.8kp)付近 車線規制');
+  const k2 = N.incidentKey('岡山方面行 #加古川バイパス #加古川東(70.8kp) 8時30分頃 #事故 終了');
+  t('incidentKey: 発生と解消で一致', k1, k2);
+
+  const k3 = N.incidentKey('10時30分頃 #物件落下 #加古川(73.9kp)');
+  const k4 = N.incidentKey('8時30分頃 #事故 #加古川東(70.8kp)');
+  t('incidentKey: 別事象は不一致', k3 !== k4, true);
+
+  const kNa1 = N.incidentKey('情報なし');
+  const kNa2 = N.incidentKey('情報なし');
+  t('incidentKey: kp/時刻無しは毎回ユニーク', kNa1 !== kNa2, true);
+
+  // -------- matchCameras --------
+  t('cam: 加古川東', N.matchCameras('#加古川東(70.8kp)').map(c=>c.name), ['加古川東']);
+  t('cam: 加古川単独', N.matchCameras('#加古川(73.9kp)').map(c=>c.name), ['加古川']);
+  t('cam: 加古川バイパスは加古川にマッチしない', N.matchCameras('加古川バイパス').map(c=>c.name), []);
+  t('cam: 複数', N.matchCameras('姫路東 から 高砂北 まで').map(c=>c.name), ['高砂北','姫路東']);
+
+  // -------- Summary --------
+  if (fail === 0) {
+    summary.className = 'summary ok';
+    summary.textContent = `✓ ALL PASS  (${pass}/${pass+fail})`;
+  } else {
+    summary.className = 'summary bad';
+    summary.textContent = `✗ ${fail} FAILED  (pass ${pass}/${pass+fail})`;
+  }
+})();
+</script>
+</body>
+</html>
