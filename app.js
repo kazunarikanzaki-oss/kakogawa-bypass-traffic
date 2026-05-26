@@ -46,6 +46,15 @@
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   })[c]);
 
+  // href に javascript: / data: 等の危険スキームが混入したら # に置き換えてXSSをブロック
+  const safeHref = (u) => {
+    if (!u) return '#';
+    const s = String(u).trim();
+    if (/^(https?:|mailto:|tel:)/i.test(s)) return s;
+    if (s.startsWith('/') || s.startsWith('./') || s.startsWith('#')) return s;
+    return '#';
+  };
+
   const classifyTags = (text) => {
     const tags = [];
     if (/通行止/.test(text))           tags.push({label:'通行止', kind:'critical'});
@@ -83,7 +92,7 @@
     for (const u of (urls || [])) {
       if (!u.url) continue;
       const display = escapeHtml(u.display_url || u.expanded_url || u.url);
-      const exp = escapeHtml(u.expanded_url || u.url);
+      const exp = escapeHtml(safeHref(u.expanded_url || u.url));
       // The text already escaped, so t.co URLs (no special chars) still match raw form
       const safeUrl = u.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       s = s.replace(new RegExp(safeUrl, 'g'), `<a href="${exp}" target="_blank" rel="noopener">${display}</a>`);
@@ -160,14 +169,12 @@
       tweetsEl.innerHTML = `<div class="tweet-empty">現在、加古川・姫路バイパスで表示対象の事象はありません。<br>${suppressedCount>0?`<span class="dim">（解消済 ${suppressedCount}件 を非表示）</span>`:''}</div>`;
       return;
     }
-    let critical = 0;
     const html = tweets.map(t => {
       const tags = classifyTags(t.text);
       const dir = detectDirection(t.text);
       const area = detectArea(t.text);
       const cams = matchCameras(t.text);
       const isCrit = tags.some(x => x.kind === 'critical');
-      if (isCrit) critical++;
       const tagHtml = tags.map(x => `<span class="tw-tag ${x.kind}">${x.label}</span>`).join('');
       const dirHtml = dir ? `<span class="tw-dir ${dir.kind}">${escapeHtml(dir.label)}</span>` : '';
       const areaHtml = area ? `<span class="tw-area">${escapeHtml(area)}</span>` : '';
@@ -176,8 +183,8 @@
           ${cams.map(c => `
             <figure>
               <figcaption>${escapeHtml(c.name)} ライブカメラ</figcaption>
-              <a target="_blank" rel="noopener" href="${escapeHtml(c.page)}">
-                <img class="cam tw-cam" data-src="${escapeHtml(c.img)}" alt="${escapeHtml(c.name)}" referrerpolicy="no-referrer" loading="lazy">
+              <a target="_blank" rel="noopener" href="${escapeHtml(safeHref(c.page))}">
+                <img class="cam tw-cam" data-src="${escapeHtml(safeHref(c.img))}" alt="${escapeHtml(c.name)}" referrerpolicy="no-referrer" loading="lazy">
               </a>
             </figure>
           `).join('')}
@@ -186,7 +193,7 @@
         <article class="tweet ${isCrit ? 'crit' : ''}">
           <div class="tweet-meta">
             <span class="tw-time" title="${escapeHtml(t.created_at)}">${escapeHtml(fmtRel(t.created_at))} <span class="dim">/ ${escapeHtml(fmtAbs(t.created_at))}</span></span>
-            <a class="tw-permalink" target="_blank" rel="noopener" href="${escapeHtml(t.permalink)}">X</a>
+            <a class="tw-permalink" target="_blank" rel="noopener" href="${escapeHtml(safeHref(t.permalink))}">X</a>
           </div>
           <div class="tweet-chips">${areaHtml}${dirHtml}${tagHtml}</div>
           <div class="tweet-text">${linkify(t.text, t.urls)}</div>
@@ -195,8 +202,6 @@
       `;
     }).join('');
     tweetsEl.innerHTML = html;
-    if (critical > 0) tweetsEl.classList.add('has-crit');
-    else tweetsEl.classList.remove('has-crit');
     // tweet 内に挿入された <img.cam> にも src を即座に流し込む
     refreshCams();
   };
@@ -272,7 +277,8 @@
 
   // ---- WIRING ----
   closeBtn.addEventListener('click', hideAlert);
-  reloadBtn.addEventListener('click', () => { refreshCams(); loadTweets(); setClock(); });
+  // refreshCams() は loadTweets → renderTweets 内で呼ばれるため重複呼出は不要
+  reloadBtn.addEventListener('click', () => { loadTweets(); setClock(); });
   simBtn.addEventListener('click', () => {
     manualAlert = true;
     showAlert('RED');
@@ -280,9 +286,21 @@
     statusEl.classList.add('alert');
     statusEl.textContent = 'STATUS: 使徒接近';
   });
-  tweetsReloadBtn.addEventListener('click', loadTweets);
+  // 連打防止: 取得中は disabled
+  let loading = false;
+  const guardedLoad = async () => {
+    if (loading) return;
+    loading = true;
+    tweetsReloadBtn.disabled = true;
+    try { await loadTweets(); }
+    finally {
+      loading = false;
+      tweetsReloadBtn.disabled = false;
+    }
+  };
+  tweetsReloadBtn.addEventListener('click', guardedLoad);
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) { loadTweets(); refreshCams(); }
+    if (!document.hidden) guardedLoad();
   });
 
   setClock();
@@ -291,6 +309,6 @@
   setInterval(refreshCams, 60000);
   applyStatus();
   setInterval(applyStatus, 60000);
-  loadTweets();
-  setInterval(loadTweets, 60000);
+  guardedLoad();
+  setInterval(guardedLoad, 60000);
 })();
