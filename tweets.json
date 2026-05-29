@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-05-29T21:55:52.081720+00:00",
+  "fetched_at": "2026-05-29T23:20:39.987002+00:00",
   "tweets": [
+    {
+      "id": "2060496702608654580",
+      "created_at": "2026-05-29T23:01:10+00:00",
+      "created_at_raw": "Fri May 29 23:01:10 +0000 2026",
+      "text": "【5月30日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2060496702608654580",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2060469801034870956",
       "created_at": "2026-05-29T21:14:16+00:00",
@@ -382,15 +397,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HJXkTwaa4AAFenU.jpg"
       ]
-    },
-    {
-      "id": "2059784896974102583",
-      "created_at": "2026-05-27T23:52:43+00:00",
-      "created_at_raw": "Wed May 27 23:52:43 +0000 2026",
-      "text": "＊「移動片交としている区間では、区間内において100m程度の片側交互通行規制をおこなっております。\n短時間の工事のために施工箇所を変えながら規制を行っていますので通行の際にはご注意をお願いいたします。」",
-      "permalink": "/mlit_himeji/status/2059784896974102583",
-      "urls": [],
-      "photos": []
     }
   ]
 }
