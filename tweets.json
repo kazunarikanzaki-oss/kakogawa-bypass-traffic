@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-01T07:21:53.180834+00:00",
+  "fetched_at": "2026-06-01T13:13:48.443922+00:00",
   "tweets": [
+    {
+      "id": "2061404306377699338",
+      "created_at": "2026-06-01T11:07:40+00:00",
+      "created_at_raw": "Mon Jun 01 11:07:40 +0000 2026",
+      "text": "【6月1日 夜間の工事規制予定】\n国道2号:岡山方面　BP王子トンネル(98.6kp)22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2061404306377699338",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2061307134898561169",
       "created_at": "2026-06-01T04:41:32+00:00",
@@ -355,26 +370,6 @@
           "url": "https://t.co/QFlePRYZaS",
           "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2060141706855788932",
-      "created_at": "2026-05-28T23:30:33+00:00",
-      "created_at_raw": "Thu May 28 23:30:33 +0000 2026",
-      "text": "岡山方面行  #姫路バイパス   #姫路西(95.0kp) 付近\n7時30分頃の #事故 の処理終了。渋滞残有。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2060141706855788932",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
         }
       ],
       "photos": []
