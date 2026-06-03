@@ -1,7 +1,39 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-03T05:13:57.757784+00:00",
+  "fetched_at": "2026-06-03T10:12:31.899837+00:00",
   "tweets": [
+    {
+      "id": "2062095951234564529",
+      "created_at": "2026-06-03T08:56:01+00:00",
+      "created_at_raw": "Wed Jun 03 08:56:01 +0000 2026",
+      "text": "RT @mlit_himeji: この度、姫路河川国道事務所のYouTubeチャンネルとInstagramアカウントを開設いたしました。\n今後は、X以外での発信も行っていきますので、ご興味のある方は是非チャンネル登録&amp;フォローよろしくお願いします&lt;(_ _)&gt;\nYoutube：…",
+      "permalink": "/mlit_himeji/status/2062095951234564529",
+      "urls": [],
+      "photos": []
+    },
+    {
+      "id": "2062044320111464540",
+      "created_at": "2026-06-03T05:30:51+00:00",
+      "created_at_raw": "Wed Jun 03 05:30:51 +0000 2026",
+      "text": "この度、姫路河川国道事務所のYouTubeチャンネルとInstagramアカウントを開設いたしました。\n今後は、X以外での発信も行っていきますので、ご興味のある方は是非チャンネル登録&amp;フォローよろしくお願いします&lt;(_ _)&gt;\nYoutube：https://t.co/iIO291DYZh\nInstagram：https://t.co/ySSi7yPmCj https://t.co/GFWO9TuwoH",
+      "permalink": "/mlit_himeji/status/2062044320111464540",
+      "urls": [
+        {
+          "url": "https://t.co/iIO291DYZh",
+          "expanded_url": "http://www.youtube.com/@himekoku",
+          "display_url": "youtube.com/@himekoku"
+        },
+        {
+          "url": "https://t.co/ySSi7yPmCj",
+          "expanded_url": "http://instagram.com/kinki_himeji_mlit?igsh=NDNneXF4cGVra3ph",
+          "display_url": "instagram.com/kinki_himeji_m…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HJ3aVfobkAApwCv.jpg",
+        "https://pbs.twimg.com/media/HJ3aVewbwAAKNZI.jpg"
+      ]
+    },
     {
       "id": "2061997610970575053",
       "created_at": "2026-06-03T02:25:15+00:00",
@@ -357,43 +389,6 @@
           "url": "https://t.co/qrYcc4JcTX",
           "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
           "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2061558141750558865",
-      "created_at": "2026-06-01T21:18:57+00:00",
-      "created_at_raw": "Mon Jun 01 21:18:57 +0000 2026",
-      "text": "6時15分頃の #故障車 により、大阪方面行 #姫路バイパス #中地 (92.5kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/1pqlm8d8sL",
-      "permalink": "/mlit_himeji/status/2061558141750558865",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HJwgLweboAADLWD.jpg"
-      ]
-    },
-    {
-      "id": "2061404306377699338",
-      "created_at": "2026-06-01T11:07:40+00:00",
-      "created_at_raw": "Mon Jun 01 11:07:40 +0000 2026",
-      "text": "【6月1日 夜間の工事規制予定】\n国道2号:岡山方面　BP王子トンネル(98.6kp)22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2061404306377699338",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
       "photos": []
