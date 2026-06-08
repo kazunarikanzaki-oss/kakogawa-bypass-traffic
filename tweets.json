@@ -1,7 +1,49 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-08T13:48:07.501744+00:00",
+  "fetched_at": "2026-06-08T16:59:40.562864+00:00",
   "tweets": [
+    {
+      "id": "2064028519748030785",
+      "created_at": "2026-06-08T16:55:21+00:00",
+      "created_at_raw": "Mon Jun 08 16:55:21 +0000 2026",
+      "text": "大阪方面行  #姫路バイパス   #高砂西(79.4kp)付近\n23時40分頃の #事故 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2064028519748030785",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2063997030322913747",
+      "created_at": "2026-06-08T14:50:13+00:00",
+      "created_at_raw": "Mon Jun 08 14:50:13 +0000 2026",
+      "text": "23時40分頃の #事故 により、大阪方面行 #姫路バイパス #高砂西(79.4kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/aFKkgoEOCA",
+      "permalink": "/mlit_himeji/status/2063997030322913747",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HKTKV8NbcAAcaru.jpg"
+      ]
+    },
     {
       "id": "2063937267656511865",
       "created_at": "2026-06-08T10:52:45+00:00",
@@ -310,30 +352,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HJ_yLF-aAAAj0fC.jpg"
       ]
-    },
-    {
-      "id": "2062495130071007512",
-      "created_at": "2026-06-04T11:22:12+00:00",
-      "created_at_raw": "Thu Jun 04 11:22:12 +0000 2026",
-      "text": "【6月4日 夜間の工事規制予定】\n国道2号:大阪方面 BP城山トンネル(98.4kp)BP加古川東(68.1kp)22:00～6:00 車線規制\n岡山方面 BP王子トンネル(98.3kp)22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2062495130071007512",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2062351716960620922",
-      "created_at": "2026-06-04T01:52:20+00:00",
-      "created_at_raw": "Thu Jun 04 01:52:20 +0000 2026",
-      "text": "RT @mlit_kinan: 【すさみ串本道路】\n大阪府～和歌山県、三重県を結ぶ近畿自動車道紀勢線の一部です。\n国道４２号の代替として、災害時の交通確保や救急活動を支える重要な道路です。\n整備に伴い京阪神方面からアクセス向上により、さらなる和歌山県南部地域の観光活性化も期待さ…",
-      "permalink": "/mlit_himeji/status/2062351716960620922",
-      "urls": [],
-      "photos": []
     }
   ]
 }
