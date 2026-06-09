@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-09T04:40:22.023761+00:00",
+  "fetched_at": "2026-06-09T11:41:06.410975+00:00",
   "tweets": [
+    {
+      "id": "2064304409069367521",
+      "created_at": "2026-06-09T11:11:38+00:00",
+      "created_at_raw": "Tue Jun 09 11:11:38 +0000 2026",
+      "text": "【6月9日 夜間の工事規制予定】\n国道2号:大阪方面 BP高砂北(77.7kp)22:00～6:00車線規制\n岡山方面 BP明石西(66.5p)、BP城山トンネル(96.5kp)22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2064304409069367521",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2064131833277906961",
       "created_at": "2026-06-08T23:45:53+00:00",
@@ -340,18 +355,6 @@
       "permalink": "/mlit_himeji/status/2062860989964628190",
       "urls": [],
       "photos": []
-    },
-    {
-      "id": "2062838529697493064",
-      "created_at": "2026-06-05T10:06:45+00:00",
-      "created_at_raw": "Fri Jun 05 10:06:45 +0000 2026",
-      "text": "5月30日、加古川中流部緊急治水対策事業完成式典を開催しました！\n洪水被害の軽減が期待される中、多くの関係者とともに盛大に完成を祝いました。\n闘竜灘付近では河高・下滝野・上滝野地区の獅子舞が集結し、にぎやかな連携イベントも行われました。\n#水しごと #流域治水 #加古川 #姫路河川国道事務所 https://t.co/03T21p64kq",
-      "permalink": "/mlit_himeji/status/2062838529697493064",
-      "urls": [],
-      "photos": [
-        "https://pbs.twimg.com/media/HKCrylracAACL9C.jpg",
-        "https://pbs.twimg.com/media/HKCsrLpbQAAK9iD.jpg"
-      ]
     }
   ]
 }
