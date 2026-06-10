@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-09T22:49:44.878433+00:00",
+  "fetched_at": "2026-06-10T00:04:55.619616+00:00",
   "tweets": [
+    {
+      "id": "2064491001318907997",
+      "created_at": "2026-06-09T23:33:05+00:00",
+      "created_at_raw": "Tue Jun 09 23:33:05 +0000 2026",
+      "text": "【6月10日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2064491001318907997",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2064304409069367521",
       "created_at": "2026-06-09T11:11:38+00:00",
@@ -345,15 +360,6 @@
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
-      "photos": []
-    },
-    {
-      "id": "2062860989964628190",
-      "created_at": "2026-06-05T11:36:00+00:00",
-      "created_at_raw": "Fri Jun 05 11:36:00 +0000 2026",
-      "text": "【6月5日 夜間の工事規制予定】\n国道2号:大阪方面 BP夢前トンネル(93.5kp) BP加古川東(68.1kp)22:00～6:00 車線規制\n岡山方面 BP加古川(72.8kp)22:00～6:00 車線規制\nBP中地(92.3kp)22:00～2:00 車線規制",
-      "permalink": "/mlit_himeji/status/2062860989964628190",
-      "urls": [],
       "photos": []
     }
   ]
