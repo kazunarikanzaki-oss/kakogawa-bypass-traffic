@@ -1,7 +1,44 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-12T15:57:09.558414+00:00",
+  "fetched_at": "2026-06-12T23:56:10.980617+00:00",
   "tweets": [
+    {
+      "id": "2065580097902690618",
+      "created_at": "2026-06-12T23:40:46+00:00",
+      "created_at_raw": "Fri Jun 12 23:40:46 +0000 2026",
+      "text": "8時40分頃の #事故 により、岡山方面行 #加古川バイパス #加古川東(69.3kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞 https://t.co/t213j28tPa",
+      "permalink": "/mlit_himeji/status/2065580097902690618",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/oqwGttvBP4",
+          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HKpqJJDbQAAEoot.jpg"
+      ]
+    },
+    {
+      "id": "2065571535260164314",
+      "created_at": "2026-06-12T23:06:45+00:00",
+      "created_at_raw": "Fri Jun 12 23:06:45 +0000 2026",
+      "text": "【6月13日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYrlk",
+      "permalink": "/mlit_himeji/status/2065571535260164314",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYrlk",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2065390404808429624",
       "created_at": "2026-06-12T11:07:00+00:00",
@@ -345,36 +382,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HKcNA1TasAAJj7M.jpg"
       ]
-    },
-    {
-      "id": "2064491001318907997",
-      "created_at": "2026-06-09T23:33:05+00:00",
-      "created_at_raw": "Tue Jun 09 23:33:05 +0000 2026",
-      "text": "【6月10日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2064491001318907997",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2064304409069367521",
-      "created_at": "2026-06-09T11:11:38+00:00",
-      "created_at_raw": "Tue Jun 09 11:11:38 +0000 2026",
-      "text": "【6月9日 夜間の工事規制予定】\n国道2号:大阪方面 BP高砂北(77.7kp)22:00～6:00車線規制\n岡山方面 BP明石西(66.5p)、BP城山トンネル(96.5kp)22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2064304409069367521",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
