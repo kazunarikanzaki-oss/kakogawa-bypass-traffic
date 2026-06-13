@@ -104,6 +104,9 @@
   };
 
   const classifyTags = (text) => {
+    // 「【○月○日 …工事規制予定】」形式は将来/予定のお知らせであり、
+    // 実際の渋滞・規制ではないため info 扱いとし、ステータスを上げない。
+    if (isSchedule(text)) return [{label:'工事予定', kind:'info'}];
     const tags = [];
     if (/通行止/.test(text))           tags.push({label:'通行止', kind:'critical'});
     if (/事故/.test(text))             tags.push({label:'事故', kind:'critical'});
@@ -136,6 +139,9 @@
     return /【.+(工事規制|規制).*予定】/.test(text) &&
            /国道2号[\s:：]*車線規制を伴う工事予定なし/.test(text);
   };
+  // 「【○月○日 昼間/夜間の工事規制予定】」形式 = 将来の予定お知らせ。
+  // 本文に「車線規制」が含まれていてもステータスを上げない。
+  const isSchedule = (text) => /【[^】]*工事規制予定】/.test(text);
   const isClearance = (text) => {
     if (!/(終了|解消|解除|撤去)/.test(text)) return false;
     return /(事故|故障車|物件落下|通行止|車線規制|規制)/.test(text);
@@ -154,7 +160,7 @@
   // Expose pure functions for testing
   Object.assign(window.__nerv, {
     classifyTags, detectDirection, detectArea,
-    isUseless, isClearance, incidentKey, matchCameras,
+    isUseless, isSchedule, isClearance, incidentKey, matchCameras,
     mentionsCongestion
   });
 
