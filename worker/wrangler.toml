@@ -6,7 +6,7 @@ compatibility_date = "2024-11-01"
 # 事前に `wrangler kv namespace create SUBS` を実行し、出力された id を下に貼る。
 [[kv_namespaces]]
 binding = "SUBS"
-id = "<YOUR_KV_NAMESPACE_ID>"
+id = "31f78441e8894d478b166bfeb31c50fa"
 
 # ADMIN_TOKEN はシークレットとして設定する (toml には書かない):
 #   wrangler secret put ADMIN_TOKEN
