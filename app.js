@@ -283,10 +283,8 @@
     if (manualAlert) cause = 'manual';
     else if (SEV[feedLevel] >= SEV[time]) cause = 'feed';
     statusEl.textContent =
-      level === 'alert'   ? (cause === 'feed' ? 'STATUS: 使徒接近 (実検出)' :
-                             cause === 'manual' ? 'STATUS: 使徒接近 (シミュレート)' :
-                                                  'STATUS: 使徒接近 (ラッシュ予測)') :
-      level === 'caution' ? 'STATUS: CAUTION' :
+      level === 'alert'   ? 'STATUS: 渋滞' :
+      level === 'caution' ? 'STATUS: 混雑' :
                             'STATUS: NORMAL';
     // 渋滞検知時は画面全体をブロックせず、枠周りをジワっと赤点滅させる。
     // 操作はそのまま可能なまま。緊急事態シミュレートのみ全画面オーバーレイ。
@@ -417,12 +415,17 @@
   // ============================================================
   closeBtn.addEventListener('click', hideAlert);
   reloadBtn.addEventListener('click', () => { guardedLoad(); setClock(); });
+  let simTimer = null;
   simBtn.addEventListener('click', () => {
+    // 全画面化はせず、枠の赤点滅だけをテスト表示 (操作可能なまま)
     manualAlert = true;
-    showAlert('RED');
     statusEl.classList.remove('normal', 'caution');
     statusEl.classList.add('alert');
-    statusEl.textContent = 'STATUS: 使徒接近 (シミュレート)';
+    statusEl.textContent = 'STATUS: 渋滞 (テスト)';
+    alertFrame.classList.add('show');
+    if (navigator.vibrate) navigator.vibrate(120);
+    clearTimeout(simTimer);
+    simTimer = setTimeout(() => { manualAlert = false; applyStatus(); }, 6000);
   });
   tweetsReloadBtn.addEventListener('click', guardedLoad);
   if (notifyBtn) notifyBtn.addEventListener('click', requestNotifyPermission);

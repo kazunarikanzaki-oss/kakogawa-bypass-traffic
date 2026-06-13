@@ -351,23 +351,18 @@ footer {
   position: fixed; inset: 0; z-index: 9998;
   pointer-events: none;              /* 操作はそのまま通す */
   display: none;
-  will-change: box-shadow;
-  animation: frameGlow 1.8s ease-in-out infinite;
+  border: 5px solid #ff1f1f;         /* 枠線だけ。画面全体は染めない */
+  box-shadow: inset 0 0 10px 0 rgba(255, 0, 0, 0.35);
+  will-change: opacity;
+  animation: frameGlow 2.2s ease-in-out infinite;
 }
 #alertFrame.show { display: block; }
 @keyframes frameGlow {
-  0%, 100% {
-    box-shadow: inset 0 0 22px 3px rgba(255, 24, 24, 0.20),
-                inset 0 0 4px 1px  rgba(255, 60, 60, 0.30);
-  }
-  50% {
-    box-shadow: inset 0 0 72px 16px rgba(255, 0, 0, 0.68),
-                inset 0 0 20px 5px  rgba(255, 44, 44, 0.85);
-  }
+  0%, 100% { opacity: 0.30; }   /* ジワっと消え… */
+  50%      { opacity: 1; }      /* …ジワっと現れる (細い枠のみ) */
 }
 @media (prefers-reduced-motion: reduce) {
-  #alertFrame { animation: none;
-    box-shadow: inset 0 0 40px 8px rgba(255, 0, 0, 0.45); }
+  #alertFrame { animation: none; opacity: 0.8; }
 }
 
 /* ============================================================ */
