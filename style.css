@@ -78,7 +78,14 @@ body {
 .tag.status { margin-left: auto; }
 .tag.status.normal { border-color: var(--green); color: var(--green); background: rgba(0,255,102,0.06); }
 .tag.status.caution { border-color: var(--orange2); color: var(--orange2); background: rgba(255,179,0,0.10); }
-.tag.status.alert { border-color: var(--warn); color: #fff; background: var(--warn); animation: blink 0.8s infinite; }
+.tag.status.alert { border-color: var(--warn); color: #fff; background: var(--warn); animation: statusPulse 1.8s ease-in-out infinite; }
+@keyframes statusPulse {
+  0%, 100% { background: #b30000; box-shadow: 0 0 4px rgba(255,0,0,0.3); }
+  50%      { background: var(--warn); box-shadow: 0 0 14px rgba(255,40,40,0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tag.status.alert { animation: none; }
+}
 
 .magi {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;

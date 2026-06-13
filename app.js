@@ -434,8 +434,19 @@
   //  Service Worker
   // ============================================================
   if ('serviceWorker' in navigator) {
+    // 新しい SW が制御権を取得したら自動で1回だけリロードし、
+    // 古いキャッシュ(全画面オーバーレイ等)を確実に新コードへ更新する。
+    let swRefreshed = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (swRefreshed) return;
+      swRefreshed = true;
+      window.location.reload();
+    });
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
+      navigator.serviceWorker.register('sw.js').then((reg) => {
+        // 既存ページでも更新を取りに行く
+        reg.update().catch(() => {});
+      }).catch(() => {});
     });
   }
 
