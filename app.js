@@ -2,6 +2,7 @@
   const updated   = document.getElementById('updated');
   const statusEl  = document.getElementById('status');
   const alertEl   = document.getElementById('alert');
+  const alertFrame = document.getElementById('alertFrame');
   const alertPat  = document.getElementById('alertPattern');
   const closeBtn  = document.getElementById('alertClose');
   const reloadBtn = document.getElementById('reload');
@@ -272,12 +273,6 @@
   let manualAlert = false;
   let lastShown = null;
 
-  const causeLabel = (cause) => ({
-    feed:    'BLUE',    // 実検出
-    time:    'YELLOW',  // ラッシュ予測
-    manual:  'RED',     // シミュレート
-  })[cause] || 'ORANGE';
-
   const applyStatus = () => {
     const time = evalTimeLevel();
     const combined = maxSev(time, feedLevel);
@@ -293,8 +288,12 @@
                                                   'STATUS: 使徒接近 (ラッシュ予測)') :
       level === 'caution' ? 'STATUS: CAUTION' :
                             'STATUS: NORMAL';
-    if (level === 'alert' && lastShown !== 'alert' && !manualAlert) {
-      showAlert(causeLabel(cause));
+    // 渋滞検知時は画面全体をブロックせず、枠周りをジワっと赤点滅させる。
+    // 操作はそのまま可能なまま。緊急事態シミュレートのみ全画面オーバーレイ。
+    if (level === 'alert' && !manualAlert) {
+      alertFrame.classList.add('show');
+    } else {
+      alertFrame.classList.remove('show');
     }
     lastShown = level;
     reschedulePolling(level);
