@@ -6,7 +6,8 @@
 // ============================================================
 window.NERV_CONFIG = {
   // 例: 'https://nerv-traffic-push.<your-subdomain>.workers.dev'
+  //   Worker をデプロイ後に記入してください。
   PUSH_API: '',
-  // `npx web-push generate-vapid-keys` の Public Key
-  VAPID_PUBLIC_KEY: '',
+  // VAPID 公開鍵 (この場で生成済み。秘密鍵は GitHub Secrets に入れてください)
+  VAPID_PUBLIC_KEY: 'BKKPwQMJXztmB3Glv0kAxqef1TNyn0ewWMXU5CNBA-k2VGzFE-NZrUZN8rQAAxVg_0a_9cdwkX2dERXriInlx2Q',
 };
