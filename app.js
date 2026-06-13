@@ -89,6 +89,20 @@
   // ============================================================
   //  Tweet classification
   // ============================================================
+  // 渋滞シグナル判定:
+  //   定型文「渋滞情報は(…)をご確認下さい」やハッシュタグ ＃渋滞 はほぼ全投稿に
+  //   付くため除外し、実際に渋滞が発生・残存している記述だけを渋滞とみなす。
+  const RESIDUAL_RE = /渋滞\s*残/;                          // 渋滞残有 / 渋滞残あり / 渋滞残り
+  const CONGESTION_CLEARED_RE = /渋滞[^。\n]{0,8}(解消|解除)/; // 渋滞解消 / 渋滞は解除 等
+  const mentionsCongestion = (text) => {
+    const s = String(text);
+    if (CONGESTION_CLEARED_RE.test(s)) return false;       // 渋滞解消の記述があれば渋滞ではない
+    const cleaned = s
+      .replace(/[#＃]渋滞/g, '')                            // ハッシュタグ ＃渋滞
+      .replace(/渋滞情報は[\s\S]*?(ご確認下さい|確認ください|確認下さい)/g, ''); // 定型文
+    return /渋滞/.test(cleaned);
+  };
+
   const classifyTags = (text) => {
     const tags = [];
     if (/通行止/.test(text))           tags.push({label:'通行止', kind:'critical'});
@@ -96,7 +110,7 @@
     if (/故障車/.test(text))           tags.push({label:'故障車', kind:'warn'});
     if (/車線規制|追越車線|走行車線|車線閉鎖|規制/.test(text))
                                         tags.push({label:'規制', kind:'warn'});
-    if (/渋滞/.test(text))             tags.push({label:'渋滞', kind:'warn'});
+    if (mentionsCongestion(text))      tags.push({label:'渋滞', kind:'warn'});
     if (/工事/.test(text))             tags.push({label:'工事', kind:'info'});
     const seen = new Set();
     return tags.filter(t => seen.has(t.label) ? false : seen.add(t.label));
@@ -140,7 +154,8 @@
   // Expose pure functions for testing
   Object.assign(window.__nerv, {
     classifyTags, detectDirection, detectArea,
-    isUseless, isClearance, incidentKey, matchCameras
+    isUseless, isClearance, incidentKey, matchCameras,
+    mentionsCongestion
   });
 
   // ============================================================
@@ -165,30 +180,52 @@
   // ============================================================
   let feedLevel = 'normal';   // 'normal' | 'caution' | 'alert'
   let lastCriticalIds = [];   // 通知用: 直近の表示済 critical id
+  // 「処理終了 渋滞残あり」は渋滞解消の続報が出ないことも多いため、一定時間で
+  //  自動的に解消扱いにしてアラートを下げる (最新ツイート監視のフォールバック)。
+  const RESIDUAL_TTL_MS = 3 * 60 * 60 * 1000; // 3時間
 
   const renderTweets = (data) => {
     const allTweets = (data && data.tweets) || [];
-    let pre = allTweets.filter(t => !isUseless(t.text));
+    const pre = allTweets.filter(t => !isUseless(t.text));
+
+    // 解消(処理終了/解除/撤去)された発生事象のキーを収集
     const clearedKeys = new Set();
     for (const t of pre) {
       if (isClearance(t.text)) clearedKeys.add(incidentKey(t.text));
     }
+
+    const now = Date.now();
+    let residualCongestion = false; // 「処理終了 渋滞残あり」が期限内に存在するか
     let suppressedCount = 0;
     const tweets = pre.filter(t => {
-      if (isClearance(t.text)) { suppressedCount++; return false; }
+      if (isClearance(t.text)) {
+        // 「事故 の処理終了 渋滞残あり」= 事故等は解消したが渋滞は継続中。
+        //  → 重要情報として表示し続け、渋滞ステータスを維持する。
+        if (RESIDUAL_RE.test(t.text) && !CONGESTION_CLEARED_RE.test(t.text)) {
+          const ageMs = now - new Date(t.created_at).getTime();
+          if (ageMs <= RESIDUAL_TTL_MS) { residualCongestion = true; return true; }
+        }
+        // 渋滞残なし(完全解消) または 期限切れの渋滞残 → 非表示(解消扱い)
+        suppressedCount++; return false;
+      }
+      // 解消済み事象の「発生」ツイートは非表示
       if (clearedKeys.has(incidentKey(t.text))) { suppressedCount++; return false; }
       return true;
     });
 
     // 重要度集計（表示対象のみ）
-    let hasCrit = false, hasWarn = false;
+    let hasCrit = false, hasWarn = false, hasCongestion = residualCongestion;
     const criticalTweets = [];
     for (const t of tweets) {
+      const cleared = isClearance(t.text);
       const tags = classifyTags(t.text);
-      if (tags.some(x => x.kind === 'critical')) { hasCrit = true; criticalTweets.push(t); }
-      else if (tags.some(x => x.kind === 'warn')) { hasWarn = true; }
+      // 処理終了済みのツイートは事故等の critical / warn として数えない
+      if (!cleared && tags.some(x => x.kind === 'critical')) { hasCrit = true; criticalTweets.push(t); }
+      else if (!cleared && tags.some(x => x.kind === 'warn')) { hasWarn = true; }
+      if (mentionsCongestion(t.text)) hasCongestion = true;
     }
-    feedLevel = hasCrit ? 'alert' : hasWarn ? 'caution' : 'normal';
+    // 重大事象(事故/通行止) または 渋滞が継続中 → 「渋滞」アラート、規制のみ → 注意
+    feedLevel = (hasCrit || hasCongestion) ? 'alert' : hasWarn ? 'caution' : 'normal';
     applyStatus(); // STATUS 即時反映
 
     // 新規 critical のみ通知
@@ -204,7 +241,8 @@
       const dir = detectDirection(t.text);
       const areas = detectArea(t.text);
       const cams = matchCameras(t.text);
-      const isCrit = tags.some(x => x.kind === 'critical');
+      // 処理終了済みは赤の重大表示にしない (渋滞残ありでも「解消したが渋滞継続」)
+      const isCrit = !isClearance(t.text) && tags.some(x => x.kind === 'critical');
       const tagHtml = tags.map(x => `<span class="tw-tag ${x.kind}">${x.label}</span>`).join('');
       const dirHtml = dir ? `<span class="tw-dir ${dir.kind}">${escapeHtml(dir.label)}</span>` : '';
       const areaHtml = areas.map(a => `<span class="tw-area">${escapeHtml(a)}</span>`).join('');
