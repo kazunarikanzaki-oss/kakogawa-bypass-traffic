@@ -341,12 +341,26 @@
     } catch {}
   };
 
+  // iOS 判定 / ホーム画面PWA(standalone)判定
+  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isStandalone = window.navigator.standalone === true ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+
   const updateNotifyButton = () => {
+    // iOS の Safari 通常タブでは Notification API が無いため、無効化せず
+    // 「ホーム画面に追加」を促す（タップで案内を表示する）。
     if (!('Notification' in window)) {
-      notifyBtn.textContent = '🔕 通知非対応';
-      notifyBtn.disabled = true;
+      if (isIOS && !isStandalone) {
+        notifyBtn.textContent = '🔔 通知を有効化（ホーム画面に追加が必要）';
+        notifyBtn.disabled = false;
+      } else {
+        notifyBtn.textContent = '🔕 通知非対応';
+        notifyBtn.disabled = true;
+      }
       return;
     }
+    notifyBtn.disabled = false;
     const p = Notification.permission;
     if (p === 'granted')     notifyBtn.textContent = '🔔 通知ON';
     else if (p === 'denied') notifyBtn.textContent = '🔕 通知ブロック';
@@ -387,7 +401,22 @@
   };
 
   const requestNotifyPermission = async () => {
-    if (!('Notification' in window)) return;
+    if (!('Notification' in window)) {
+      // iOS は「ホーム画面に追加」した PWA でのみ Web Push が使える
+      if (isIOS && !isStandalone) {
+        alert('iPhone で通知を受け取るには:\n\n' +
+          '1. Safari の「共有」ボタン（□↑）をタップ\n' +
+          '2.「ホーム画面に追加」を選ぶ\n' +
+          '3. 追加したアイコンから起動\n' +
+          '4. もう一度「🔔 通知を有効化」をタップ\n\n' +
+          '※ Safari の通常タブでは iOS の仕様により通知を有効化できません。');
+      }
+      return;
+    }
+    if (Notification.permission === 'denied') {
+      alert('通知がブロックされています。\n端末の設定 →（このアプリ/Safari）→ 通知 から許可してください。');
+      return;
+    }
     if (Notification.permission === 'default') {
       try {
         const result = await Notification.requestPermission();
