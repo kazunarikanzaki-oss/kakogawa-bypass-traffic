@@ -353,6 +353,39 @@
     else                     notifyBtn.textContent = '🔔 通知を有効化';
   };
 
+  // ---- Web Push (ページを閉じていても通知) ----
+  const pushCfg = (window.NERV_CONFIG) || {};
+  const pushEnabled = () => !!(pushCfg.PUSH_API && pushCfg.VAPID_PUBLIC_KEY &&
+    'serviceWorker' in navigator && 'PushManager' in window);
+
+  const urlBase64ToUint8Array = (base64) => {
+    const padding = '='.repeat((4 - base64.length % 4) % 4);
+    const b64 = (base64 + padding).replace(/-/g, '+').replace(/_/g, '/');
+    const raw = atob(b64);
+    const arr = new Uint8Array(raw.length);
+    for (let i = 0; i < raw.length; i++) arr[i] = raw.charCodeAt(i);
+    return arr;
+  };
+
+  const subscribeToPush = async () => {
+    if (!pushEnabled() || Notification.permission !== 'granted') return;
+    try {
+      const reg = await navigator.serviceWorker.ready;
+      let sub = await reg.pushManager.getSubscription();
+      if (!sub) {
+        sub = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(pushCfg.VAPID_PUBLIC_KEY),
+        });
+      }
+      await fetch(pushCfg.PUSH_API.replace(/\/+$/, '') + '/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subscription: sub }),
+      });
+    } catch (e) { /* プッシュ未対応/拒否時はローカル通知にフォールバック */ }
+  };
+
   const requestNotifyPermission = async () => {
     if (!('Notification' in window)) return;
     if (Notification.permission === 'default') {
@@ -363,6 +396,7 @@
         }
       } catch {}
     }
+    if (Notification.permission === 'granted') subscribeToPush();
     updateNotifyButton();
   };
 
@@ -462,6 +496,10 @@
       navigator.serviceWorker.register('sw.js').then((reg) => {
         // 既存ページでも更新を取りに行く
         reg.update().catch(() => {});
+        // 既に通知許可済みなら毎回購読を更新 (購読の失効/サーバ再構築に追従)
+        if ('Notification' in window && Notification.permission === 'granted') {
+          subscribeToPush();
+        }
       }).catch(() => {});
     });
   }

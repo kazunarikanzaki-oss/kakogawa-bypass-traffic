@@ -1,0 +1,14 @@
+{
+  "name": "nerv-traffic-push",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Web Push sender for NERV TRAFFIC (GitHub Actions)",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node congestion.test.js",
+    "push": "node push_notify.js"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}
