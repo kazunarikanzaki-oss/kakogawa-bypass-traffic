@@ -2,7 +2,7 @@
 // オフライン耐性 (シェル): index.html / style.css / app.js / icon.svg / manifest.json
 // 動的データ (tweets.json, ライブカメラ, 地図) は SW を通さずネットワーク直行
 
-const CACHE = 'nerv-traffic-v4';
+const CACHE = 'nerv-traffic-v5';
 const SHELL = [
   './',
   'index.html',
@@ -35,7 +35,27 @@ self.addEventListener('fetch', (e) => {
   // GET 以外は素通し
   if (e.request.method !== 'GET') return;
 
-  // シェルアセット: cache-first + ネットワーク更新
+  // HTML ナビゲーション (index.html / './') は network-first。
+  // オンライン時は常に最新 HTML を取得し、正しいバージョンの JS/CSS を読み込ませる。
+  // (cache-first だと古い index.html が固定され、新コードに更新されない問題を防ぐ)
+  const isHTML = e.request.mode === 'navigate' ||
+    e.request.destination === 'document' ||
+    /\.html$/.test(url.pathname) || url.pathname.endsWith('/');
+  if (isHTML) {
+    e.respondWith(
+      fetch(e.request).then((resp) => {
+        if (resp && resp.status === 200) {
+          const copy = resp.clone();
+          caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+        }
+        return resp;
+      }).catch(() => caches.match(e.request, { ignoreSearch: false })
+        .then((c) => c || caches.match('./')))
+    );
+    return;
+  }
+
+  // その他のシェルアセット (バージョン付き JS/CSS 等): cache-first + 背景更新
   e.respondWith(
     caches.match(e.request, { ignoreSearch: false }).then((cached) => {
       const fetched = fetch(e.request).then((resp) => {
