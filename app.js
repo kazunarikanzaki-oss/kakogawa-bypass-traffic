@@ -1,10 +1,7 @@
 (() => {
   const updated   = document.getElementById('updated');
   const statusEl  = document.getElementById('status');
-  const alertEl   = document.getElementById('alert');
-  const alertFrame = document.getElementById('alertFrame');
-  const alertPat  = document.getElementById('alertPattern');
-  const closeBtn  = document.getElementById('alertClose');
+  const congEdge  = document.getElementById('congEdge');
   const reloadBtn = document.getElementById('reload');
   const simBtn    = document.getElementById('simulate');
   const tweetsEl  = document.getElementById('tweets');
@@ -270,45 +267,25 @@
     return 'normal';
   };
 
-  let manualAlert = false;
   let lastShown = null;
 
   const applyStatus = () => {
     const time = evalTimeLevel();
-    const combined = maxSev(time, feedLevel);
-    const level = manualAlert ? 'alert' : combined;
+    const level = maxSev(time, feedLevel);
     statusEl.classList.remove('normal', 'caution', 'alert');
     statusEl.classList.add(level);
-    let cause = 'time';
-    if (manualAlert) cause = 'manual';
-    else if (SEV[feedLevel] >= SEV[time]) cause = 'feed';
     statusEl.textContent =
       level === 'alert'   ? 'STATUS: 渋滞' :
       level === 'caution' ? 'STATUS: 混雑' :
                             'STATUS: NORMAL';
-    // 渋滞検知時は画面全体をブロックせず、枠周りをジワっと赤点滅させる。
-    // 操作はそのまま可能なまま。緊急事態シミュレートのみ全画面オーバーレイ。
-    if (level === 'alert' && !manualAlert) {
-      alertFrame.classList.add('show');
+    // 渋滞検知時は画面の縁だけをジワっと赤く脈動させる (枠線のみ・操作可能)。
+    if (level === 'alert') {
+      congEdge.classList.add('show');
     } else {
-      alertFrame.classList.remove('show');
+      congEdge.classList.remove('show');
     }
     lastShown = level;
     reschedulePolling(level);
-  };
-
-  const showAlert = (pattern = 'ORANGE') => {
-    alertPat.textContent = pattern;
-    alertEl.classList.remove('hidden');
-    alertEl.setAttribute('aria-hidden', 'false');
-    if (navigator.vibrate) navigator.vibrate([200, 80, 200, 80, 400]);
-  };
-  const hideAlert = () => {
-    alertEl.classList.add('hidden');
-    alertEl.setAttribute('aria-hidden', 'true');
-    manualAlert = false;
-    lastShown = 'alert';
-    applyStatus();
   };
 
   // ============================================================
@@ -413,19 +390,17 @@
   // ============================================================
   //  Wiring
   // ============================================================
-  closeBtn.addEventListener('click', hideAlert);
   reloadBtn.addEventListener('click', () => { guardedLoad(); setClock(); });
   let simTimer = null;
   simBtn.addEventListener('click', () => {
-    // 全画面化はせず、枠の赤点滅だけをテスト表示 (操作可能なまま)
-    manualAlert = true;
+    // 全画面化はせず、縁の赤点滅だけをテスト表示 (操作可能なまま)
     statusEl.classList.remove('normal', 'caution');
     statusEl.classList.add('alert');
     statusEl.textContent = 'STATUS: 渋滞 (テスト)';
-    alertFrame.classList.add('show');
+    congEdge.classList.add('show');
     if (navigator.vibrate) navigator.vibrate(120);
     clearTimeout(simTimer);
-    simTimer = setTimeout(() => { manualAlert = false; applyStatus(); }, 6000);
+    simTimer = setTimeout(() => { applyStatus(); }, 6000);
   });
   tweetsReloadBtn.addEventListener('click', guardedLoad);
   if (notifyBtn) notifyBtn.addEventListener('click', requestNotifyPermission);

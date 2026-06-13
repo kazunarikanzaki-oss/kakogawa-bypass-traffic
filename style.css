@@ -346,136 +346,28 @@ footer {
 }
 
 /* ============================================================ */
-/* TRAFFIC ALERT FRAME  (渋滞検知: 枠だけ赤点滅 / 操作可能)      */
+/* CONGESTION EDGE  (渋滞検知: 画面の縁だけ赤く脈動 / 操作可能)  */
+/*   ※ 枠線のみ。背景・グロー・塗りつぶしは一切持たないので    */
+/*      画面全体が赤くなることは構造的に起こり得ない。          */
 /* ============================================================ */
-#alertFrame {
+#congEdge {
   position: fixed; inset: 0; z-index: 9998;
-  pointer-events: none;              /* 操作はそのまま通す */
+  pointer-events: none;        /* クリック/スクロールはそのまま通す */
   display: none;
-  border: 4px solid #ff1f1f;         /* 枠線だけ。中央は完全に透明 */
-  background: transparent;           /* 画面は一切染めない */
-  will-change: opacity;
-  animation: frameGlow 2.4s ease-in-out infinite;
+  border: 4px solid #ff1f1f;   /* 縁の枠線だけ */
+  background: none;            /* 塗りつぶし無し */
+  box-shadow: none;           /* グロー無し */
+  animation: congPulse 2.4s ease-in-out infinite;
 }
-#alertFrame.show { display: block; }
-@keyframes frameGlow {
-  0%, 100% { opacity: 0.25; }   /* ジワっと消え… */
-  50%      { opacity: 0.9; }    /* …ジワっと現れる (細い枠のみ) */
+#congEdge.show { display: block; }
+@keyframes congPulse {
+  0%, 100% { opacity: 0.2; }   /* ジワっと薄く… */
+  50%      { opacity: 0.9; }   /* …ジワっと濃く (縁のみ) */
 }
 @media (prefers-reduced-motion: reduce) {
-  #alertFrame { animation: none; opacity: 0.7; }
+  #congEdge { animation: none; opacity: 0.7; }
 }
 
-/* ============================================================ */
-/* ALERT OVERLAY                                                */
-/* ============================================================ */
-.alert.hidden { display: none; }
-.alert {
-  position: fixed; inset: 0; z-index: 9999;
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba(255,0,0,0.85) 0 24px,
-    rgba(0,0,0,0.85) 24px 48px
-  );
-  display: flex; align-items: center; justify-content: center;
-  animation: alertBg 0.4s steps(2) infinite;
-}
-@keyframes alertBg {
-  0%   { filter: hue-rotate(0deg) brightness(1); }
-  100% { filter: hue-rotate(20deg) brightness(1.25); }
-}
-
-.siren-bar {
-  position: absolute; top: 0; bottom: 0; width: 18px;
-  background: linear-gradient(180deg, #ff0000, #ffaa00, #ff0000);
-  box-shadow: 0 0 30px #ff0000, 0 0 60px #ff5500;
-  animation: sirenSlide 1.2s linear infinite;
-}
-.siren-bar.left { left: 0; }
-.siren-bar.right { right: 0; animation-direction: reverse; }
-@keyframes sirenSlide {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50%      { transform: translateY(20px); opacity: 0.6; }
-}
-
-.alert-inner {
-  position: relative;
-  text-align: center;
-  padding: 20px;
-  max-width: 92vw;
-}
-
-.hex-warn {
-  position: relative;
-  background: #000;
-  padding: 28px 22px;
-  border: 3px solid #ff2a2a;
-  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
-  box-shadow: 0 0 40px #ff0000, inset 0 0 30px rgba(255,0,0,0.6);
-  animation: hexShake 0.18s linear infinite;
-}
-@keyframes hexShake {
-  0%   { transform: translate(0,0); }
-  25%  { transform: translate(-2px, 1px); }
-  50%  { transform: translate(2px, -1px); }
-  75%  { transform: translate(-1px, -2px); }
-  100% { transform: translate(0,0); }
-}
-.hex-warn-inner { position: relative; }
-
-.alert-label {
-  font-family: var(--display); font-weight: 900;
-  font-size: 26px; letter-spacing: 0.4em;
-  color: #fff;
-  text-shadow: 0 0 12px #ff0000, 0 0 4px #fff;
-  animation: blink 0.5s steps(2) infinite;
-}
-.alert-jp {
-  font-family: var(--display); font-weight: 900;
-  font-size: 56px; letter-spacing: 0.18em;
-  color: #ffd400;
-  text-shadow: 0 0 20px #ff5500, 0 0 4px #fff;
-  margin: 8px 0 4px;
-  line-height: 1;
-}
-.alert-sub {
-  font-family: var(--mono);
-  font-size: 14px; letter-spacing: 0.25em;
-  color: #ffeeee;
-  margin-bottom: 14px;
-}
-.alert-pattern {
-  display: inline-block;
-  font-family: var(--display); font-weight: 700;
-  font-size: 18px; letter-spacing: 0.2em;
-  padding: 6px 14px;
-  background: #000; color: #ff8800;
-  border: 1px solid #ff8800;
-  margin-bottom: 10px;
-}
-.alert-target {
-  font-family: var(--mono);
-  font-size: 12px; letter-spacing: 0.2em;
-  color: #fff;
-  opacity: 0.85;
-}
-
-.alert-close {
-  margin-top: 18px;
-  background: #000; color: #fff;
-  border: 2px solid #fff;
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.4em;
-  padding: 10px 26px;
-  cursor: pointer;
-}
-.alert-close:active { background: #fff; color: #000; }
-
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0.25; }
-}
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.4; transform: scale(0.85); }
