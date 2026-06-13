@@ -1,0 +1,5 @@
+{
+  "WORKER_URL": "",
+  "VAPID_PUBLIC_KEY": "BKKPwQMJXztmB3Glv0kAxqef1TNyn0ewWMXU5CNBA-k2VGzFE-NZrUZN8rQAAxVg_0a_9cdwkX2dERXriInlx2Q",
+  "VAPID_SUBJECT": "mailto:kazunari.kanzaki@gmail.com"
+}

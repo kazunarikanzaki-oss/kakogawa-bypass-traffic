@@ -35,10 +35,9 @@ jobs:
 
       - name: Detect transition and send push
         working-directory: scripts
+        # 非機密(WORKER_URL/VAPID公開鍵/subject)は push.config.json から読み込む。
+        # 機密の2つだけ GitHub Secrets で渡す。
         env:
-          WORKER_URL: ${{ secrets.PUSH_WORKER_URL }}
           ADMIN_TOKEN: ${{ secrets.PUSH_ADMIN_TOKEN }}
-          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
-          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
         run: node push_notify.js

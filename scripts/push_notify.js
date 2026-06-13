@@ -17,13 +17,17 @@ const path = require('path');
 const webpush = require('web-push');
 const { evaluate } = require('./congestion');
 
-const {
-  WORKER_URL, ADMIN_TOKEN,
-  VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY,
-  VAPID_SUBJECT = 'mailto:admin@example.com',
-} = process.env;
+// 非機密の設定は push.config.json から、機密(秘密鍵/管理トークン)は環境変数から。
+const fileCfgPath = path.resolve(__dirname, 'push.config.json');
+const fileCfg = fs.existsSync(fileCfgPath) ? JSON.parse(fs.readFileSync(fileCfgPath, 'utf-8')) : {};
 
-function need(name, v) { if (!v) { console.error(`Missing env: ${name}`); process.exit(1); } }
+const WORKER_URL = process.env.WORKER_URL || fileCfg.WORKER_URL;
+const VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY || fileCfg.VAPID_PUBLIC_KEY;
+const VAPID_SUBJECT = process.env.VAPID_SUBJECT || fileCfg.VAPID_SUBJECT || 'mailto:admin@example.com';
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN;        // GitHub Secret
+const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY; // GitHub Secret
+
+function need(name, v) { if (!v) { console.error(`Missing config: ${name}`); process.exit(1); } }
 need('WORKER_URL', WORKER_URL);
 need('ADMIN_TOKEN', ADMIN_TOKEN);
 need('VAPID_PUBLIC_KEY', VAPID_PUBLIC_KEY);
