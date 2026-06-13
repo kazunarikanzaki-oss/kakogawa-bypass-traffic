@@ -333,6 +333,16 @@ footer {
   padding: 24px 16px 40px;
   line-height: 1.7;
 }
+.build-tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  border: 1px solid var(--grid);
+  padding: 2px 8px;
+}
 
 /* ============================================================ */
 /* TRAFFIC ALERT FRAME  (渋滞検知: 枠だけ赤点滅 / 操作可能)      */
