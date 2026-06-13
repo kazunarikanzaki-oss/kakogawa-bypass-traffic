@@ -347,12 +347,15 @@
   const isStandalone = window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
 
+  const NOTIF_ON_KEY = 'nervNotifyOn';
+  let notifyOn = false; // 現在の購読ON/OFF状態 (refreshで更新)
+
   const updateNotifyButton = () => {
     // iOS の Safari 通常タブでは Notification API が無いため、無効化せず
-    // 「ホーム画面に追加」を促す（タップで案内を表示する）。
+    // タップで「ホーム画面に追加」を案内する。
     if (!('Notification' in window)) {
       if (isIOS && !isStandalone) {
-        notifyBtn.textContent = '🔔 通知を有効化（ホーム画面に追加が必要）';
+        notifyBtn.textContent = '🔔 通知を設定';
         notifyBtn.disabled = false;
       } else {
         notifyBtn.textContent = '🔕 通知非対応';
@@ -362,9 +365,10 @@
     }
     notifyBtn.disabled = false;
     const p = Notification.permission;
-    if (p === 'granted')     notifyBtn.textContent = '🔔 通知ON';
-    else if (p === 'denied') notifyBtn.textContent = '🔕 通知ブロック';
-    else                     notifyBtn.textContent = '🔔 通知を有効化';
+    if (p === 'denied') { notifyBtn.textContent = '🔕 通知ブロック'; return; }
+    if (p === 'granted' && notifyOn) { notifyBtn.textContent = '🔔 通知ON（タップでオフ）'; return; }
+    if (p === 'granted')             { notifyBtn.textContent = '🔕 通知OFF（タップでオン）'; return; }
+    notifyBtn.textContent = '🔔 通知を有効化';
   };
 
   // ---- Web Push (ページを閉じていても通知) ----
@@ -400,9 +404,46 @@
     } catch (e) { /* プッシュ未対応/拒否時はローカル通知にフォールバック */ }
   };
 
+  // 購読を解除 (オフ)。Worker からも削除し、端末側の購読も破棄する。
+  const unsubscribeFromPush = async () => {
+    try {
+      if ('serviceWorker' in navigator && 'PushManager' in window) {
+        const reg = await navigator.serviceWorker.ready;
+        const sub = await reg.pushManager.getSubscription();
+        if (sub) {
+          if (pushCfg.PUSH_API) {
+            try {
+              await fetch(pushCfg.PUSH_API.replace(/\/+$/, '') + '/unsubscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ endpoint: sub.endpoint }),
+              });
+            } catch {}
+          }
+          await sub.unsubscribe();
+        }
+      }
+    } catch {}
+  };
+
+  // 現在のON/OFF状態を購読有無から判定してボタンに反映 (起動時/操作後に呼ぶ)
+  const refreshNotifyState = async () => {
+    notifyOn = false;
+    if ('Notification' in window && Notification.permission === 'granted'
+        && 'serviceWorker' in navigator && 'PushManager' in window) {
+      try {
+        const reg = await navigator.serviceWorker.ready;
+        const sub = await reg.pushManager.getSubscription();
+        // 購読があり、かつ明示的にオフにしていなければ ON
+        notifyOn = !!sub && localStorage.getItem(NOTIF_ON_KEY) !== '0';
+      } catch {}
+    }
+    updateNotifyButton();
+  };
+
   const requestNotifyPermission = async () => {
+    // iOS の Safari 通常タブ: 通知APIが無いので「ホーム画面に追加」を案内
     if (!('Notification' in window)) {
-      // iOS は「ホーム画面に追加」した PWA でのみ Web Push が使える
       if (isIOS && !isStandalone) {
         alert('iPhone で通知を受け取るには:\n\n' +
           '1. Safari の「共有」ボタン（□↑）をタップ\n' +
@@ -417,16 +458,28 @@
       alert('通知がブロックされています。\n端末の設定 →（このアプリ/Safari）→ 通知 から許可してください。');
       return;
     }
+
+    // 既にON → タップでオフ
+    if (Notification.permission === 'granted' && notifyOn) {
+      localStorage.setItem(NOTIF_ON_KEY, '0');
+      await unsubscribeFromPush();
+      await refreshNotifyState();
+      return;
+    }
+
+    // オフ/未設定 → オンにする
     if (Notification.permission === 'default') {
       try {
         const result = await Notification.requestPermission();
-        if (result === 'granted') {
-          new Notification('NERV TRAFFIC', { body: '通知が有効になりました', tag: 'nerv-init' });
-        }
-      } catch {}
+        if (result !== 'granted') { await refreshNotifyState(); return; }
+      } catch { await refreshNotifyState(); return; }
     }
-    if (Notification.permission === 'granted') subscribeToPush();
-    updateNotifyButton();
+    if (Notification.permission === 'granted') {
+      localStorage.setItem(NOTIF_ON_KEY, '1');
+      await subscribeToPush();
+      try { new Notification('NERV TRAFFIC', { body: '通知をオンにしました', tag: 'nerv-init' }); } catch {}
+    }
+    await refreshNotifyState();
   };
 
   let isFirstFeed = true;
@@ -525,9 +578,13 @@
       navigator.serviceWorker.register('sw.js').then((reg) => {
         // 既存ページでも更新を取りに行く
         reg.update().catch(() => {});
-        // 既に通知許可済みなら毎回購読を更新 (購読の失効/サーバ再構築に追従)
-        if ('Notification' in window && Notification.permission === 'granted') {
-          subscribeToPush();
+        // 既に通知ONなら毎回購読を更新 (購読の失効/サーバ再構築に追従)。
+        // オフにしている場合は購読し直さない。
+        if ('Notification' in window && Notification.permission === 'granted'
+            && localStorage.getItem(NOTIF_ON_KEY) !== '0') {
+          subscribeToPush().then(refreshNotifyState);
+        } else {
+          refreshNotifyState();
         }
       }).catch(() => {});
     });
@@ -541,6 +598,7 @@
   refreshCams();
   setInterval(refreshCams, 60000);
   updateNotifyButton();
+  refreshNotifyState();
   applyStatus();
   setInterval(applyStatus, 60000);
   guardedLoad();
