@@ -1,7 +1,29 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-14T17:53:28.129287+00:00",
+  "fetched_at": "2026-06-14T23:40:53.584776+00:00",
   "tweets": [
+    {
+      "id": "2066300242606346286",
+      "created_at": "2026-06-14T23:22:22+00:00",
+      "created_at_raw": "Sun Jun 14 23:22:22 +0000 2026",
+      "text": "8時10分頃の #事故 により、大阪方面行 #姫路バイパス #夢前トンネル(93.2kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/9CZnV7AF03",
+      "permalink": "/mlit_himeji/status/2066300242606346286",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HKz5HYpb0AADn5b.jpg"
+      ]
+    },
     {
       "id": "2066112292396376375",
       "created_at": "2026-06-14T10:55:31+00:00",
@@ -348,26 +370,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HKfRSspbsAAHdYR.jpg"
       ]
-    },
-    {
-      "id": "2064743047754317879",
-      "created_at": "2026-06-10T16:14:38+00:00",
-      "created_at_raw": "Wed Jun 10 16:14:38 +0000 2026",
-      "text": "大阪方面行  #姫路バイパス 　#姫路西 (93.5kp) 付近\n23時35分頃の #故障車 の処理終了\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2064743047754317879",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
     }
   ]
 }
