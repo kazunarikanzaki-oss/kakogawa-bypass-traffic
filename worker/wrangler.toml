@@ -2,11 +2,18 @@ name = "nerv-traffic-push"
 main = "worker.js"
 compatibility_date = "2024-11-01"
 
-# KV: 購読情報と渋滞状態の保存先。
-# 事前に `wrangler kv namespace create SUBS` を実行し、出力された id を下に貼る。
+# KV: 購読情報 / 渋滞状態 / 最新ツイートの保存先。
 [[kv_namespaces]]
 binding = "SUBS"
 id = "31f78441e8894d478b166bfeb31c50fa"
 
-# ADMIN_TOKEN はシークレットとして設定する (toml には書かない):
-#   wrangler secret put ADMIN_TOKEN
+# Cron Trigger: 2分毎に取得→判定→プッシュ送信を実行 (GitHubと違いほぼ定刻)。
+[triggers]
+crons = ["*/2 * * * *"]
+
+# 非機密の設定 (公開鍵・subject)。秘密鍵と管理トークンは secret で設定する:
+#   echo "<VAPID秘密鍵>" | wrangler secret put VAPID_PRIVATE_KEY
+#   echo "<管理トークン>" | wrangler secret put ADMIN_TOKEN
+[vars]
+VAPID_PUBLIC_KEY = "BKKPwQMJXztmB3Glv0kAxqef1TNyn0ewWMXU5CNBA-k2VGzFE-NZrUZN8rQAAxVg_0a_9cdwkX2dERXriInlx2Q"
+VAPID_SUBJECT = "mailto:kazunari.kanzaki@gmail.com"

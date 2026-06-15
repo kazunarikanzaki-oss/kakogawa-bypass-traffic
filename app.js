@@ -299,19 +299,30 @@
     tweetsFetchedEl.textContent = `最終取得: ${fmtRel(fetchedAt)} (${fmtAbs(fetchedAt)})`;
   };
 
+  // 取得元: まず Cloudflare Worker (2分毎・確実に更新) を優先し、
+  // 失敗時は GitHub のコミット済み tweets.json にフォールバックする。
+  const RAW_TWEETS_URL = 'https://raw.githubusercontent.com/kazunarikanzaki-oss/kakogawa-bypass-traffic/main/tweets.json';
+  const workerTweetsUrl = () => {
+    const api = (window.NERV_CONFIG && window.NERV_CONFIG.PUSH_API) || '';
+    return api ? api.replace(/\/+$/, '') + '/tweets' : '';
+  };
   const loadTweets = async () => {
-    try {
-      tweetsFetchedEl.textContent = '読み込み中…';
-      const url = `https://raw.githubusercontent.com/kazunarikanzaki-oss/kakogawa-bypass-traffic/main/tweets.json?t=${Date.now()}`;
-      const r = await fetch(url, { cache: 'no-cache' });
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      const data = await r.json();
-      renderTweets(data);
-      updateFetchedLabel(data.fetched_at);
-    } catch (e) {
-      tweetsEl.innerHTML = `<div class="tweet-empty">取得エラー: ${escapeHtml(String(e))}<br>「X で開く」ボタンから直接ご確認ください。</div>`;
-      tweetsFetchedEl.textContent = '取得エラー';
+    tweetsFetchedEl.textContent = '読み込み中…';
+    const sources = [workerTweetsUrl(), RAW_TWEETS_URL].filter(Boolean);
+    let lastErr = null;
+    for (const src of sources) {
+      try {
+        const r = await fetch(`${src}${src.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-cache' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        if (!data || !Array.isArray(data.tweets)) throw new Error('bad payload');
+        renderTweets(data);
+        updateFetchedLabel(data.fetched_at);
+        return;
+      } catch (e) { lastErr = e; }
     }
+    tweetsEl.innerHTML = `<div class="tweet-empty">取得エラー: ${escapeHtml(String(lastErr))}<br>「X で開く」ボタンから直接ご確認ください。</div>`;
+    tweetsFetchedEl.textContent = '取得エラー';
   };
 
   // ============================================================
