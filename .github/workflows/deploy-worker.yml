@@ -1,0 +1,32 @@
+name: Deploy Worker (Cloudflare)
+
+# PC不要で Cloudflare Worker をデプロイする。
+# これは push/手動実行で動く(scheduleではない)ため間引きの影響を受けない。
+# Cron 本体は Cloudflare 側で確実に動作する。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - '.github/workflows/deploy-worker.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          # Worker のシークレットも同時にアップロードする(値は GitHub Secrets から)
+          secrets: |
+            VAPID_PRIVATE_KEY
+            ADMIN_TOKEN
+        env:
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          ADMIN_TOKEN: ${{ secrets.PUSH_ADMIN_TOKEN }}
