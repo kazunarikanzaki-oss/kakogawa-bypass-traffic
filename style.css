@@ -260,6 +260,16 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
 .tweet-text a { color: var(--orange2); text-decoration: underline; }
 .tweet-text .tag-hash { color: var(--green); font-weight: 700; }
 
+.tw-stale {
+  margin-top: 8px;
+  padding: 6px 9px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--dim);
+  border-left: 2px solid var(--grid);
+  background: rgba(255,255,255,0.02);
+}
+
 .tweet-cams {
   display: flex; flex-direction: column;
   gap: 10px;

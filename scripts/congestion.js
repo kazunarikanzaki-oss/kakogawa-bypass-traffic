@@ -8,6 +8,10 @@
 const RESIDUAL_RE = /渋滞\s*残/;                          // 渋滞残有 / 渋滞残あり / 渋滞残り
 const CONGESTION_CLEARED_RE = /渋滞[^。\n]{0,8}(解消|解除)/; // 渋滞解消 / 渋滞は解除 等
 const RESIDUAL_TTL_MS = 3 * 60 * 60 * 1000;              // 渋滞残: 3時間で自動的に解消扱い
+// 発生事象の続報「処理終了」がスクレイピング遅延で取得できない場合に、
+// 元の発生ツイートが古いまま渋滞のままになるのを防ぐ。一定時間を超えた
+// 発生ツイートは「続報未取得=おそらく解消済み」とみなし渋滞に数えない。
+const INCIDENT_TTL_MS = 3 * 60 * 60 * 1000;              // 発生事象: 3時間
 
 // 定型文「渋滞情報は…ご確認下さい」とハッシュタグ ＃渋滞 はほぼ全投稿に付くため
 // 除外し、実際に渋滞が発生・残存している記述だけを渋滞とみなす。
@@ -73,11 +77,13 @@ function evaluate(tweets, now) {
   let headlineTweet = null;
   for (const t of visible) {
     const cleared = isClearance(t.text);
-    if (!cleared && isCritical(t.text)) {
+    // 発生から INCIDENT_TTL_MS を超えた事象は続報未取得=解消済みとみなし数えない
+    const stale = (now - new Date(t.created_at).getTime()) > INCIDENT_TTL_MS;
+    if (!cleared && !stale && isCritical(t.text)) {
       hasCrit = true;
       if (!headlineTweet) headlineTweet = t;
     }
-    if (mentionsCongestion(t.text)) {
+    if (!stale && mentionsCongestion(t.text)) {
       hasCongestion = true;
       if (!headlineTweet) headlineTweet = t;
     }
@@ -91,6 +97,6 @@ function evaluate(tweets, now) {
 }
 
 module.exports = {
-  RESIDUAL_RE, CONGESTION_CLEARED_RE, RESIDUAL_TTL_MS,
+  RESIDUAL_RE, CONGESTION_CLEARED_RE, RESIDUAL_TTL_MS, INCIDENT_TTL_MS,
   mentionsCongestion, isUseless, isClearance, incidentKey, isCritical, evaluate,
 };

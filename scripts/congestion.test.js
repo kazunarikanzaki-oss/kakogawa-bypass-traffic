@@ -54,5 +54,13 @@ eq('eval: 古い渋滞残=clear',
 eq('eval: 工事予定のみ=clear',
   C.evaluate([tA(WORK, '2026-06-13T00:00:00+09:00')], NOW).congested, false);
 
+// 6) 発生中の事故だが処理終了が未取得で3時間超 → 自動解消(続報未取得)
+eq('eval: 古い事故(続報なし)=clear',
+  C.evaluate([tA(START, '2026-06-12T21:00:00+09:00')], NOW).congested, false);
+
+// 7) 発生から3時間以内の事故 → まだ渋滞
+eq('eval: 2時間前の事故=congested',
+  C.evaluate([tA(START, '2026-06-12T23:00:00+09:00')], NOW).congested, true);
+
 console.log(`\n${fail === 0 ? '✓ ALL PASS' : '✗ FAILED'}  (${pass}/${pass + fail})`);
 process.exit(fail === 0 ? 0 : 1);

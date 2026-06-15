@@ -189,6 +189,12 @@
   // 「処理終了 渋滞残あり」は渋滞解消の続報が出ないことも多いため、一定時間で
   //  自動的に解消扱いにしてアラートを下げる (最新ツイート監視のフォールバック)。
   const RESIDUAL_TTL_MS = 3 * 60 * 60 * 1000; // 3時間
+  // 発生事象(事故/故障車/規制等)の続報「処理終了」がスクレイピングの遅延等で
+  // 取得できないと、元の発生ツイートが古いまま渋滞ステータスを維持してしまう。
+  // @mlit_himeji は通常数時間以内に処理終了を投稿するため、一定時間を超えた
+  // 発生ツイートは「続報未取得=おそらく解消済み」とみなしステータスを上げない。
+  const INCIDENT_TTL_MS = 3 * 60 * 60 * 1000; // 3時間
+  const ageMsOf = (t) => Date.now() - new Date(t.created_at).getTime();
 
   const renderTweets = (data) => {
     const allTweets = (data && data.tweets) || [];
@@ -224,11 +230,13 @@
     const criticalTweets = [];
     for (const t of tweets) {
       const cleared = isClearance(t.text);
+      // 発生から INCIDENT_TTL_MS を超えた事象は続報未取得=解消済みとみなしステータスに数えない
+      const stale = ageMsOf(t) > INCIDENT_TTL_MS;
       const tags = classifyTags(t.text);
-      // 処理終了済みのツイートは事故等の critical / warn として数えない
-      if (!cleared && tags.some(x => x.kind === 'critical')) { hasCrit = true; criticalTweets.push(t); }
-      else if (!cleared && tags.some(x => x.kind === 'warn')) { hasWarn = true; }
-      if (mentionsCongestion(t.text)) hasCongestion = true;
+      // 処理終了済み/期限切れのツイートは事故等の critical / warn として数えない
+      if (!cleared && !stale && tags.some(x => x.kind === 'critical')) { hasCrit = true; criticalTweets.push(t); }
+      else if (!cleared && !stale && tags.some(x => x.kind === 'warn')) { hasWarn = true; }
+      if (!stale && mentionsCongestion(t.text)) hasCongestion = true;
     }
     // 重大事象(事故/通行止) または 渋滞が継続中 → 「渋滞」アラート、規制のみ → 注意
     feedLevel = (hasCrit || hasCongestion) ? 'alert' : hasWarn ? 'caution' : 'normal';
@@ -247,8 +255,14 @@
       const dir = detectDirection(t.text);
       const areas = detectArea(t.text);
       const cams = matchCameras(t.text);
-      // 処理終了済みは赤の重大表示にしない (渋滞残ありでも「解消したが渋滞継続」)
-      const isCrit = !isClearance(t.text) && tags.some(x => x.kind === 'critical');
+      // 発生から時間が経過し続報(処理終了)が未取得 = おそらく解消済み
+      const stale = !isClearance(t.text) && ageMsOf(t) > INCIDENT_TTL_MS &&
+                    tags.some(x => x.kind === 'critical' || x.kind === 'warn');
+      // 処理終了済み/期限切れは赤の重大表示にしない (渋滞残ありでも「解消したが渋滞継続」)
+      const isCrit = !isClearance(t.text) && !stale && tags.some(x => x.kind === 'critical');
+      const staleHtml = stale
+        ? '<div class="tw-stale">※ 発生から時間が経過しています。続報（処理終了）が未取得のため、すでに解消している可能性があります。</div>'
+        : '';
       const tagHtml = tags.map(x => `<span class="tw-tag ${x.kind}">${x.label}</span>`).join('');
       const dirHtml = dir ? `<span class="tw-dir ${dir.kind}">${escapeHtml(dir.label)}</span>` : '';
       const areaHtml = areas.map(a => `<span class="tw-area">${escapeHtml(a)}</span>`).join('');
@@ -271,6 +285,7 @@
           </div>
           <div class="tweet-chips">${areaHtml}${dirHtml}${tagHtml}</div>
           <div class="tweet-text">${linkify(t.text, t.urls)}</div>
+          ${staleHtml}
           ${camHtml}
         </article>
       `;
