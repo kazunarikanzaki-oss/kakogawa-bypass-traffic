@@ -1,7 +1,31 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-16T07:44:11.028905+00:00",
+  "fetched_at": "2026-06-16T12:42:20.499338+00:00",
   "tweets": [
+    {
+      "id": "2066835861078196297",
+      "created_at": "2026-06-16T10:50:43+00:00",
+      "created_at_raw": "Tue Jun 16 10:50:43 +0000 2026",
+      "text": "国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2066835861078196297",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2066835846641356826",
+      "created_at": "2026-06-16T10:50:40+00:00",
+      "created_at_raw": "Tue Jun 16 10:50:40 +0000 2026",
+      "text": "【6月16日 夜間の工事規制予定】\n国道2号:大阪方面行　BP高砂北(77.7kp)22:00～23:30車線規制、BP加古川東(68.1kp)23:30～1:00車線規制\nBP王子トンネル(99.1kp)22:00～6:00 車線規制\n岡山方面行　BP明石西(67.35kp)1:00～2:30　車線規制\nBP高砂西(80.1kp)22:00～6:00 車線規制",
+      "permalink": "/mlit_himeji/status/2066835846641356826",
+      "urls": [],
+      "photos": []
+    },
     {
       "id": "2066673164214780142",
       "created_at": "2026-06-16T00:04:13+00:00",
@@ -331,38 +355,6 @@
         }
       ],
       "photos": []
-    },
-    {
-      "id": "2065024761336586671",
-      "created_at": "2026-06-11T10:54:04+00:00",
-      "created_at_raw": "Thu Jun 11 10:54:04 +0000 2026",
-      "text": "【6月11日 夜間の工事規制予定】\n国道2号:大阪方面 BP高砂北(77.7kp) 22:00～6:00車線規制\n岡山方面 BP明石西(66.4kp)、BP城山トンネル(96.2kp) 22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2065024761336586671",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2064924183860301881",
-      "created_at": "2026-06-11T04:14:24+00:00",
-      "created_at_raw": "Thu Jun 11 04:14:24 +0000 2026",
-      "text": "今回の #新因幡ライン からのお知らせは #街道フットパス 『#いわのべ通学路ウォーク』です❗️\n宍粟市千種（ちくさ）町の懐かしい通学路を町のグルメを味わいながら巡りましょう🎒\n👉https://t.co/aKJQUobxVT\n(日本風景街道 新因幡ライン協議会HP)\n#日本風景街道 #街道ウォーク https://t.co/CYeafwTovT",
-      "permalink": "/mlit_himeji/status/2064924183860301881",
-      "urls": [
-        {
-          "url": "https://t.co/aKJQUobxVT",
-          "expanded_url": "http://newinabaline.grupo.jp",
-          "display_url": "newinabaline.grupo.jp"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HKgVmVpbYAAVyBi.jpg"
-      ]
     }
   ]
 }
