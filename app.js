@@ -299,7 +299,7 @@
     tweetsFetchedEl.textContent = `最終取得: ${fmtRel(fetchedAt)} (${fmtAbs(fetchedAt)})`;
   };
 
-  // 取得元: まず Cloudflare Worker (日中5分毎・確実に更新) を優先し、
+  // 取得元: まず Cloudflare Worker (日中2分毎・確実に更新) を優先し、
   // 失敗時は GitHub のコミット済み tweets.json にフォールバックする。
   const RAW_TWEETS_URL = 'https://raw.githubusercontent.com/kazunarikanzaki-oss/kakogawa-bypass-traffic/main/tweets.json';
   const workerTweetsUrl = () => {
