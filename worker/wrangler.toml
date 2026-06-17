@@ -7,9 +7,15 @@ compatibility_date = "2024-11-01"
 binding = "SUBS"
 id = "31f78441e8894d478b166bfeb31c50fa"
 
-# Cron Trigger: 2分毎に取得→判定→プッシュ送信を実行 (GitHubと違いほぼ定刻)。
+# Cron Trigger: 取得→判定→プッシュ送信を実行 (GitHubと違いほぼ定刻)。
+# KV無料枠(1日1000書込)に収めるため、日中(JST 6:00-23:55)のみ5分毎に実行する。
+# 夜間(JST 0:00-5:55)は渋滞情報の需要が低いため停止。
+#   UTC 0-14時  = JST 9:00-23:59
+#   UTC 21-23時 = JST 6:00-8:59
+# → 18時間 × 12回/時 = 約216回/日。さらに tick() 内で「変化時のみ書込」に
+#    最適化しているため、実際のKV書込は大幅に少ない。
 [triggers]
-crons = ["*/2 * * * *"]
+crons = ["*/5 0-14,21-23 * * *"]
 
 # 非機密の設定 (公開鍵・subject)。秘密鍵と管理トークンは secret で設定する:
 #   echo "<VAPID秘密鍵>" | wrangler secret put VAPID_PRIVATE_KEY

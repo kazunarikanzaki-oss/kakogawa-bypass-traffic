@@ -5,8 +5,8 @@
 （GitHub Actions はスケジュールが間引かれて遅延するため使いません）。
 
 ```
-[2分毎] Cloudflare Worker Cron
-   └─ syndication からツイート取得 → KV に保存
+[日中5分毎] Cloudflare Worker Cron (JST 6:00-23:55 / 夜間停止)
+   └─ syndication からツイート取得 → 変化時のみ KV に保存
         └─ 渋滞/解消を判定 → 前回状態(KV)と比較
              └─ 遷移時のみ Web Push 送信 → 各端末の Service Worker → 通知表示
 アプリ表示は Worker の GET /tweets から最新データを取得（GitHub の tweets.json はフォールバック）
@@ -31,7 +31,9 @@ echo "<VAPID秘密鍵>" | wrangler secret put VAPID_PRIVATE_KEY
 wrangler deploy
 ```
 
-デプロイすると `[triggers] crons = ["*/2 * * * *"]` が有効になり、2分毎に自動実行されます。
+デプロイすると `[triggers] crons = ["*/5 0-14,21-23 * * *"]` が有効になり、
+日中(JST 6:00-23:55)のみ5分毎に自動実行されます（夜間は停止）。
+KV書込は「ツイート集合や渋滞状態が変化した時だけ」行うため、無料枠(1日1000書込)に収まります。
 
 ## 2. 動作確認
 
