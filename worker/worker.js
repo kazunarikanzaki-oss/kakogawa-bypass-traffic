@@ -278,13 +278,25 @@ async function listSubscriptions(env) {
   return out;
 }
 
+// ツイート集合が前回と変わったか判定するための署名 (id列)。
+function tweetsSignature(tweets) {
+  return (tweets || []).map(t => t.id).join(',');
+}
+
 async function tick(env) {
-  // 1) 取得して保存 (取得失敗時は前回データを維持)
-  let tweets = null;
+  // 1) 取得。KV書込は「ツイート集合が前回と変わった時だけ」行う。
+  //    (無料枠の書込回数を節約。毎回書くと1日1000回をすぐ超える)
+  let tweets = null, tweetsChanged = false;
   try {
-    tweets = await fetchTweets();
-    const payload = { screen_name: SCREEN_NAME, fetched_at: new Date().toISOString(), tweets };
-    await env.SUBS.put('tweets', JSON.stringify(payload));
+    const fresh = await fetchTweets();
+    const prevRaw = await env.SUBS.get('tweets');
+    const prevSig = prevRaw ? tweetsSignature(JSON.parse(prevRaw).tweets) : null;
+    if (tweetsSignature(fresh) !== prevSig) {
+      const payload = { screen_name: SCREEN_NAME, fetched_at: new Date().toISOString(), tweets: fresh };
+      await env.SUBS.put('tweets', JSON.stringify(payload));
+      tweetsChanged = true;
+    }
+    tweets = fresh;
   } catch (e) {
     const prev = await env.SUBS.get('tweets');
     if (prev) tweets = JSON.parse(prev).tweets;
@@ -302,12 +314,11 @@ async function tick(env) {
   // 初回はベースライン保存のみ
   if (prevCongested === null) {
     await env.SUBS.put('state', JSON.stringify({ congested, headline, ts: Date.now() }));
-    return { ok: true, transition: false, congested, note: 'baseline' };
+    return { ok: true, transition: false, congested, note: 'baseline', tweetsChanged };
   }
-  // 変化なしなら headline だけ更新
+  // 変化なし → KVに書き込まない (書込回数の節約)。状態は前回のままで正しい。
   if (prevCongested === congested) {
-    await env.SUBS.put('state', JSON.stringify({ congested, headline, ts: Date.now() }));
-    return { ok: true, transition: false, congested };
+    return { ok: true, transition: false, congested, tweetsChanged };
   }
 
   // 4) 遷移 → プッシュ送信
