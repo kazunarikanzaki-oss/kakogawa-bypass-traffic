@@ -2,13 +2,13 @@
 // オフライン耐性 (シェル): index.html / style.css / app.js / icon.svg / manifest.json
 // 動的データ (tweets.json, ライブカメラ, 地図) は SW を通さずネットワーク直行
 
-const CACHE = 'nerv-traffic-v17';
+const CACHE = 'nerv-traffic-v18';
 const SHELL = [
   './',
   'index.html',
   'style.css?v=19',
   'config.js?v=3',
-  'app.js?v=23',
+  'app.js?v=24',
   'manifest.json',
   'icon.svg',
 ];

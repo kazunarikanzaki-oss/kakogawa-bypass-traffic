@@ -328,20 +328,14 @@
   // ============================================================
   //  NERV alert
   // ============================================================
-  const evalTimeLevel = (now = new Date()) => {
-    const h = now.getHours();
-    const day = now.getDay();
-    const weekday = day >= 1 && day <= 5;
-    if (weekday && ((h >= 7 && h < 9) || (h >= 17 && h < 20))) return 'alert';
-    if (weekday && ((h >= 6 && h < 10) || (h >= 16 && h < 21))) return 'caution';
-    return 'normal';
-  };
+  // ステータスは実際のツイート検知(feedLevel)だけで決定する。
+  // 以前は通勤時間帯(平日7-9時/17-20時など)を「渋滞」「混雑」へ自動エスカレート
+  // していたが、事故も渋滞も無いのに渋滞表示になる誤検知の原因だったため廃止。
 
   let lastShown = null;
 
   const applyStatus = () => {
-    const time = evalTimeLevel();
-    const level = maxSev(time, feedLevel);
+    const level = feedLevel;
     statusEl.classList.remove('normal', 'caution', 'alert');
     statusEl.classList.add(level);
     statusEl.textContent =
