@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-18T06:32:00.314941+00:00",
+  "fetched_at": "2026-06-18T14:21:03.930108+00:00",
   "tweets": [
+    {
+      "id": "2067559198096064514",
+      "created_at": "2026-06-18T10:45:00+00:00",
+      "created_at_raw": "Thu Jun 18 10:45:00 +0000 2026",
+      "text": "【6月18日 夜間の工事規制予定】\n国道2号:大阪方面行き　BP加古川(72.8kp) 22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2067559198096064514",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2067393787169739211",
       "created_at": "2026-06-17T23:47:43+00:00",
@@ -340,21 +355,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HKpqJJDbQAAEoot.jpg"
       ]
-    },
-    {
-      "id": "2065571535260164314",
-      "created_at": "2026-06-12T23:06:45+00:00",
-      "created_at_raw": "Fri Jun 12 23:06:45 +0000 2026",
-      "text": "【6月13日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYrlk",
-      "permalink": "/mlit_himeji/status/2065571535260164314",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYrlk",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
