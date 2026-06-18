@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-06-17T23:06:58.158965+00:00",
+  "fetched_at": "2026-06-18T06:32:00.314941+00:00",
   "tweets": [
+    {
+      "id": "2067393787169739211",
+      "created_at": "2026-06-17T23:47:43+00:00",
+      "created_at_raw": "Wed Jun 17 23:47:43 +0000 2026",
+      "text": "【6月18日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:波賀町安賀(47.1kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2067393787169739211",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2067203281366233501",
       "created_at": "2026-06-17T11:10:43+00:00",
@@ -335,21 +350,6 @@
       "urls": [
         {
           "url": "https://t.co/QFlePRYrlk",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2065390404808429624",
-      "created_at": "2026-06-12T11:07:00+00:00",
-      "created_at_raw": "Fri Jun 12 11:07:00 +0000 2026",
-      "text": "【6月12日 夜間の工事規制予定】\n国道2号:岡山方面 BP姫路東(85.0kp) 23:00～6:00車線規制、BP夢前トンネル(92.9kp) 22:00～6:00車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2065390404808429624",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
           "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
