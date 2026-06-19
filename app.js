@@ -196,6 +196,23 @@
   const INCIDENT_TTL_MS = 3 * 60 * 60 * 1000; // 3時間
   const ageMsOf = (t) => Date.now() - new Date(t.created_at).getTime();
 
+  // Google実渋滞バナー (Worker が GOOGLE_API_KEY 設定時のみ traffic を返す)
+  const buildTrafficBanner = (traffic, level) => {
+    if (!traffic || !traffic.enabled || level === 'normal') return '';
+    const label = level === 'alert' ? '渋滞' : '混雑';
+    const cls = level === 'alert' ? 'crit' : 'warn';
+    const parts = [];
+    if (traffic.osaka != null) parts.push(`大阪方面 ×${Number(traffic.osaka).toFixed(2)}`);
+    if (traffic.okayama != null) parts.push(`岡山方面 ×${Number(traffic.okayama).toFixed(2)}`);
+    const detail = parts.length ? `（平常比 ${parts.join(' / ')}）` : '';
+    const when = traffic.ts ? fmtRel(new Date(traffic.ts).toISOString()) : '';
+    return `<div class="traffic-banner ${cls}">
+      <span class="tb-tag">Google交通情報</span>
+      <span class="tb-text">実際の所要時間から${label}を検知 ${escapeHtml(detail)}</span>
+      ${when ? `<span class="tb-time dim">${escapeHtml(when)}</span>` : ''}
+    </div>`;
+  };
+
   const renderTweets = (data) => {
     const allTweets = (data && data.tweets) || [];
     const pre = allTweets.filter(t => !isUseless(t.text));
@@ -239,14 +256,21 @@
       if (!stale && mentionsCongestion(t.text)) hasCongestion = true;
     }
     // 重大事象(事故/通行止) または 渋滞が継続中 → 「渋滞」アラート、規制のみ → 注意
-    feedLevel = (hasCrit || hasCongestion) ? 'alert' : hasWarn ? 'caution' : 'normal';
+    const tweetLevel = (hasCrit || hasCongestion) ? 'alert' : hasWarn ? 'caution' : 'normal';
+
+    // Google実渋滞 (Worker が有効時のみ付与)。ツイート判定と高い方を採用。
+    const traffic = (data && data.traffic) || null;
+    const trafficLevel = (traffic && traffic.enabled && traffic.level) ? traffic.level : 'normal';
+    const trafficBanner = buildTrafficBanner(traffic, trafficLevel);
+
+    feedLevel = maxSev(tweetLevel, trafficLevel);
     applyStatus(); // STATUS 即時反映
 
     // 新規 critical のみ通知
     notifyNewCritical(criticalTweets);
 
     if (!tweets.length) {
-      tweetsEl.innerHTML = `<div class="tweet-empty">現在、加古川・姫路バイパスで表示対象の事象はありません。<br>${suppressedCount>0?`<span class="dim">（解消済 ${suppressedCount}件 を非表示）</span>`:''}</div>`;
+      tweetsEl.innerHTML = trafficBanner + `<div class="tweet-empty">現在、加古川・姫路バイパスで表示対象の事象はありません。<br>${suppressedCount>0?`<span class="dim">（解消済 ${suppressedCount}件 を非表示）</span>`:''}</div>`;
       return;
     }
 
@@ -290,7 +314,7 @@
         </article>
       `;
     }).join('');
-    tweetsEl.innerHTML = html;
+    tweetsEl.innerHTML = trafficBanner + html;
     refreshCams();
   };
 

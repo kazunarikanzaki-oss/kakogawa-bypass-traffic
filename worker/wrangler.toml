@@ -21,6 +21,8 @@ crons = ["*/2 0-14,21-23 * * *"]
 # 非機密の設定 (公開鍵・subject)。秘密鍵と管理トークンは secret で設定する:
 #   echo "<VAPID秘密鍵>" | wrangler secret put VAPID_PRIVATE_KEY
 #   echo "<管理トークン>" | wrangler secret put ADMIN_TOKEN
+# 任意: Google Routes API で実渋滞も検知する場合 (未設定ならGoogle照会はしない):
+#   echo "<GoogleAPIキー>" | wrangler secret put GOOGLE_API_KEY
 [vars]
 VAPID_PUBLIC_KEY = "BKKPwQMJXztmB3Glv0kAxqef1TNyn0ewWMXU5CNBA-k2VGzFE-NZrUZN8rQAAxVg_0a_9cdwkX2dERXriInlx2Q"
 VAPID_SUBJECT = "mailto:kazunari.kanzaki@gmail.com"
