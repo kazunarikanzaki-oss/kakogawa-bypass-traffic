@@ -270,6 +270,35 @@ main { max-width: 640px; margin: 0 auto; padding: 12px; }
   background: rgba(255,255,255,0.02);
 }
 
+/* Google実渋滞バナー */
+.traffic-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0 0 12px;
+  padding: 9px 11px;
+  font-size: 12px;
+  line-height: 1.5;
+  border: 1px solid var(--grid);
+  border-left-width: 3px;
+  background: rgba(255,255,255,0.03);
+}
+.traffic-banner.warn { border-left-color: var(--warn, #e6a817); }
+.traffic-banner.crit { border-left-color: var(--crit, #ff3b30); }
+.traffic-banner .tb-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  border: 1px solid var(--grid);
+  color: var(--fg);
+  white-space: nowrap;
+}
+.traffic-banner.crit .tb-tag { color: var(--crit, #ff3b30); border-color: var(--crit, #ff3b30); }
+.traffic-banner .tb-text { flex: 1 1 auto; }
+.traffic-banner .tb-time { font-size: 11px; white-space: nowrap; }
+
 .tweet-cams {
   display: flex; flex-direction: column;
   gap: 10px;

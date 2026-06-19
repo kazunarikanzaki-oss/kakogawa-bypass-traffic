@@ -283,6 +283,92 @@ function tweetsSignature(tweets) {
   return (tweets || []).map(t => t.id).join(',');
 }
 
+// ============================================================
+//  Google Routes API による実渋滞検知 (任意・GOOGLE_API_KEY 設定時のみ)
+//  「渋滞込み所要時間 ÷ 平常時所要時間」の比で渋滞度を測る。
+//  無料枠(Pro=月5000回)を超えないよう 15分間隔 + 月次上限で厳格に制限する。
+// ============================================================
+const GOOGLE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
+const GOOGLE_INTERVAL_MS = 15 * 60 * 1000; // この間隔より短くは照会しない
+const GOOGLE_MONTHLY_CAP = 4500;           // 無料枠5000/月の安全マージン(超えたら停止)
+const TRAFFIC_ALERT_RATIO = 1.5;           // 平常の1.5倍以上=渋滞
+const TRAFFIC_CAUTION_RATIO = 1.25;        // 1.25倍以上=混雑
+// 国道2号バイパス両端 (avoidTolls=trueで山陽道を避け国道2号BP上を計測)
+const BP_EAST = { lat: 34.6916, lng: 134.9560 }; // 加古川BP東端(明石西付近)
+const BP_WEST = { lat: 34.8200, lng: 134.6300 }; // 姫路BP西端(姫路西付近)
+
+function ratioToLevel(r) {
+  if (r == null) return 'normal';
+  if (r >= TRAFFIC_ALERT_RATIO) return 'alert';
+  if (r >= TRAFFIC_CAUTION_RATIO) return 'caution';
+  return 'normal';
+}
+
+async function googleRouteRatio(env, origin, dest) {
+  const body = {
+    origin: { location: { latLng: { latitude: origin.lat, longitude: origin.lng } } },
+    destination: { location: { latLng: { latitude: dest.lat, longitude: dest.lng } } },
+    travelMode: 'DRIVE',
+    routingPreference: 'TRAFFIC_AWARE',
+    routeModifiers: { avoidTolls: true },
+    units: 'METRIC',
+  };
+  const r = await fetch(GOOGLE_ROUTES_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': env.GOOGLE_API_KEY,
+      'X-Goog-FieldMask': 'routes.duration,routes.staticDuration',
+    },
+    body: JSON.stringify(body),
+  });
+  if (!r.ok) throw new Error('google ' + r.status);
+  const data = await r.json();
+  const route = (data.routes || [])[0];
+  if (!route) return null;
+  const dur = parseFloat(route.duration);        // "1234s" → 1234
+  const stat = parseFloat(route.staticDuration);
+  if (!stat) return null;
+  return dur / stat;
+}
+
+// 15分間隔・月次上限を守りつつ Google で両方向の渋滞度を取得する。
+// 返り値: { enabled, level, osaka, okayama, ts, capped?, error? }
+async function maybeGoogleTraffic(env) {
+  if (!env.GOOGLE_API_KEY) return { enabled: false, level: 'normal' };
+  const now = Date.now();
+  const cachedRaw = await env.SUBS.get('google_traffic');
+  const cached = cachedRaw ? JSON.parse(cachedRaw) : null;
+  if (cached && cached.ts && (now - cached.ts) < GOOGLE_INTERVAL_MS) return cached;
+
+  // 月次の呼び出し回数上限を厳守 (課金事故防止)
+  const monthKey = 'google_count_' + new Date().toISOString().slice(0, 7); // YYYY-MM
+  const cntRaw = await env.SUBS.get(monthKey);
+  let cnt = cntRaw ? parseInt(cntRaw, 10) || 0 : 0;
+  if (cnt + 2 > GOOGLE_MONTHLY_CAP) {
+    return cached || { enabled: true, level: 'normal', capped: true, ts: now };
+  }
+
+  try {
+    const okayama = await googleRouteRatio(env, BP_EAST, BP_WEST); // 西行=岡山方面
+    const osaka = await googleRouteRatio(env, BP_WEST, BP_EAST);   // 東行=大阪方面
+    cnt += 2;
+    await env.SUBS.put(monthKey, String(cnt), { expirationTtl: 60 * 60 * 24 * 40 });
+    const level = [ratioToLevel(okayama), ratioToLevel(osaka)]
+      .reduce((a, b) => (SEV_RANK[b] > SEV_RANK[a] ? b : a), 'normal');
+    const obj = {
+      enabled: true, level, ts: now,
+      okayama: okayama != null ? Math.round(okayama * 100) / 100 : null,
+      osaka: osaka != null ? Math.round(osaka * 100) / 100 : null,
+    };
+    await env.SUBS.put('google_traffic', JSON.stringify(obj));
+    return obj;
+  } catch (e) {
+    return cached || { enabled: true, level: 'normal', error: String(e && e.message || e), ts: now };
+  }
+}
+const SEV_RANK = { normal: 0, caution: 1, alert: 2 };
+
 async function tick(env) {
   // 1) 取得。KV書込は「ツイート集合が前回と変わった時だけ」行う。
   //    (無料枠の書込回数を節約。毎回書くと1日1000回をすぐ超える)
@@ -303,8 +389,18 @@ async function tick(env) {
     else return { ok: false, error: 'fetch failed and no cache: ' + String(e && e.message || e) };
   }
 
-  // 2) 渋滞判定
-  const { congested, headline } = evaluate(tweets, Date.now());
+  // 2) 渋滞判定 (ツイート) + Google実渋滞 (任意)
+  const tw = evaluate(tweets, Date.now());
+  const traffic = await maybeGoogleTraffic(env);
+  const googleAlert = traffic && traffic.enabled && traffic.level === 'alert';
+  const congested = tw.congested || googleAlert;
+  let headline = tw.headline;
+  if (!headline && googleAlert) {
+    const dirs = [];
+    if (traffic.osaka != null && traffic.osaka >= TRAFFIC_ALERT_RATIO) dirs.push('大阪方面');
+    if (traffic.okayama != null && traffic.okayama >= TRAFFIC_ALERT_RATIO) dirs.push('岡山方面');
+    headline = `Google交通情報: ${dirs.join('・') || 'バイパス'}で渋滞を検知`;
+  }
 
   // 3) 前回状態と比較
   const prevRaw = await env.SUBS.get('state');
@@ -368,11 +464,13 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
 
     try {
-      // ---- 最新ツイート (公開・アプリ用) ----
+      // ---- 最新ツイート + Google実渋滞 (公開・アプリ用) ----
       if (path === '/tweets' && request.method === 'GET') {
         const v = await env.SUBS.get('tweets');
-        if (!v) return json({ screen_name: SCREEN_NAME, fetched_at: null, tweets: [] });
-        return new Response(v, {
+        const g = await env.SUBS.get('google_traffic');
+        const base = v ? JSON.parse(v) : { screen_name: SCREEN_NAME, fetched_at: null, tweets: [] };
+        base.traffic = g ? JSON.parse(g) : { enabled: false, level: 'normal' };
+        return new Response(JSON.stringify(base), {
           headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...CORS },
         });
       }
