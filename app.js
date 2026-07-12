@@ -8,12 +8,24 @@
   const tweetsFetchedEl = document.getElementById('tweetsFetched');
   const tweetsReloadBtn = document.getElementById('tweetsReload');
   const notifyBtn = document.getElementById('notifyToggle');
+  const geoBtn    = document.getElementById('geoBtn');
+  const geoResult = document.getElementById('geoResult');
 
   // ============================================================
   //  Severity model
   // ============================================================
   const SEV = { normal: 0, caution: 1, alert: 2 };
   const maxSev = (...lvs) => lvs.reduce((acc, l) => SEV[l] > SEV[acc] ? l : acc, 'normal');
+
+  // Google 実所要時間レシオ → レベル (Worker と同一しきい値)
+  const TRAFFIC_ALERT_RATIO   = 1.5;   // 平常の1.5倍以上=渋滞
+  const TRAFFIC_CAUTION_RATIO = 1.25;  // 1.25倍以上=混雑
+  const ratioToLevel = (r) => {
+    if (r == null || isNaN(r)) return 'normal';
+    if (r >= TRAFFIC_ALERT_RATIO)   return 'alert';
+    if (r >= TRAFFIC_CAUTION_RATIO) return 'caution';
+    return 'normal';
+  };
 
   // ============================================================
   //  Utility
@@ -186,6 +198,8 @@
   // ============================================================
   let feedLevel = 'normal';   // 'normal' | 'caution' | 'alert'
   let lastCriticalIds = [];   // 通知用: 直近の表示済 critical id
+  // 進行方向別ステータス (renderTweets で更新)。現在地連動パネル/方向別通知が参照。
+  let lastDirStatus = null;   // { up:{level,ratio,crits[]}, down:{...} }
   // 「処理終了 渋滞残あり」は渋滞解消の続報が出ないことも多いため、一定時間で
   //  自動的に解消扱いにしてアラートを下げる (最新ツイート監視のフォールバック)。
   const RESIDUAL_TTL_MS = 3 * 60 * 60 * 1000; // 3時間
@@ -245,15 +259,37 @@
     // 重要度集計（表示対象のみ）
     let hasCrit = false, hasWarn = false, hasCongestion = residualCongestion;
     const criticalTweets = [];
+    // 進行方向別の集計。up=上り(神戸・大阪方面/東行), down=下り(姫路・岡山方面/西行)。
+    // 方向が特定できない事象(通行止など)は両方向に影響し得るため両方へ計上する。
+    const dirAgg = {
+      up:   { crit: false, warn: false, cong: false, crits: [] },
+      down: { crit: false, warn: false, cong: false, crits: [] },
+    };
+    const dirTargets = (t) => {
+      const d = detectDirection(t.text);
+      if (d && d.kind === 'up')   return ['up'];
+      if (d && d.kind === 'down') return ['down'];
+      return ['up', 'down']; // both / 方向不明
+    };
     for (const t of tweets) {
       const cleared = isClearance(t.text);
       // 発生から INCIDENT_TTL_MS を超えた事象は続報未取得=解消済みとみなしステータスに数えない
       const stale = ageMsOf(t) > INCIDENT_TTL_MS;
       const tags = classifyTags(t.text);
+      const targets = dirTargets(t);
       // 処理終了済み/期限切れのツイートは事故等の critical / warn として数えない
-      if (!cleared && !stale && tags.some(x => x.kind === 'critical')) { hasCrit = true; criticalTweets.push(t); }
-      else if (!cleared && !stale && tags.some(x => x.kind === 'warn')) { hasWarn = true; }
-      if (!stale && mentionsCongestion(t.text)) hasCongestion = true;
+      if (!cleared && !stale && tags.some(x => x.kind === 'critical')) {
+        hasCrit = true; criticalTweets.push(t);
+        targets.forEach(d => { dirAgg[d].crit = true; dirAgg[d].crits.push(t); });
+      } else if (!cleared && !stale && tags.some(x => x.kind === 'warn')) {
+        hasWarn = true;
+        targets.forEach(d => { dirAgg[d].warn = true; });
+      }
+      // 実渋滞(渋滞残あり含む)は該当方向の混雑として計上
+      if (!stale && mentionsCongestion(t.text)) {
+        hasCongestion = true;
+        targets.forEach(d => { dirAgg[d].cong = true; });
+      }
     }
     // 重大事象(事故/通行止) または 渋滞が継続中 → 「渋滞」アラート、規制のみ → 注意
     const tweetLevel = (hasCrit || hasCongestion) ? 'alert' : hasWarn ? 'caution' : 'normal';
@@ -266,8 +302,23 @@
     feedLevel = maxSev(tweetLevel, trafficLevel);
     applyStatus(); // STATUS 即時反映
 
+    // 進行方向別ステータスを確定 (現在地連動パネル/通知用)
+    const trOn = !!(traffic && traffic.enabled);
+    const upRatio   = trOn && traffic.osaka   != null ? Number(traffic.osaka)   : null; // 上り=大阪方面
+    const downRatio = trOn && traffic.okayama != null ? Number(traffic.okayama) : null; // 下り=岡山方面
+    const dirLevelOf = (agg, ratio) =>
+      maxSev((agg.crit || agg.cong) ? 'alert' : agg.warn ? 'caution' : 'normal', ratioToLevel(ratio));
+    lastDirStatus = {
+      up:   { level: dirLevelOf(dirAgg.up,   upRatio),   ratio: upRatio,   crits: dirAgg.up.crits },
+      down: { level: dirLevelOf(dirAgg.down, downRatio), ratio: downRatio, crits: dirAgg.down.crits },
+    };
+
     // 新規 critical のみ通知
     notifyNewCritical(criticalTweets);
+
+    // 現在地連動: 進行方向のカード更新と方向別通知
+    renderGeoCard();
+    notifyDirection();
 
     if (!tweets.length) {
       tweetsEl.innerHTML = trafficBanner + `<div class="tweet-empty">現在、加古川・姫路バイパスで表示対象の事象はありません。<br>${suppressedCount>0?`<span class="dim">（解消済 ${suppressedCount}件 を非表示）</span>`:''}</div>`;
@@ -380,15 +431,19 @@
   //  Push notifications (browser local)
   // ============================================================
   const NOTIF_KEY = 'nerv_notif_seen_v1';
-  const getSeenIds = () => {
-    try { return new Set(JSON.parse(localStorage.getItem(NOTIF_KEY) || '[]')); }
+  const getSeenIds = (key = NOTIF_KEY) => {
+    try { return new Set(JSON.parse(localStorage.getItem(key) || '[]')); }
     catch { return new Set(); }
   };
-  const saveSeenIds = (set) => {
+  const saveSeenIds = (set, key = NOTIF_KEY) => {
     try {
       const arr = [...set].slice(-200);
-      localStorage.setItem(NOTIF_KEY, JSON.stringify(arr));
+      localStorage.setItem(key, JSON.stringify(arr));
     } catch {}
+  };
+  // 通知を1件出す共通ヘルパ (許可済み前提)
+  const notify = (title, body, tag) => {
+    try { new Notification(title, { body, tag, icon: 'icon.svg' }); } catch {}
   };
 
   // iOS 判定 / ホーム画面PWA(standalone)判定
@@ -534,6 +589,9 @@
 
   let isFirstFeed = true;
   const notifyNewCritical = (criticalTweets) => {
+    // 現在地連動がONのときは方向別通知(notifyDirection)に一本化し、
+    // 全体通知との二重通知を避ける。
+    if (geoDirection) { isFirstFeed = false; return; }
     if (!('Notification' in window) || Notification.permission !== 'granted') {
       lastCriticalIds = criticalTweets.map(t => t.id);
       isFirstFeed = false;
@@ -560,6 +618,154 @@
     });
     saveSeenIds(seen);
   };
+
+  // ============================================================
+  //  Geolocation — 現在地連動 (進行方向の混雑を表示・通知)
+  // ============================================================
+  //  加古川付近 → 姫路方面(下り/岡山方面/西行) を監視。
+  //  姫路付近   → 加古川方面(上り/大阪・神戸方面/東行) を監視。
+  const TOWNS = [
+    { key: 'kakogawa', name: '加古川', lat: 34.766, lng: 134.841, dir: 'down' },
+    { key: 'himeji',   name: '姫路',   lat: 34.815, lng: 134.685, dir: 'up'   },
+  ];
+  // 進行方向ラベル (dir → 表示文言)
+  const DIR_TOWARD = { up: '加古川・神戸方面', down: '姫路・岡山方面' };
+  const DIR_FULL   = { up: '上り 加古川・神戸方面', down: '下り 姫路・岡山方面' };
+
+  // 2点間の距離(km) — Haversine
+  const distanceKm = (lat1, lng1, lat2, lng2) => {
+    const R = 6371, toRad = d => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  };
+  // 現在地に最も近い街を返す { town, km }
+  const nearestTown = (lat, lng) => {
+    let best = null;
+    for (const t of TOWNS) {
+      const km = distanceKm(lat, lng, t.lat, t.lng);
+      if (!best || km < best.km) best = { town: t, km };
+    }
+    return best;
+  };
+
+  const GEO_DIR_KEY  = 'nervGeoDir';    // 'up' | 'down'
+  const GEO_TOWN_KEY = 'nervGeoTown';   // 表示用の街名
+  const GEO_SEEN_KEY = 'nerv_geo_seen_v1';
+  let geoDirection = localStorage.getItem(GEO_DIR_KEY) || null;
+  let geoTownName  = localStorage.getItem(GEO_TOWN_KEY) || '';
+  let geoDistKm    = null;
+  let geoFirst     = true;   // 初回フィードでの通知抑制
+  let lastGeoLevel = null;   // 渋滞←→解消の遷移検知用
+
+  const levelText = (lv) => lv === 'alert' ? '渋滞' : lv === 'caution' ? '混雑' : '順調';
+
+  const updateGeoBtn = () => {
+    if (!geoBtn) return;
+    geoBtn.textContent = geoDirection ? '📍 現在地を更新' : '📍 現在地から進行方向を監視';
+  };
+
+  const renderGeoCard = () => {
+    if (!geoResult) return;
+    if (!geoDirection) {
+      geoResult.innerHTML = '<p class="note">ボタンを押すと現在地を取得し、加古川なら姫路方面・姫路なら加古川方面の混雑状況を表示・通知します。位置情報は端末内のみで判定し、外部送信しません。</p>';
+      return;
+    }
+    const st = lastDirStatus && lastDirStatus[geoDirection];
+    const lv = st ? st.level : 'normal';
+    const near = geoTownName ? `${escapeHtml(geoTownName)}付近` : '現在地';
+    const distTxt = (geoDistKm != null) ? ` <span class="dim">(${geoDistKm.toFixed(1)}km)</span>` : '';
+    const ratioTxt = (st && st.ratio != null)
+      ? `<div class="geo-ratio">Google実測: 所要時間 平常比 <b>×${st.ratio.toFixed(2)}</b></div>` : '';
+    const crits = (st && st.crits) || [];
+    const critTxt = crits.length
+      ? `<div class="geo-crits">重大事象 ${crits.length}件: <span class="dim">${escapeHtml(crits[0].text.slice(0, 60))}…</span></div>`
+      : (st ? '<div class="geo-crits dim">重大事象なし</div>' : '<div class="geo-crits dim">データ取得待ち…</div>');
+    geoResult.innerHTML = `
+      <div class="geo-card ${lv}">
+        <div class="geo-head">${near}${distTxt} → <b>${escapeHtml(DIR_TOWARD[geoDirection])}</b> を監視</div>
+        <div class="geo-status ${lv}">${escapeHtml(DIR_FULL[geoDirection])}: ${levelText(lv)}</div>
+        ${ratioTxt}
+        ${critTxt}
+      </div>`;
+  };
+
+  // 方向別の通知: 該当方向に新規重大事象が出た / 渋滞に遷移した / 解消した とき
+  const notifyDirection = () => {
+    if (!geoDirection || !lastDirStatus) return;
+    const st = lastDirStatus[geoDirection];
+    if (!st) return;
+    if (!('Notification' in window) || Notification.permission !== 'granted') {
+      lastGeoLevel = st.level; geoFirst = false; return;
+    }
+    const seen = getSeenIds(GEO_SEEN_KEY);
+    // 初回フィードは既存事象を記録のみ (通知しない)
+    if (geoFirst) {
+      st.crits.forEach(t => seen.add(t.id));
+      saveSeenIds(seen, GEO_SEEN_KEY);
+      lastGeoLevel = st.level; geoFirst = false;
+      return;
+    }
+    const toward = DIR_TOWARD[geoDirection];
+    const newCrits = st.crits.filter(t => !seen.has(t.id));
+    newCrits.slice(0, 3).forEach(t => {
+      notify(`🚨 ${toward} 重大事象`, t.text.slice(0, 140), 'geo-' + t.id);
+      seen.add(t.id);
+    });
+    saveSeenIds(seen, GEO_SEEN_KEY);
+    // 新規重大事象が無くても、方向レベルが渋滞へ上がった/解消したときは通知
+    if (st.level === 'alert' && lastGeoLevel !== 'alert' && newCrits.length === 0) {
+      notify(`⚠️ ${toward} 渋滞`, `${geoTownName || '現在地'}付近 → ${toward} が渋滞しています。`, 'geo-alert');
+    } else if (st.level !== 'alert' && lastGeoLevel === 'alert') {
+      notify(`✅ ${toward} 渋滞解消`, `${toward} の渋滞は解消しました。`, 'geo-clear');
+    }
+    lastGeoLevel = st.level;
+  };
+
+  const requestGeo = () => {
+    if (!geoResult) return;
+    if (!('geolocation' in navigator)) {
+      geoResult.innerHTML = '<p class="note">この端末/ブラウザは位置情報に対応していません。</p>';
+      return;
+    }
+    geoBtn.disabled = true;
+    geoBtn.textContent = '📍 取得中…';
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const near = nearestTown(latitude, longitude);
+        geoDirection = near.town.dir;
+        geoTownName  = near.town.name;
+        geoDistKm    = near.km;
+        geoFirst     = true;   // 方向切替時は初回扱いにして直後の一斉通知を抑制
+        lastGeoLevel = null;
+        localStorage.setItem(GEO_DIR_KEY, geoDirection);
+        localStorage.setItem(GEO_TOWN_KEY, geoTownName);
+        geoBtn.disabled = false;
+        updateGeoBtn();
+        renderGeoCard();
+        // 方向別通知のため、未許可なら通知許可を促す
+        if ('Notification' in window && Notification.permission === 'default') {
+          requestNotifyPermission();
+        }
+        // 直近データがあれば初回記録を済ませておく
+        notifyDirection();
+      },
+      (err) => {
+        geoBtn.disabled = false;
+        updateGeoBtn();
+        const msg = err && err.code === 1
+          ? '位置情報の利用が拒否されました。端末/ブラウザの設定から許可してください。'
+          : '現在地を取得できませんでした。電波状況を確認して再度お試しください。';
+        geoResult.innerHTML = `<p class="note">${msg}</p>`;
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  };
+
+  // テスト用に純関数を公開
+  Object.assign(window.__nerv, { distanceKm, nearestTown, ratioToLevel });
 
   // ============================================================
   //  Adaptive polling (alert=30s, caution/normal=90s)
@@ -608,6 +814,7 @@
   });
   tweetsReloadBtn.addEventListener('click', guardedLoad);
   if (notifyBtn) notifyBtn.addEventListener('click', requestNotifyPermission);
+  if (geoBtn) geoBtn.addEventListener('click', requestGeo);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) guardedLoad();
   });
@@ -649,6 +856,8 @@
   setInterval(refreshCams, 60000);
   updateNotifyButton();
   refreshNotifyState();
+  updateGeoBtn();
+  renderGeoCard();  // 保存済みの進行方向があればカードを復元 (データ取得後に更新)
   applyStatus();
   setInterval(applyStatus, 60000);
   guardedLoad();

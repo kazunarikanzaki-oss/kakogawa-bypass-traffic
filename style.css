@@ -411,3 +411,41 @@ footer {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.4; transform: scale(0.85); }
 }
+
+/* ============================================================
+   MY ROUTE — 現在地連動パネル
+   ============================================================ */
+.geo-result { margin-top: 10px; }
+.geo-card {
+  border: 1px solid var(--grid);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.25);
+}
+.geo-card.normal  { border-left-color: var(--green); }
+.geo-card.caution { border-left-color: var(--orange2); }
+.geo-card.alert   { border-left-color: var(--warn); box-shadow: 0 0 12px rgba(255,31,31,0.20) inset; }
+.geo-head {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+.geo-head b { color: var(--fg, #cfe8d6); }
+.geo-status {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+.geo-status.normal  { color: var(--green); }
+.geo-status.caution { color: var(--orange2); }
+.geo-status.alert   { color: #fff; }
+.geo-ratio, .geo-crits {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--dim);
+}
+.geo-ratio b { color: var(--orange2); }
