@@ -669,7 +669,7 @@
   const renderGeoCard = () => {
     if (!geoResult) return;
     if (!geoDirection) {
-      geoResult.innerHTML = '<p class="note">ボタンを押すと現在地を取得し、加古川なら姫路方面・姫路なら加古川方面の混雑状況を表示・通知します。位置情報は端末内のみで判定し、外部送信しません。</p>';
+      geoResult.innerHTML = '<p class="note geo-hint">現在地を確認中… 位置情報を許可すると、加古川なら姫路方面・姫路なら加古川方面の混雑を自動表示します。許可を求められない場合は下のボタンから取得できます。</p>';
       return;
     }
     const st = lastDirStatus && lastDirStatus[geoDirection];
@@ -723,38 +723,48 @@
     lastGeoLevel = st.level;
   };
 
-  const requestGeo = () => {
+  let geoBusy = false;
+  // opts.auto: 起動時/フォアグラウンド復帰時の自動取得。UI を派手に変えず、
+  //            拒否・失敗時もエラー文言で驚かせない (ボタンは手動用に残す)。
+  const requestGeo = (opts = {}) => {
+    const auto = !!opts.auto;
     if (!geoResult) return;
     if (!('geolocation' in navigator)) {
-      geoResult.innerHTML = '<p class="note">この端末/ブラウザは位置情報に対応していません。</p>';
+      if (!auto) geoResult.innerHTML = '<p class="note">この端末/ブラウザは位置情報に対応していません。</p>';
       return;
     }
-    geoBtn.disabled = true;
-    geoBtn.textContent = '📍 取得中…';
+    if (geoBusy) return;
+    geoBusy = true;
+    if (geoBtn) { geoBtn.disabled = true; geoBtn.textContent = '📍 取得中…'; }
     navigator.geolocation.getCurrentPosition(
       (pos) => {
+        geoBusy = false;
         const { latitude, longitude } = pos.coords;
         const near = nearestTown(latitude, longitude);
+        const changed = geoDirection !== near.town.dir;
         geoDirection = near.town.dir;
         geoTownName  = near.town.name;
         geoDistKm    = near.km;
-        geoFirst     = true;   // 方向切替時は初回扱いにして直後の一斉通知を抑制
-        lastGeoLevel = null;
+        // 方向が変わったときだけ初回扱いに戻し、直後の一斉通知を抑制する
+        if (changed) { geoFirst = true; lastGeoLevel = null; }
         localStorage.setItem(GEO_DIR_KEY, geoDirection);
         localStorage.setItem(GEO_TOWN_KEY, geoTownName);
-        geoBtn.disabled = false;
+        if (geoBtn) geoBtn.disabled = false;
         updateGeoBtn();
         renderGeoCard();
-        // 方向別通知のため、未許可なら通知許可を促す
-        if ('Notification' in window && Notification.permission === 'default') {
+        // 手動取得時のみ、方向別通知のため未許可なら通知許可を促す
+        if (!auto && 'Notification' in window && Notification.permission === 'default') {
           requestNotifyPermission();
         }
         // 直近データがあれば初回記録を済ませておく
         notifyDirection();
       },
       (err) => {
-        geoBtn.disabled = false;
+        geoBusy = false;
+        if (geoBtn) geoBtn.disabled = false;
         updateGeoBtn();
+        // 自動取得の失敗は静かに握りつぶし、保存済みカード/デフォルト表示を維持
+        if (auto) { renderGeoCard(); return; }
         const msg = err && err.code === 1
           ? '位置情報の利用が拒否されました。端末/ブラウザの設定から許可してください。'
           : '現在地を取得できませんでした。電波状況を確認して再度お試しください。';
@@ -762,6 +772,27 @@
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
     );
+  };
+
+  // 起動時/フォアグラウンド復帰時に自動で現在地を反映する。
+  //  - 許可済み(granted): 常に自動取得(プロンプトなし)
+  //  - 未決定(prompt)    : 起動時の1回だけ許可を求める(allowPrompt=true のとき)
+  //  - 拒否(denied)      : 何もしない
+  // Permissions API 非対応(旧 iOS Safari 等)は、起動時のみ/既に方向保存済みなら取得。
+  const autoGeo = (allowPrompt) => {
+    if (!('geolocation' in navigator)) return;
+    const run = () => requestGeo({ auto: true });
+    if (navigator.permissions && navigator.permissions.query) {
+      navigator.permissions.query({ name: 'geolocation' })
+        .then((p) => {
+          if (p.state === 'granted') run();
+          else if (p.state === 'prompt' && allowPrompt) run();
+          // denied は何もしない
+        })
+        .catch(() => { if (allowPrompt || geoDirection) run(); });
+    } else if (allowPrompt || geoDirection) {
+      run();
+    }
   };
 
   // テスト用に純関数を公開
@@ -814,9 +845,9 @@
   });
   tweetsReloadBtn.addEventListener('click', guardedLoad);
   if (notifyBtn) notifyBtn.addEventListener('click', requestNotifyPermission);
-  if (geoBtn) geoBtn.addEventListener('click', requestGeo);
+  if (geoBtn) geoBtn.addEventListener('click', () => requestGeo());
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) guardedLoad();
+    if (!document.hidden) { guardedLoad(); autoGeo(false); }
   });
 
   // ============================================================
@@ -858,6 +889,7 @@
   refreshNotifyState();
   updateGeoBtn();
   renderGeoCard();  // 保存済みの進行方向があればカードを復元 (データ取得後に更新)
+  autoGeo(true);    // 起動時に自動で現在地を反映 (許可済みは無音・未決定は1回だけ許可要求)
   applyStatus();
   setInterval(applyStatus, 60000);
   guardedLoad();
