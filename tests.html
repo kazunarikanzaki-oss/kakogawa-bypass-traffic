@@ -35,7 +35,7 @@
 <div id="summary" class="summary">実行中…</div>
 <div id="results" class="test-results"></div>
 
-<script src="app.js?v=18"></script>
+<script src="app.js?v=26"></script>
 <script>
 (function() {
   const N = window.__nerv;
@@ -113,6 +113,24 @@
   t('cam: 加古川単独', N.matchCameras('#加古川(73.9kp)').map(c=>c.name), ['加古川']);
   t('cam: 加古川バイパスは加古川にマッチしない', N.matchCameras('加古川バイパス').map(c=>c.name), []);
   t('cam: 複数', N.matchCameras('姫路東 から 高砂北 まで').map(c=>c.name), ['高砂北','姫路東']);
+
+  // -------- ratioToLevel (Google実測レシオ→レベル) --------
+  t('ratio: 1.6→alert', N.ratioToLevel(1.6), 'alert');
+  t('ratio: 1.3→caution', N.ratioToLevel(1.3), 'caution');
+  t('ratio: 1.1→normal', N.ratioToLevel(1.1), 'normal');
+  t('ratio: null→normal', N.ratioToLevel(null), 'normal');
+
+  // -------- nearestTown / 進行方向判定 --------
+  // 加古川駅付近 → 加古川が最寄り → 姫路方面(下り)を監視
+  t('geo: 加古川付近→下り', N.nearestTown(34.762, 134.841).town.dir, 'down');
+  t('geo: 加古川付近の街名', N.nearestTown(34.762, 134.841).town.name, '加古川');
+  // 姫路駅付近 → 姫路が最寄り → 加古川方面(上り)を監視
+  t('geo: 姫路付近→上り', N.nearestTown(34.815, 134.685).town.dir, 'up');
+  t('geo: 姫路付近の街名', N.nearestTown(34.815, 134.685).town.name, '姫路');
+  // 明石(東)は加古川の方が近い → 下り
+  t('geo: 明石付近→下り', N.nearestTown(34.643, 134.997).town.dir, 'down');
+  // 距離は0以上・妥当な桁
+  t('geo: 同地点の距離ほぼ0', N.distanceKm(34.766,134.841,34.766,134.841) < 0.001, true);
 
   // -------- Summary --------
   if (fail === 0) {

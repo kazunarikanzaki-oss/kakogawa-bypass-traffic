@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -106,6 +106,13 @@
   </section>
 
   <section class="panel">
+    <div class="panel-h"><span class="hash">//</span> MY ROUTE <span class="dim">/ 現在地連動</span></div>
+    <button id="geoBtn" class="btn primary-btn" type="button">📍 現在地から進行方向を監視</button>
+    <div id="geoResult" class="geo-result"></div>
+    <p class="note">現在地が加古川寄りなら「姫路方面（下り）」、姫路寄りなら「加古川方面（上り）」の混雑を監視します。位置情報は端末内で最寄りの街を判定するだけに使い、外部へは送信しません。通知を有効化しておくと、監視方向で渋滞発生・重大事象・渋滞解消を通知します。</p>
+  </section>
+
+  <section class="panel">
     <div class="panel-h"><span class="hash">//</span> CONTROL</div>
     <div class="quick">
       <button id="reload" class="btn">RELOAD FEED</button>
@@ -124,6 +131,6 @@
 </footer>
 
 <script src="config.js?v=3"></script>
-<script src="app.js?v=25"></script>
+<script src="app.js?v=26"></script>
 </body>
 </html>
