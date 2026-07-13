@@ -1,7 +1,35 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-12T22:25:08.563485+00:00",
+  "fetched_at": "2026-07-13T07:57:56.768571+00:00",
   "tweets": [
+    {
+      "id": "2076529268117651922",
+      "created_at": "2026-07-13T04:48:52+00:00",
+      "created_at_raw": "Mon Jul 13 04:48:52 +0000 2026",
+      "text": "今日はたつの市誉田小学校三年生の皆さんと林田川の水生生物調査を行いました！\nたくさんの生物を採取することができ、水質判定は「ややきれいな水」でした。\nこれから暑くなり川遊びの季節ですが、水難事故にはくれぐれも気をつけて下さい！\n#水しごと #林田川 #水生生物調査 https://t.co/65oDhGNvhx",
+      "permalink": "/mlit_himeji/status/2076529268117651922",
+      "urls": [],
+      "photos": [
+        "https://pbs.twimg.com/media/HNFOLEbaAAAeAGu.jpg",
+        "https://pbs.twimg.com/media/HNFOMaZaQAA6WWp.jpg",
+        "https://pbs.twimg.com/media/HNFON0QakAAHUeZ.jpg"
+      ]
+    },
+    {
+      "id": "2076452845197652260",
+      "created_at": "2026-07-12T23:45:11+00:00",
+      "created_at_raw": "Sun Jul 12 23:45:11 +0000 2026",
+      "text": "【7月13日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:林田町六九谷(12.3kp)～松山(14kp)　9:00～13:00　片側交互通行。\n安富町狭戸(16.5kp)、波賀町小野(45.2kp)、波賀町引原(61.3kp)　9:00～17:00　片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2076452845197652260",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2076257675067998626",
       "created_at": "2026-07-12T10:49:39+00:00",
@@ -355,30 +383,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HM5TwT5bwAA0JIx.jpg"
       ]
-    },
-    {
-      "id": "2075540848910196870",
-      "created_at": "2026-07-10T11:21:14+00:00",
-      "created_at_raw": "Fri Jul 10 11:21:14 +0000 2026",
-      "text": "国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2075540848910196870",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2075540846964089341",
-      "created_at": "2026-07-10T11:21:14+00:00",
-      "created_at_raw": "Fri Jul 10 11:21:14 +0000 2026",
-      "text": "【7月10日 夜間の工事規制予定】\n国道2号:大阪方面 BP山田トンネル(96.3kp)22:00～6:00 車線規制\n岡山方面 BP加古川東(69.3kp)22:00～2:00 車線規制 BP高砂北(78.75kp)2:00～6:00車線規制\nBP姫路西(94.5kp)22:00～6:00 車線規制",
-      "permalink": "/mlit_himeji/status/2075540846964089341",
-      "urls": [],
-      "photos": []
     }
   ]
 }
