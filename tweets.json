@@ -1,7 +1,27 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-18T03:29:41.305486+00:00",
+  "fetched_at": "2026-07-18T05:49:27.319804+00:00",
   "tweets": [
+    {
+      "id": "2078324238646427923",
+      "created_at": "2026-07-18T03:41:26+00:00",
+      "created_at_raw": "Sat Jul 18 03:41:26 +0000 2026",
+      "text": "岡山方面行  #加古川バイパス #加古川東(70.1kp)付近\n11時40分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2078324238646427923",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/oqwGttvBP4",
+          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2078310926818902393",
       "created_at": "2026-07-18T02:48:32+00:00",
@@ -345,28 +365,6 @@
         }
       ],
       "photos": []
-    },
-    {
-      "id": "2077687840285344037",
-      "created_at": "2026-07-16T09:32:37+00:00",
-      "created_at_raw": "Thu Jul 16 09:32:37 +0000 2026",
-      "text": "18時30分頃の #事故 により、岡山方面行 #姫路バイパス #姫路東 (84.4kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/XQqeohOHjV",
-      "permalink": "/mlit_himeji/status/2077687840285344037",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HNVuEp7agAASiEl.jpg"
-      ]
     }
   ]
 }
