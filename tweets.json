@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-18T19:46:22.469930+00:00",
+  "fetched_at": "2026-07-19T01:09:03.222414+00:00",
   "tweets": [
+    {
+      "id": "2078620169828721077",
+      "created_at": "2026-07-18T23:17:22+00:00",
+      "created_at_raw": "Sat Jul 18 23:17:22 +0000 2026",
+      "text": "【7月19日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2078620169828721077",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2078448459200532747",
       "created_at": "2026-07-18T11:55:03+00:00",
@@ -344,21 +359,6 @@
       "text": "RT @kyotokokudou: 【#国道9号 老ノ坂峠片側交互通行規制解除】\n6月26日未明に発生した土砂崩れにより実施していた交通規制をただいま解除しました。ご通行の皆様には大変ご迷惑をおかけいたしました。また、分散交通や時差出勤などにもご協力いただき誠にありがとうござい…",
       "permalink": "/mlit_himeji/status/2077762843894788397",
       "urls": [],
-      "photos": []
-    },
-    {
-      "id": "2077710764140568803",
-      "created_at": "2026-07-16T11:03:42+00:00",
-      "created_at_raw": "Thu Jul 16 11:03:42 +0000 2026",
-      "text": "【7月16日 夜間の工事規制予定】\n国道2号:大阪方面 BP城山トンネル(98.3kp) 22:00～6:00　車線規制\n岡山方面 BP城山トンネル(96.1kp) 22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2077710764140568803",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
       "photos": []
     }
   ]
