@@ -1,7 +1,29 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-28T14:44:05.362883+00:00",
+  "fetched_at": "2026-07-28T20:52:04.872795+00:00",
   "tweets": [
+    {
+      "id": "2082187277783142543",
+      "created_at": "2026-07-28T19:31:46+00:00",
+      "created_at_raw": "Tue Jul 28 19:31:46 +0000 2026",
+      "text": "4時20分頃の #事故 により、岡山方面行 #加古川バイパス #加古川西 (74.9kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞 https://t.co/3H442wYzX3",
+      "permalink": "/mlit_himeji/status/2082187277783142543",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HOVpATsbYAATFPJ.jpg"
+      ]
+    },
     {
       "id": "2082057171790070230",
       "created_at": "2026-07-28T10:54:47+00:00",
@@ -319,15 +341,6 @@
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
-      "photos": []
-    },
-    {
-      "id": "2080640087470256469",
-      "created_at": "2026-07-24T13:03:47+00:00",
-      "created_at_raw": "Fri Jul 24 13:03:47 +0000 2026",
-      "text": "RT @kyotokokudou: 【#国道9号 #老ノ坂峠 #台風7号 #災害】 \n災害発生から通行止め解除までの経緯をHPで公表しました。 \n通行止め期間中は、ご不便・ご迷惑をおかけいたしました。\nご理解・ご協力いただいた皆様に、心より感謝申し上げます。\nhttps://t…",
-      "permalink": "/mlit_himeji/status/2080640087470256469",
-      "urls": [],
       "photos": []
     }
   ]
