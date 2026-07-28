@@ -1,7 +1,46 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-27T23:42:42.084339+00:00",
+  "fetched_at": "2026-07-28T14:44:05.362883+00:00",
   "tweets": [
+    {
+      "id": "2082057171790070230",
+      "created_at": "2026-07-28T10:54:47+00:00",
+      "created_at_raw": "Tue Jul 28 10:54:47 +0000 2026",
+      "text": "【7月28日 夜間の工事規制予定】\n国道2号:大阪方面　BP高砂西(80.6kp)～加古川西(75.0kp)、加古川東(70.5kp)22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2082057171790070230",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2081893151300882662",
+      "created_at": "2026-07-28T00:03:01+00:00",
+      "created_at_raw": "Tue Jul 28 00:03:01 +0000 2026",
+      "text": "国道29号:波賀町鹿伏(65.1kp)10:00～17:00　片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2081893151300882662",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2081893149178466579",
+      "created_at": "2026-07-28T00:03:01+00:00",
+      "created_at_raw": "Tue Jul 28 00:03:01 +0000 2026",
+      "text": "【7月28日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:一宮町安積(39kp)13:00～17:00　片側交互通行\n波賀町小野(45.2kp)、野尻～鹿伏(51.0kp～65.1kp)9:00～17:00　片側交互通行",
+      "permalink": "/mlit_himeji/status/2081893149178466579",
+      "urls": [],
+      "photos": []
+    },
     {
       "id": "2081706014865584506",
       "created_at": "2026-07-27T11:39:24+00:00",
@@ -289,50 +328,6 @@
       "text": "RT @kyotokokudou: 【#国道9号 #老ノ坂峠 #台風7号 #災害】 \n災害発生から通行止め解除までの経緯をHPで公表しました。 \n通行止め期間中は、ご不便・ご迷惑をおかけいたしました。\nご理解・ご協力いただいた皆様に、心より感謝申し上げます。\nhttps://t…",
       "permalink": "/mlit_himeji/status/2080640087470256469",
       "urls": [],
-      "photos": []
-    },
-    {
-      "id": "2080640032772337912",
-      "created_at": "2026-07-24T13:03:34+00:00",
-      "created_at_raw": "Fri Jul 24 13:03:34 +0000 2026",
-      "text": "RT @kyotokokudou: 【#国道9号 老ノ坂峠片側交互通行規制解除】\n6月26日未明に土砂崩れが発生してから、昼夜を問わず作業していただいた全ての建設関連業者の皆様、本当にありがとうございました。大雨や酷暑の中、危険な斜面で早期解放に向けて必死に取り組んでいただいた…",
-      "permalink": "/mlit_himeji/status/2080640032772337912",
-      "urls": [],
-      "photos": []
-    },
-    {
-      "id": "2080608270432305545",
-      "created_at": "2026-07-24T10:57:22+00:00",
-      "created_at_raw": "Fri Jul 24 10:57:22 +0000 2026",
-      "text": "【7月24日 夜間の工事規制予定】\n国道2号:大阪方面 BP太子東(96.1kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2080608270432305545",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2080591215117132226",
-      "created_at": "2026-07-24T09:49:35+00:00",
-      "created_at_raw": "Fri Jul 24 09:49:35 +0000 2026",
-      "text": "大阪方面行  #姫路バイパス #高砂西(80.1kp)付近\n16時15分頃の #事故 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2080591215117132226",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
       "photos": []
     }
   ]
