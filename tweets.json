@@ -1,7 +1,93 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-28T20:52:04.872795+00:00",
+  "fetched_at": "2026-07-29T00:13:17.458202+00:00",
   "tweets": [
+    {
+      "id": "2082254989003817293",
+      "created_at": "2026-07-29T00:00:50+00:00",
+      "created_at_raw": "Wed Jul 29 00:00:50 +0000 2026",
+      "text": "山国道29号:崎町須賀沢(23kp)～一宮町安積(40.4kp)9:00～17:00　移動片側交互通行\n＊「移動片交としている区間では、区間内において100m程度の片側交互通行規制をおこなっております。\n短時間の工事のために施工箇所を変えながら規制を行っていますので通行の際にはご注意をお願いいたします。",
+      "permalink": "/mlit_himeji/status/2082254989003817293",
+      "urls": [],
+      "photos": []
+    },
+    {
+      "id": "2082254986768273668",
+      "created_at": "2026-07-29T00:00:49+00:00",
+      "created_at_raw": "Wed Jul 29 00:00:49 +0000 2026",
+      "text": "【7月29日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:安富町狭戸(17.7kp)塩野(19.5kp)一宮町安黒(35.7kp)波賀町引原(61.3kp)9:00～17:00　片側交互通行。\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2082254986768273668",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2082241985440886943",
+      "created_at": "2026-07-28T23:09:10+00:00",
+      "created_at_raw": "Tue Jul 28 23:09:10 +0000 2026",
+      "text": "岡山方面行  #加古川バイパス  #加古川西 (74.9kp)付近\n4時20分頃の #事故 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2082241985440886943",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2082241968319672668",
+      "created_at": "2026-07-28T23:09:06+00:00",
+      "created_at_raw": "Tue Jul 28 23:09:06 +0000 2026",
+      "text": "大阪方面行  #姫路バイパス 　#姫路南 (89.3kp) 付近\n6時25分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2082241968319672668",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2082217331464482822",
+      "created_at": "2026-07-28T21:31:12+00:00",
+      "created_at_raw": "Tue Jul 28 21:31:12 +0000 2026",
+      "text": "6時25分頃の #故障車 により、大阪方面行 #姫路バイパス #姫路南 (89.3kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/YRQnx8Xql5",
+      "permalink": "/mlit_himeji/status/2082217331464482822",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HOWFnJTbkAEQuFv.jpg"
+      ]
+    },
     {
       "id": "2082187277783142543",
       "created_at": "2026-07-28T19:31:46+00:00",
@@ -235,105 +321,6 @@
       "created_at_raw": "Sat Jul 25 10:51:29 +0000 2026",
       "text": "【7月25日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2080969178950029487",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2080964313683251630",
-      "created_at": "2026-07-25T10:32:09+00:00",
-      "created_at_raw": "Sat Jul 25 10:32:09 +0000 2026",
-      "text": "大阪方面行 #姫路バイパス #中地 (91.8kp) 付近\n18時45分頃の #事故 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2080964313683251630",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2080954813324652806",
-      "created_at": "2026-07-25T09:54:24+00:00",
-      "created_at_raw": "Sat Jul 25 09:54:24 +0000 2026",
-      "text": "18時45分頃の #事故 により、大阪方面行 #姫路バイパス #中地 (91.8kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/XTvcF9ycWE",
-      "permalink": "/mlit_himeji/status/2080954813324652806",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HOEJVMmbIAAV20Y.jpg"
-      ]
-    },
-    {
-      "id": "2080846217219907875",
-      "created_at": "2026-07-25T02:42:53+00:00",
-      "created_at_raw": "Sat Jul 25 02:42:53 +0000 2026",
-      "text": "岡山方面行  #姫路バイパス #高砂西(80.1kp)付近\n11時15分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2080846217219907875",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2080840555958096164",
-      "created_at": "2026-07-25T02:20:23+00:00",
-      "created_at_raw": "Sat Jul 25 02:20:23 +0000 2026",
-      "text": "11時15分頃の #故障車 により、岡山方面行 #姫路バイパス #高砂西(80.1kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/b6QrwnPYcK",
-      "permalink": "/mlit_himeji/status/2080840555958096164",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HOChazraAAAmnNX.jpg"
-      ]
-    },
-    {
-      "id": "2080798778311971202",
-      "created_at": "2026-07-24T23:34:22+00:00",
-      "created_at_raw": "Fri Jul 24 23:34:22 +0000 2026",
-      "text": "【7月25日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2080798778311971202",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
