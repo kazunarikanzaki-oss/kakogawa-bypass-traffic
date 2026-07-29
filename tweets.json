@@ -1,7 +1,37 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-07-29T11:40:29.642931+00:00",
+  "fetched_at": "2026-07-29T21:41:11.508560+00:00",
   "tweets": [
+    {
+      "id": "2082438302712668347",
+      "created_at": "2026-07-29T12:09:15+00:00",
+      "created_at_raw": "Wed Jul 29 12:09:15 +0000 2026",
+      "text": "RT @mlit_chugoku: 本日、令和8年熊本地震に伴う災害に対し給水支援及び電源供給支援を行うため、災害対策用機械（給水機能付き散水車・電源供給機能付き照明車）を、派遣しました。\n#国土交通省 #中国地方整備局 #中国地整 #ＴＥＣーＦＯＲＣＥ #令和８年熊本地震…",
+      "permalink": "/mlit_himeji/status/2082438302712668347",
+      "urls": [],
+      "photos": []
+    },
+    {
+      "id": "2082438200153489829",
+      "created_at": "2026-07-29T12:08:51+00:00",
+      "created_at_raw": "Wed Jul 29 12:08:51 +0000 2026",
+      "text": "RT @mlit_Kyushu: 【中国地整と四国地整のTEC-FORCEが支援に来てくれました】\n心強い支援に感謝し、地域の垣根を越えた連携で、被災地支援に全力で取り組みます。\n#令和8年熊本地震 #TECFORCE #災害支援 https://t.co/5yy63nX4Fc",
+      "permalink": "/mlit_himeji/status/2082438200153489829",
+      "urls": [],
+      "photos": [
+        "https://pbs.twimg.com/media/HOYj3YabEAAPdZ9.jpg",
+        "https://pbs.twimg.com/media/HOYj6IuaEAAQsFf.jpg"
+      ]
+    },
+    {
+      "id": "2082438132109394180",
+      "created_at": "2026-07-29T12:08:35+00:00",
+      "created_at_raw": "Wed Jul 29 12:08:35 +0000 2026",
+      "text": "RT @mlit_kumamoto: 【#国道57号 の通行止めについて＜片側交互通行解除見込み＞】\n令和８年７月２８日１６時２７分に発生した地震により、宇土市住吉において片側交互通行規制を実施していましたが、応急的な復旧工を行い、令和８年７月２９日１７時００分に片側交互通行規…",
+      "permalink": "/mlit_himeji/status/2082438132109394180",
+      "urls": [],
+      "photos": []
+    },
     {
       "id": "2082416344566505839",
       "created_at": "2026-07-29T10:42:00+00:00",
@@ -284,63 +314,6 @@
       "permalink": "/mlit_himeji/status/2081530216489660786",
       "urls": [],
       "photos": []
-    },
-    {
-      "id": "2081530214203654374",
-      "created_at": "2026-07-27T00:00:50+00:00",
-      "created_at_raw": "Mon Jul 27 00:00:50 +0000 2026",
-      "text": "【7月27日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:一宮町安黒(35.7kp) 9:00～17:00　片側交互通行、波賀町野尻～鹿伏(51.0kp～65.1kp) 9:00～17:00　移動片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2081530214203654374",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2081518253550309820",
-      "created_at": "2026-07-26T23:13:19+00:00",
-      "created_at_raw": "Sun Jul 26 23:13:19 +0000 2026",
-      "text": "大阪方面行  #加古川バイパス #高砂北 (76.9kp) 付近\n7時30分頃の #事故 の処理終了 渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2081518253550309820",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2081509392953057428",
-      "created_at": "2026-07-26T22:38:06+00:00",
-      "created_at_raw": "Sun Jul 26 22:38:06 +0000 2026",
-      "text": "7時30分頃の #事故 により、大阪方面行 #加古川バイパス #高砂北 (76.9kp) 付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞 https://t.co/foMBdww3ss",
-      "permalink": "/mlit_himeji/status/2081509392953057428",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HOMBwPdaQAAvqpZ.jpg"
-      ]
     }
   ]
 }
