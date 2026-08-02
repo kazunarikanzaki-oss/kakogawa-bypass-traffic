@@ -1,7 +1,36 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-02T00:12:13.962104+00:00",
+  "fetched_at": "2026-08-02T11:49:13.736215+00:00",
   "tweets": [
+    {
+      "id": "2083870439542296795",
+      "created_at": "2026-08-02T11:00:03+00:00",
+      "created_at_raw": "Sun Aug 02 11:00:03 +0000 2026",
+      "text": "【8月2日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2083870439542296795",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2083718410127704560",
+      "created_at": "2026-08-02T00:55:57+00:00",
+      "created_at_raw": "Sun Aug 02 00:55:57 +0000 2026",
+      "text": "本日、千鳥ヶ浜公園付近で実施された揖保川水系クリーン作戦（主催：たつの市）に参加しました。\n\n水辺で涼むと心も癒やされますね。\n水辺の利用が増える季節です。ゴミは持ち帰って捨てるなど、誰もが気持ちよく利用できる水辺環境をみんなで守っていきましょう！\n#揖保川 #河川愛護 #水しごと https://t.co/3eeOOIuMkf",
+      "permalink": "/mlit_himeji/status/2083718410127704560",
+      "urls": [],
+      "photos": [
+        "https://pbs.twimg.com/media/HOrW-ypa8AAZLtf.jpg",
+        "https://pbs.twimg.com/media/HOrXAXabIAAE6gB.jpg",
+        "https://pbs.twimg.com/media/HOrXCAVaMAAV_gh.jpg",
+        "https://pbs.twimg.com/media/HOra0jPacAEk1h2.jpg"
+      ]
+    },
     {
       "id": "2083683820377936319",
       "created_at": "2026-08-01T22:38:30+00:00",
@@ -262,43 +291,6 @@
           "url": "https://t.co/oqwGttvBP4",
           "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
           "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2082986394298020097",
-      "created_at": "2026-07-31T00:27:11+00:00",
-      "created_at_raw": "Fri Jul 31 00:27:11 +0000 2026",
-      "text": "9時25分頃の #事故 により、岡山方面行 #姫路バイパス #市川(87.0kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/UoPNqSDqKR",
-      "permalink": "/mlit_himeji/status/2082986394298020097",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HOhBFI0bsAAkkv5.jpg"
-      ]
-    },
-    {
-      "id": "2082972005477872006",
-      "created_at": "2026-07-30T23:30:00+00:00",
-      "created_at_raw": "Thu Jul 30 23:30:00 +0000 2026",
-      "text": "【7月31日 昼間の工事規制予定】\n国道2号:たつの市揖保町(105.5kp)、赤穂市西有年～上郡町梨ケ原(123.3kp～129.9kp)9:00～17:00 片側交互通行\n国道29号:山崎町三津(28kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYrlk",
-      "permalink": "/mlit_himeji/status/2082972005477872006",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYrlk",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
       "photos": []
