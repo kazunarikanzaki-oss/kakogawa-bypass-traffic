@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-03T23:45:39.719584+00:00",
+  "fetched_at": "2026-08-04T18:48:36.802392+00:00",
   "tweets": [
+    {
+      "id": "2084592279973679475",
+      "created_at": "2026-08-04T10:48:24+00:00",
+      "created_at_raw": "Tue Aug 04 10:48:24 +0000 2026",
+      "text": "【8月4日 夜間の工事規制予定】\n国道2号:岡山方面　BP加古川中央JCT付近(71.0kp)～高砂北(77.1kp)　22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2084592279973679475",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2084416266635452648",
       "created_at": "2026-08-03T23:08:59+00:00",
@@ -319,15 +334,6 @@
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
-      "photos": []
-    },
-    {
-      "id": "2083102257021964499",
-      "created_at": "2026-07-31T08:07:34+00:00",
-      "created_at_raw": "Fri Jul 31 08:07:34 +0000 2026",
-      "text": "RT @mlit_Kyushu: 【災害対応の最前線をバックアップ】\n#令和8年熊本地震 に対応するため、本局職員を #TECFORCE として八代河川国道事務所へ派遣しました。現場の円滑な災害対応をサポートします。\n国土交通省は組織一丸となって被災地支援に取り組んでいます。…",
-      "permalink": "/mlit_himeji/status/2083102257021964499",
-      "urls": [],
       "photos": []
     }
   ]
