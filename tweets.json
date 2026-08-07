@@ -1,7 +1,37 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-06T07:20:21.915674+00:00",
+  "fetched_at": "2026-08-07T00:19:19.568695+00:00",
   "tweets": [
+    {
+      "id": "2085512726567366659",
+      "created_at": "2026-08-06T23:45:55+00:00",
+      "created_at_raw": "Thu Aug 06 23:45:55 +0000 2026",
+      "text": "【8月7日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:安富町狭戸(16.5kp)　9:00～17:00　片側交互通行\n\n最新の規制情報はこちらから→https://t.co/f3pbYMm65K",
+      "permalink": "/mlit_himeji/status/2085512726567366659",
+      "urls": [
+        {
+          "url": "https://t.co/f3pbYMm65K",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinf",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinf"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2085315896885801344",
+      "created_at": "2026-08-06T10:43:47+00:00",
+      "created_at_raw": "Thu Aug 06 10:43:47 +0000 2026",
+      "text": "【8月6日 夜間の工事規制予定】\n国道2号:大阪方面　加古川東(69.7kp)～明石西(65.8kp)　22:00～6:00　車線規制。\n岡山方面　BP明石西(65.9kp)　22:00～6:00　車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2085315896885801344",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2085259424600658315",
       "created_at": "2026-08-06T06:59:23+00:00",
@@ -352,41 +382,6 @@
           "url": "https://t.co/QFlePRYZaS",
           "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2084416266635452648",
-      "created_at": "2026-08-03T23:08:59+00:00",
-      "created_at_raw": "Mon Aug 03 23:08:59 +0000 2026",
-      "text": "【8月4日 昼間の工事規制予定】\n国道2号:大阪方面 BP高砂西(79.1kp) 9:00～10:00 車線規制\n国道29号:林田町下伊勢(7.1kp)波賀町日見谷(42.0kp)小野(45.2kp)野尻(50.1kp)～日ノ原(57.5kp)戸倉(66.1kp)　9:00～17:00　片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2084416266635452648",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2084262563802751037",
-      "created_at": "2026-08-03T12:58:13+00:00",
-      "created_at_raw": "Mon Aug 03 12:58:13 +0000 2026",
-      "text": "岡山方面行  #姫路バイパス　#姫路南(89.3kp)付近\n19時15分頃の #故障車 の処理終了。渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2084262563802751037",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
         }
       ],
       "photos": []
