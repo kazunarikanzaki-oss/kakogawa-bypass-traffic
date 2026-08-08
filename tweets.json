@@ -1,7 +1,37 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-07T11:11:17.509149+00:00",
+  "fetched_at": "2026-08-08T11:33:24.178054+00:00",
   "tweets": [
+    {
+      "id": "2086042682095513789",
+      "created_at": "2026-08-08T10:51:46+00:00",
+      "created_at_raw": "Sat Aug 08 10:51:46 +0000 2026",
+      "text": "【8月8日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2086042682095513789",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2085863811563831373",
+      "created_at": "2026-08-07T23:01:00+00:00",
+      "created_at_raw": "Fri Aug 07 23:01:00 +0000 2026",
+      "text": "【8月8日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2085863811563831373",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2085680903041478664",
       "created_at": "2026-08-07T10:54:12+00:00",
@@ -354,48 +384,6 @@
       ],
       "photos": [
         "https://pbs.twimg.com/media/HO95CgvaYAAnvt_.jpg"
-      ]
-    },
-    {
-      "id": "2085017767082889717",
-      "created_at": "2026-08-05T14:59:08+00:00",
-      "created_at_raw": "Wed Aug 05 14:59:08 +0000 2026",
-      "text": "岡山方面行  #太子竜野バイパス #城山トンネル (96.6kp) 内\n23時10分頃の #緊急作業 の処理終了\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #姫路バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2085017767082889717",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2085006561756500226",
-      "created_at": "2026-08-05T14:14:36+00:00",
-      "created_at_raw": "Wed Aug 05 14:14:36 +0000 2026",
-      "text": "23時10分頃の #緊急作業 により、岡山方面行 #太子竜野バイパス #城山トンネル (96.6kp) 内、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#加古川バイパス #姫路バイパス ＃渋滞 https://t.co/5ulPsF6FaB",
-      "permalink": "/mlit_himeji/status/2085006561756500226",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/qrYcc4JcTX",
-          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HO9uYxWbIAAtZ3s.jpg"
       ]
     }
   ]
