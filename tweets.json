@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-08T23:42:18.101923+00:00",
+  "fetched_at": "2026-08-09T22:47:23.039994+00:00",
   "tweets": [
+    {
+      "id": "2086407521691164822",
+      "created_at": "2026-08-09T11:01:31+00:00",
+      "created_at_raw": "Sun Aug 09 11:01:31 +0000 2026",
+      "text": "【8月9日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2086407521691164822",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2086226207713214687",
       "created_at": "2026-08-08T23:01:02+00:00",
@@ -352,21 +367,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HPAjrAXbUAABPGB.jpg"
       ]
-    },
-    {
-      "id": "2085171567265493291",
-      "created_at": "2026-08-06T01:10:16+00:00",
-      "created_at_raw": "Thu Aug 06 01:10:16 +0000 2026",
-      "text": "【8月6日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:安富町狭戸(16.5kp)、安志(20.48kp)　9:00～17:00　片側交互通行\n\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2085171567265493291",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
