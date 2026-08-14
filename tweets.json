@@ -1,7 +1,42 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-14T09:18:19.622520+00:00",
+  "fetched_at": "2026-08-14T16:31:30.057468+00:00",
   "tweets": [
+    {
+      "id": "2088212253904695675",
+      "created_at": "2026-08-14T10:32:53+00:00",
+      "created_at_raw": "Fri Aug 14 10:32:53 +0000 2026",
+      "text": "【8月14日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2088212253904695675",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2088197163142836421",
+      "created_at": "2026-08-14T09:32:55+00:00",
+      "created_at_raw": "Fri Aug 14 09:32:55 +0000 2026",
+      "text": "岡山方面行  #加古川バイパス  #加古川東(68.5kp)付近　\n17時10分頃の #事故 の処理終了。渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2088197163142836421",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/oqwGttvBP4",
+          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2088176837914771947",
       "created_at": "2026-08-14T08:12:09+00:00",
@@ -310,30 +345,6 @@
           "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
-      "photos": []
-    },
-    {
-      "id": "2086226207713214687",
-      "created_at": "2026-08-08T23:01:02+00:00",
-      "created_at_raw": "Sat Aug 08 23:01:02 +0000 2026",
-      "text": "【8月9日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2086226207713214687",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2086215751980163254",
-      "created_at": "2026-08-08T22:19:29+00:00",
-      "created_at_raw": "Sat Aug 08 22:19:29 +0000 2026",
-      "text": "RT @mlit_kinan: 【 #令和８年熊本地震 #給水活動】\n本日は、熊本県 ＃熊本市 総合体育館で自治体支援車両の積載タンクへ給水を行いました。\n給水量は2000L（500mlのペットボトル4,000本分）です。\n被災地で生活される皆様の負担が少しでも軽減されるよう、…",
-      "permalink": "/mlit_himeji/status/2086215751980163254",
-      "urls": [],
       "photos": []
     }
   ]
