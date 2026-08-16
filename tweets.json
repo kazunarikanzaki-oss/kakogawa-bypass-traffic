@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-16T10:30:51.285065+00:00",
+  "fetched_at": "2026-08-16T12:19:01.116953+00:00",
   "tweets": [
+    {
+      "id": "2088940596245508588",
+      "created_at": "2026-08-16T10:47:03+00:00",
+      "created_at_raw": "Sun Aug 16 10:47:03 +0000 2026",
+      "text": "【8月16日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2088940596245508588",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2088762890866286750",
       "created_at": "2026-08-15T23:00:55+00:00",
@@ -323,21 +338,6 @@
       "created_at_raw": "Tue Aug 11 11:00:41 +0000 2026",
       "text": "【8月11日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2087132087166062665",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2086949493623423075",
-      "created_at": "2026-08-10T22:55:07+00:00",
-      "created_at_raw": "Mon Aug 10 22:55:07 +0000 2026",
-      "text": "【8月11日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2086949493623423075",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
