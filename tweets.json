@@ -1,7 +1,64 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-17T17:42:02.593355+00:00",
+  "fetched_at": "2026-08-18T06:00:33.608254+00:00",
   "tweets": [
+    {
+      "id": "2089489256406528265",
+      "created_at": "2026-08-17T23:07:14+00:00",
+      "created_at_raw": "Mon Aug 17 23:07:14 +0000 2026",
+      "text": "大阪方面行  #加古川バイパス  #加古川東(69.8kp)付近\n7時10分頃の #故障車 の処理終了。渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2089489256406528265",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2089487583755882950",
+      "created_at": "2026-08-17T23:00:35+00:00",
+      "created_at_raw": "Mon Aug 17 23:00:35 +0000 2026",
+      "text": "【8月18日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:鳥取方面 姫路西BP相野出屋敷(2.4kp)9:00～16:00 車線規制\n波賀町原(52.6kp)引原(61.3kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2089487583755882950",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "2089477975427396048",
+      "created_at": "2026-08-17T22:22:24+00:00",
+      "created_at_raw": "Mon Aug 17 22:22:24 +0000 2026",
+      "text": "7時10分頃の #故障車 により、大阪方面行 #加古川バイパス #加古川東(69.8kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/qrYcc4JcTX）で確認ください。\n#姫路バイパス #太子竜野バイパス ＃渋滞 https://t.co/HXvIluKqn0",
+      "permalink": "/mlit_himeji/status/2089477975427396048",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/qrYcc4JcTX",
+          "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": [
+        "https://pbs.twimg.com/media/HP9RHdWbMAAIwRS.jpg"
+      ]
+    },
     {
       "id": "2089305753387679844",
       "created_at": "2026-08-17T10:58:03+00:00",
@@ -292,60 +349,6 @@
         }
       ],
       "photos": []
-    },
-    {
-      "id": "2087437721887514780",
-      "created_at": "2026-08-12T07:15:10+00:00",
-      "created_at_raw": "Wed Aug 12 07:15:10 +0000 2026",
-      "text": "大阪方面行  #姫路バイパス #太子東(95.8kp)付近\n15時50分頃の #事故 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2087437721887514780",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2087433112754192877",
-      "created_at": "2026-08-12T06:56:51+00:00",
-      "created_at_raw": "Wed Aug 12 06:56:51 +0000 2026",
-      "text": "15時50分頃の #事故 により、大阪方面行 #姫路バイパス #太子東(95.8kp)付近、車線規制を行っています。\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞 https://t.co/TOWrmeqcXc",
-      "permalink": "/mlit_himeji/status/2087433112754192877",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": [
-        "https://pbs.twimg.com/media/HPgNVFLa0AAfLdy.jpg"
-      ]
-    },
-    {
-      "id": "2087363615204774330",
-      "created_at": "2026-08-12T02:20:41+00:00",
-      "created_at_raw": "Wed Aug 12 02:20:41 +0000 2026",
-      "text": "#加古川 #河川愛護モニター さんから\n河川敷イベントに参加した様子が届きました！\n\n「日中は猛暑ですが、\n夜の河川敷は風が吹いて気持ちいいです。\n\nそんな中キッチンカーのおいしいグルメを食べながら、\nまたおいしいお酒を飲みながら\n河川敷で涼むのもいい夏のひと時です。」\n\n#河川愛護　#水しごと https://t.co/74jYRGL3Yz",
-      "permalink": "/mlit_himeji/status/2087363615204774330",
-      "urls": [],
-      "photos": [
-        "https://pbs.twimg.com/media/HPfN92AbIAAIseX.jpg",
-        "https://pbs.twimg.com/media/HPfOAOoaEAA3z8q.jpg"
-      ]
     }
   ]
 }
