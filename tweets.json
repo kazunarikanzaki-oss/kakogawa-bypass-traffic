@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-18T07:50:45.827999+00:00",
+  "fetched_at": "2026-08-18T16:52:41.289181+00:00",
   "tweets": [
+    {
+      "id": "2089669435347079636",
+      "created_at": "2026-08-18T11:03:12+00:00",
+      "created_at_raw": "Tue Aug 18 11:03:12 +0000 2026",
+      "text": "【8月18日 夜間の工事規制予定】\n国道2号:大阪方面 BP姫路西(94.5kp)～BP中地(91.5kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2089669435347079636",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2089607795977130047",
       "created_at": "2026-08-18T06:58:16+00:00",
@@ -338,21 +353,6 @@
       "created_at_raw": "Thu Aug 13 23:04:16 +0000 2026",
       "text": "【8月14日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2088038960987787708",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2087852925884436888",
-      "created_at": "2026-08-13T10:45:02+00:00",
-      "created_at_raw": "Thu Aug 13 10:45:02 +0000 2026",
-      "text": "【8月13日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2087852925884436888",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
