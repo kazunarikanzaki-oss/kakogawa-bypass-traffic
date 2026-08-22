@@ -1,7 +1,27 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-22T05:47:51.977503+00:00",
+  "fetched_at": "2026-08-22T07:04:33.672279+00:00",
   "tweets": [
+    {
+      "id": "2091044359315878340",
+      "created_at": "2026-08-22T06:06:39+00:00",
+      "created_at_raw": "Sat Aug 22 06:06:39 +0000 2026",
+      "text": "大阪方面行  #姫路バイパス #別所(81.7kp)付近\n14時45分頃の #事故見分 終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #太子竜野バイパス ＃渋滞",
+      "permalink": "/mlit_himeji/status/2091044359315878340",
+      "urls": [
+        {
+          "url": "https://t.co/LCKf1GlV9F",
+          "expanded_url": "https://www.jartic.or.jp/",
+          "display_url": "jartic.or.jp"
+        },
+        {
+          "url": "https://t.co/oqwGttvBP4",
+          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
+          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2091039401690452380",
       "created_at": "2026-08-22T05:46:57+00:00",
@@ -333,21 +353,6 @@
       "created_at_raw": "Sun Aug 16 23:15:19 +0000 2026",
       "text": "【8月17日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:鳥取方面 姫路西BP相野出屋敷(2.4kp)9:00～16:00 車線規制\n波賀町小野(45.2kp)野尻(50.2kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2089128905928233131",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2088940596245508588",
-      "created_at": "2026-08-16T10:47:03+00:00",
-      "created_at_raw": "Sun Aug 16 10:47:03 +0000 2026",
-      "text": "【8月16日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2088940596245508588",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
