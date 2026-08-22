@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-22T22:08:20.360122+00:00",
+  "fetched_at": "2026-08-22T23:50:26.501000+00:00",
   "tweets": [
+    {
+      "id": "2091304455774085282",
+      "created_at": "2026-08-22T23:20:11+00:00",
+      "created_at_raw": "Sat Aug 22 23:20:11 +0000 2026",
+      "text": "【8月23日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2091304455774085282",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2091111042072125473",
       "created_at": "2026-08-22T10:31:38+00:00",
@@ -348,21 +363,6 @@
           "url": "https://t.co/qrYcc4JcTX",
           "expanded_url": "https://www.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
           "display_url": "kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2089487583755882950",
-      "created_at": "2026-08-17T23:00:35+00:00",
-      "created_at_raw": "Mon Aug 17 23:00:35 +0000 2026",
-      "text": "【8月18日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:鳥取方面 姫路西BP相野出屋敷(2.4kp)9:00～16:00 車線規制\n波賀町原(52.6kp)引原(61.3kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2089487583755882950",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
         }
       ],
       "photos": []
