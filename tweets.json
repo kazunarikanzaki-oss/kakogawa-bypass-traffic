@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-25T10:16:47.005200+00:00",
+  "fetched_at": "2026-08-25T19:19:05.341710+00:00",
   "tweets": [
+    {
+      "id": "2092204721453019458",
+      "created_at": "2026-08-25T10:57:31+00:00",
+      "created_at_raw": "Tue Aug 25 10:57:31 +0000 2026",
+      "text": "【8月25日 夜間の工事規制予定】\n国道2号:大阪方面 BP城山トンネル(98.3kp) 22:00～6:00 車線規制\n岡山方面 BP夢前トンネル(92.5kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2092204721453019458",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2092023285114675420",
       "created_at": "2026-08-24T22:56:33+00:00",
@@ -334,21 +349,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HQHXM3daYAAjXF0.jpg"
       ]
-    },
-    {
-      "id": "2090046341712065003",
-      "created_at": "2026-08-19T12:00:53+00:00",
-      "created_at_raw": "Wed Aug 19 12:00:53 +0000 2026",
-      "text": "【8月19日 夜間の工事規制予定】\n国道2号:大阪方面 BP別所(82.9kp)～BP高砂西(80.5kp)  BP明石西(66.2kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2090046341712065003",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
