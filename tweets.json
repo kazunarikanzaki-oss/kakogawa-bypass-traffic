@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-24T19:42:22.800063+00:00",
+  "fetched_at": "2026-08-25T02:46:04.894283+00:00",
   "tweets": [
+    {
+      "id": "2092023285114675420",
+      "created_at": "2026-08-24T22:56:33+00:00",
+      "created_at_raw": "Mon Aug 24 22:56:33 +0000 2026",
+      "text": "【8月25日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:林田町下伊勢(7.5kp)安富町安志(20.5kp)一宮町嶋田～波賀町安賀(35kp～47.1kp)波賀町引原(61.3kp)9:00～17:00、山崎町須賀沢(24.2kp)13:00～16:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2092023285114675420",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2091842496129331642",
       "created_at": "2026-08-24T10:58:10+00:00",
@@ -326,21 +341,6 @@
       "created_at_raw": "Wed Aug 19 12:00:53 +0000 2026",
       "text": "【8月19日 夜間の工事規制予定】\n国道2号:大阪方面 BP別所(82.9kp)～BP高砂西(80.5kp)  BP明石西(66.2kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2090046341712065003",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2089669435347079636",
-      "created_at": "2026-08-18T11:03:12+00:00",
-      "created_at_raw": "Tue Aug 18 11:03:12 +0000 2026",
-      "text": "【8月18日 夜間の工事規制予定】\n国道2号:大阪方面 BP姫路西(94.5kp)～BP中地(91.5kp) 22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2089669435347079636",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
