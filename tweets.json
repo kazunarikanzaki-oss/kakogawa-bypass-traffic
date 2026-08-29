@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-08-29T18:27:21.331353+00:00",
+  "fetched_at": "2026-08-29T23:17:47.975036+00:00",
   "tweets": [
+    {
+      "id": "2093835770838855992",
+      "created_at": "2026-08-29T22:58:44+00:00",
+      "created_at_raw": "Sat Aug 29 22:58:44 +0000 2026",
+      "text": "【8月30日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2093835770838855992",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2093669178721128594",
       "created_at": "2026-08-29T11:56:45+00:00",
@@ -370,26 +385,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HQuBZw7aAAA8WAL.jpg"
       ]
-    },
-    {
-      "id": "2092839696477135090",
-      "created_at": "2026-08-27T05:00:41+00:00",
-      "created_at_raw": "Thu Aug 27 05:00:41 +0000 2026",
-      "text": "大阪方面行  #太子竜野バイパス 　#城山トンネル(96.3kp)  10時50分頃の #故障車 の処理終了　渋滞残有\n渋滞情報は(https://t.co/LCKf1GlV9F）をご確認下さい。\nライブカメラ画像は事務所HP（https://t.co/oqwGttvBP4）で確認ください。\n#加古川バイパス #姫路バイパス ＃渋滞",
-      "permalink": "/mlit_himeji/status/2092839696477135090",
-      "urls": [
-        {
-          "url": "https://t.co/LCKf1GlV9F",
-          "expanded_url": "https://www.jartic.or.jp/",
-          "display_url": "jartic.or.jp"
-        },
-        {
-          "url": "https://t.co/oqwGttvBP4",
-          "expanded_url": "https://www-1.kkr.mlit.go.jp/himeji/bousai/livecam/r2.html",
-          "display_url": "www-1.kkr.mlit.go.jp/himeji/bousai/…"
-        }
-      ],
-      "photos": []
     }
   ]
 }
