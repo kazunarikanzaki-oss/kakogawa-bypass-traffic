@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-09-05T21:25:02.029061+00:00",
+  "fetched_at": "2026-09-06T01:00:27.956454+00:00",
   "tweets": [
+    {
+      "id": "2096375038744403996",
+      "created_at": "2026-09-05T23:08:52+00:00",
+      "created_at_raw": "Sat Sep 05 23:08:52 +0000 2026",
+      "text": "【9月6日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2096375038744403996",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2096189039313637727",
       "created_at": "2026-09-05T10:49:46+00:00",
@@ -306,21 +321,6 @@
       "created_at_raw": "Thu Sep 03 10:50:12 +0000 2026",
       "text": "【9月3日 夜間の工事規制予定】\n国道2号:岡山方面 BP城山トンネル(96.0kp)22:00～6:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
       "permalink": "/mlit_himeji/status/2095464371355058486",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
-    },
-    {
-      "id": "2095284148814622873",
-      "created_at": "2026-09-02T22:54:04+00:00",
-      "created_at_raw": "Wed Sep 02 22:54:04 +0000 2026",
-      "text": "【9月3日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:山崎町木ノ谷(33.5kp)、波賀町引原(61.3kp)、戸倉(68.2kp)9:00～17:00 片側交互通行\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2095284148814622873",
       "urls": [
         {
           "url": "https://t.co/QFlePRYZaS",
