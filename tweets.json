@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-09-09T11:19:43.084206+00:00",
+  "fetched_at": "2026-09-09T23:21:00.492112+00:00",
   "tweets": [
+    {
+      "id": "2097650075703111929",
+      "created_at": "2026-09-09T11:35:25+00:00",
+      "created_at_raw": "Wed Sep 09 11:35:25 +0000 2026",
+      "text": "【9月9日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2097650075703111929",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2097547869540745482",
       "created_at": "2026-09-09T04:49:17+00:00",
@@ -361,21 +376,6 @@
         "https://pbs.twimg.com/media/HRm_KLzacAARrBT.png",
         "https://pbs.twimg.com/media/HRm_KIjbUAAEOcG.jpg"
       ]
-    },
-    {
-      "id": "2096911700511654355",
-      "created_at": "2026-09-07T10:41:22+00:00",
-      "created_at_raw": "Mon Sep 07 10:41:22 +0000 2026",
-      "text": "【9月7日 夜間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
-      "permalink": "/mlit_himeji/status/2096911700511654355",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYZaS",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
