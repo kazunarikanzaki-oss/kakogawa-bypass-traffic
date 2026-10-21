@@ -1,7 +1,22 @@
 {
   "screen_name": "mlit_himeji",
-  "fetched_at": "2026-10-21T05:51:20.077143+00:00",
+  "fetched_at": "2026-10-21T11:28:44.658687+00:00",
   "tweets": [
+    {
+      "id": "2112862227191697652",
+      "created_at": "2026-10-21T11:03:04+00:00",
+      "created_at_raw": "Wed Oct 21 11:03:04 +0000 2026",
+      "text": "【10月21日 夜間の工事規制予定】\n国道2号:大阪方面 たつの市揖保川町(105.5kp)22:00～5:00 車線規制\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちらから→https://t.co/QFlePRYZaS",
+      "permalink": "/mlit_himeji/status/2112862227191697652",
+      "urls": [
+        {
+          "url": "https://t.co/QFlePRYZaS",
+          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
+          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
+        }
+      ],
+      "photos": []
+    },
     {
       "id": "2112677827254640702",
       "created_at": "2026-10-20T22:50:20+00:00",
@@ -332,21 +347,6 @@
       "photos": [
         "https://pbs.twimg.com/media/HU3rz0AaoAATa3L.jpg"
       ]
-    },
-    {
-      "id": "2111595612504248622",
-      "created_at": "2026-10-17T23:10:00+00:00",
-      "created_at_raw": "Sat Oct 17 23:10:00 +0000 2026",
-      "text": "【10月18日 昼間の工事規制予定】\n国道2号:車線規制を伴う工事予定なし\n国道29号:車線規制を伴う工事予定なし\n最新の規制情報はこちら→https://t.co/QFlePRYrlk",
-      "permalink": "/mlit_himeji/status/2111595612504248622",
-      "urls": [
-        {
-          "url": "https://t.co/QFlePRYrlk",
-          "expanded_url": "https://www.road-info-prvs.mlit.go.jp/roadinfo",
-          "display_url": "road-info-prvs.mlit.go.jp/roadinfo"
-        }
-      ],
-      "photos": []
     }
   ]
 }
